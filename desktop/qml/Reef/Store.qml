@@ -26,7 +26,7 @@ QtObject {
     property double ora: Date.now() // aggiornato ogni 30 secondi (tempi «aperto da…»)
 
     /* ---------- Navigazione ---------- */
-    property string view: "home"   // home | tavoli | tavolo | menu
+    property string view: "home"   // home | tavoli | tavolo | menu | pdf
     property string tavoloId: ""
     signal navigato()
 
@@ -38,6 +38,7 @@ QtObject {
     property string meQ: ""
     property string meCat: "tutti"
     property var pagamento: null   // { id: tavoloId, sel: { rigaId: quantità } }
+    property int zoomMenu: 3       // livello di zoom di «Visualizza menu» (3 = 100%)
 
     function vai(v, id) {
         if (v === "tavolo" && !tavoloById(id)) v = "tavoli";
@@ -366,6 +367,9 @@ QtObject {
                         function () { eliminaTavolo(t) });
         }
     }
+
+    /* ---------- Menu cartaceo (PDF) ---------- */
+    function visualizzaMenu() { vai("pdf") }
 
     /* ---------- Gestione menu ---------- */
     function slug(nome) {

@@ -55,7 +55,12 @@ Tutto viene salvato **subito** in una cartella **`dati`**, accanto a `Reef Staff
 ## 🍺 Come si usa
 
 ### 1. Pagina iniziale
-Le foto del locale scorrono dietro il logo. Sotto ci sono i due riquadri: **Tavoli** (quanti sono aperti e quanto c'è da incassare) e **Menu**.
+Le foto del locale scorrono dietro il logo. Sotto ci sono tre riquadri:
+- **Tavoli**: quanti sono aperti e quanto c'è da incassare;
+- **Modifica menu**: prezzi, prodotti nuovi, prodotti tolti;
+- **Visualizza menu**: il menu del locale (il cartaceo in PDF) da sfogliare dentro l'app.
+
+Le stesse tre voci sono anche in alto a destra in ogni pagina.
 
 ### 2. Arriva un tavolo → **+ Nuovo tavolo** (oppure il tasto **N**)
 L'app propone già il primo nome libero (*Tavolo 1*, *Tavolo 2*…): premi **Invio** oppure scrivi il nome che vuoi (*Bancone*, *Esterno 2*…).
@@ -90,8 +95,14 @@ Dalla scheda **Tavoli** vedi tutti i tavoli con articoli, da quanto sono aperti 
 
 <p align="center"><img src="docs/screenshots/pc-tavoli.jpg" width="720" alt="Lista tavoli"></p>
 
-### 7. Cambiare il menu (titolare / responsabile)
-Dalla scheda **Menu** cambi tutto senza toccare il codice. Le modifiche si salvano **su questo computer** appena premi **Salva**.
+### 7. Mostrare il menu del locale → **Visualizza menu**
+Le 14 pagine del menu cartaceo, una sotto l'altra: si scorrono con la rotellina del mouse.
+Con **−** e **+** in alto a destra (o i tasti **−** e **+**) cambi lo zoom; cliccando sulla percentuale torni al 100%.
+
+<p align="center"><img src="docs/screenshots/pc-visualizza-menu.jpg" width="720" alt="Visualizza menu"></p>
+
+### 8. Cambiare il menu (titolare / responsabile)
+Da **Modifica menu** cambi tutto senza toccare il codice. Le modifiche si salvano **su questo computer** appena premi **Salva**.
 
 - **Cambiare un prezzo**: clicca la voce → scrivi il nuovo prezzo → **Salva**.
 - **Aggiungere un prodotto**: **+ Nuova voce** → nome, prezzo, categoria (e se vuoi un'icona e gli ingredienti) → **Salva**.
@@ -119,6 +130,7 @@ I **tavoli già aperti** mantengono i prezzi con cui sono stati segnati; i nuovi
 | scrivi + **Invio** | Dentro un tavolo: cerca e aggiunge il primo risultato |
 | **/** | Torna alla ricerca (in un tavolo o nel Menu) |
 | **1** … **9** | Scegli la variante (formato del panino, gusto dello spritz…) |
+| **+** / **−** | Zoom in *Visualizza menu* |
 | **Esc** | Chiude la finestra / svuota la ricerca |
 
 ---
@@ -137,7 +149,7 @@ L'app si può aprire una volta sola (due finestre si sovrascriverebbero i tavoli
 **Come aggiorno l'app a una versione nuova?**
 Scarica di nuovo lo ZIP e sostituisci solo il file `Reef Staff.exe`. La cartella `dati` resta com'è: i tavoli aperti non si perdono.
 Se la versione nuova porta un **menu nuovo**, questo prende il posto di quello modificato dall'app
-(prima di aggiornare, se vuoi tenere le tue modifiche, fai **Menu → Scarica copia**).
+(prima di aggiornare, se vuoi tenere le tue modifiche, fai **Modifica menu → Scarica copia**).
 
 **Da dove vengono voci e prezzi?**
 Dal menu cartaceo del locale: aperitivi, cocktail, birre, vini, distillati, amari, analcolici, cucina e paninoteca.
@@ -156,6 +168,8 @@ L'app è scritta in **Python + Qt** (PySide6, interfaccia in QML) ed è impacche
 | `desktop/qml/Main.qml` | Finestra principale: pagine, finestre di dialogo, avvisi, tasti |
 | `desktop/qml/Reef/` | Interfaccia: `Store.qml` (dati e logica), `Theme.qml` (colori), una vista per pagina, i componenti |
 | `desktop/assets/menu.json` | **Il menu di partenza** (gruppi, categorie, voci, prezzi, varianti) |
+| `desktop/menu-cartaceo.pdf` | Il menu cartaceo in PDF (versione compressa) |
+| `desktop/assets/menu-cartaceo/` | Le pagine del PDF come immagini, mostrate da *Visualizza menu* |
 | `desktop/assets/img/` | Le foto del locale che scorrono nella pagina iniziale (l'elenco è in `Store.qml`, `bar.foto`) |
 | `desktop/assets/` | Logo, icona, carattere Montserrat |
 | `desktop/reef.spec`, `desktop/build.ps1` | Come si crea l'eseguibile |
@@ -167,4 +181,7 @@ L'app è scritta in **Python + Qt** (PySide6, interfaccia in QML) ed è impacche
   La prima volta crea l'ambiente Python in `..\.venv`. Poi fai il commit del nuovo `Reef Staff.exe`.
 - Una categoria con `"scelta": true` (es. *Panini Rock*) mostra un bottone per voce che apre la scelta delle varianti;
   con `"tendina": true` ogni voce si apre a fisarmonica. I `gruppi` decidono l'ordine del menu a tendina dentro un tavolo.
+- **Menu cartaceo nuovo**: `python desktop\menu_pdf.py "percorso\del\menu.pdf"` (serve `pip install pymupdf`)
+  aggiorna `desktop/menu-cartaceo.pdf` e le pagine di *Visualizza menu*; poi ricrea l'eseguibile.
+  Le voci e i prezzi di **Modifica menu** sono a parte, in `desktop/assets/menu.json`.
 - Se l'app dà problemi su un computer, guarda `dati/errori.log`.

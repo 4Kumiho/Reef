@@ -139,6 +139,11 @@ class Backend(QObject):
         """URL di un file di desktop/assets, es. "logo.png"."""
         return QUrl.fromLocalFile(str(ASSETS / percorso)).toString()
 
+    @Slot(result=list)
+    def pagineMenu(self) -> list:
+        """Le pagine del menu cartaceo (immagini create da desktop/menu_pdf.py), in ordine."""
+        return [QUrl.fromLocalFile(str(f)).toString() for f in sorted((ASSETS / "menu-cartaceo").glob("pagina-*.jpg"))]
+
     @Slot(result=str)
     def cartellaDati(self) -> str:
         return str(self.dati)

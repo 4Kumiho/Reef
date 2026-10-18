@@ -15,6 +15,7 @@ HomeView 1.0 HomeView.qml
 IconaBtn 1.0 IconaBtn.qml
 MenuView 1.0 MenuView.qml
 Passo 1.0 Passo.qml
+PdfView 1.0 PdfView.qml
 ProdottoBtn 1.0 ProdottoBtn.qml
 Ricerca 1.0 Ricerca.qml
 Scelta 1.0 Scelta.qml

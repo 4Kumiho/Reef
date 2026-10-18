@@ -80,13 +80,15 @@ Window {
                 width: parent.width
                 sourceComponent: Store.view === "tavoli" ? cTavoli
                                : Store.view === "tavolo" ? cTavolo
-                               : Store.view === "menu" ? cMenu : null
+                               : Store.view === "menu" ? cMenu
+                               : Store.view === "pdf" ? cPdf : null
             }
         }
     }
     Component { id: cTavoli; TavoliView {} }
     Component { id: cTavolo; TavoloView { scrollY: pagina.contentY; viewTop: contenuto.y; altezzaFinestra: win.height } }
     Component { id: cMenu; MenuView {} }
+    Component { id: cPdf; PdfView {} }
 
     Connections {
         target: Store
@@ -135,6 +137,17 @@ Window {
         sequences: ["N", "Shift+N"]
         enabled: !overlay.aperta && (Store.view === "tavoli" || Store.view === "home")
         onActivated: Store.nuovoTavolo()
+    }
+    // zoom di «Visualizza menu» con + e −
+    Shortcut {
+        sequences: ["+", "=", "Ctrl++"]
+        enabled: !overlay.aperta && Store.view === "pdf" && !!pageLoader.item
+        onActivated: pageLoader.item.zoom(1)
+    }
+    Shortcut {
+        sequences: ["-", "Ctrl+-"]
+        enabled: !overlay.aperta && Store.view === "pdf" && !!pageLoader.item
+        onActivated: pageLoader.item.zoom(-1)
     }
     Shortcut {
         sequence: "/"

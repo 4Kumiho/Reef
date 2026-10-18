@@ -139,17 +139,18 @@ Item {
     Row {
         id: schede
         anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom; bottomMargin: 48 }
-        readonly property real larghezza: Math.min(880, home.width) - 40
+        readonly property real larghezza: Math.min(1180, home.width) - 40
         spacing: 16
         Repeater {
             model: [
                 { k: "Sala", h: "Tavoli", vai: "tavoli" },
-                { k: "Gestione", h: "Menu", vai: "menu" }
+                { k: "Gestione", h: "Modifica menu", vai: "menu" },
+                { k: "Menu cartaceo", h: "Visualizza menu", vai: "pdf" }
             ]
             Rectangle {
                 id: card
-                width: (schede.larghezza - 16) / 2
-                height: Math.max(170, contenuto.implicitHeight + 46)
+                width: (schede.larghezza - 32) / 3
+                height: 200 // uguale per tutti: i titoli su due righe hanno spazio sopra il testo in basso
                 radius: 14
                 color: Qt.rgba(34 / 255, 33 / 255, 52 / 255, 0.82)
                 border.color: ma.containsMouse ? Theme.cream : Theme.line2
@@ -165,8 +166,11 @@ Item {
                     spacing: 6
                     Caps { text: modelData.k; color: Theme.cream }
                     T {
+                        width: parent.width - 30
                         text: modelData.h
-                        font.pixelSize: 38; font.weight: Font.ExtraBold
+                        wrapMode: Text.WordWrap
+                        lineHeight: 0.95
+                        font.pixelSize: 34; font.weight: Font.ExtraBold
                         font.capitalization: Font.AllUppercase
                         font.letterSpacing: -0.38
                         topPadding: 2
@@ -186,6 +190,7 @@ Item {
                             return n ? b(n) + " " + Store.plurale(n, "aperto", "aperti") + " · " + b(Store.euro(Store.totaleAperti())) + " da incassare"
                                      : "Nessun tavolo aperto";
                         }
+                        if (modelData.vai === "pdf") return "Il menu del locale in PDF · " + b("14") + " pagine";
                         const agg = Store.dataMenu();
                         return b(Store.menu.drinks.length) + " voci · prezzi e prodotti" + (agg ? " · aggiornato il " + Store.esc(agg) : "");
                     }
