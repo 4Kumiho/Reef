@@ -1,0 +1,952 @@
+{
+  "versione": "2026-10-18T04:00:00.000Z",
+  "gruppi": [
+    {
+      "id": "drink",
+      "nome": "Cocktail & Long drink",
+      "categorie": [
+        "cocktail",
+        "gin"
+      ]
+    },
+    {
+      "id": "birre",
+      "nome": "Birre",
+      "categorie": [
+        "birre"
+      ]
+    },
+    {
+      "id": "vini",
+      "nome": "Vini & Bollicine",
+      "categorie": [
+        "vini"
+      ]
+    },
+    {
+      "id": "amari",
+      "nome": "Shot, Amari & Distillati",
+      "categorie": [
+        "amari"
+      ]
+    },
+    {
+      "id": "analcolici",
+      "nome": "Analcolici & Caffè",
+      "categorie": [
+        "analcolici"
+      ]
+    },
+    {
+      "id": "cucina-g",
+      "nome": "Cucina & Stuzzicheria",
+      "categorie": [
+        "cucina",
+        "stuzzicheria"
+      ]
+    },
+    {
+      "id": "paninoteca",
+      "nome": "Paninoteca",
+      "categorie": [
+        "panini",
+        "toast"
+      ]
+    }
+  ],
+  "categorie": [
+    {
+      "id": "cocktail",
+      "nome": "Cocktail"
+    },
+    {
+      "id": "gin",
+      "nome": "Gin & Vodka"
+    },
+    {
+      "id": "birre",
+      "nome": "Birre"
+    },
+    {
+      "id": "vini",
+      "nome": "Vini & Bollicine"
+    },
+    {
+      "id": "amari",
+      "nome": "Shot, Amari & Distillati"
+    },
+    {
+      "id": "analcolici",
+      "nome": "Analcolici & Caffè"
+    },
+    {
+      "id": "cucina",
+      "nome": "Cucina"
+    },
+    {
+      "id": "stuzzicheria",
+      "nome": "Stuzzicheria"
+    },
+    {
+      "id": "panini",
+      "nome": "Panini Rock",
+      "scelta": true
+    },
+    {
+      "id": "toast",
+      "nome": "Toast & co."
+    }
+  ],
+  "drinks": [
+    {
+      "id": "spritz",
+      "nome": "Spritz",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "varianti": [
+        "Aperol",
+        "Campari",
+        "Select",
+        "Hugo"
+      ]
+    },
+    {
+      "id": "negroni",
+      "nome": "Negroni",
+      "categoria": "cocktail",
+      "prezzo": 8,
+      "emoji": "🥃"
+    },
+    {
+      "id": "negroni-sbagliato",
+      "nome": "Negroni Sbagliato",
+      "categoria": "cocktail",
+      "prezzo": 8,
+      "emoji": "🍸"
+    },
+    {
+      "id": "americano",
+      "nome": "Americano",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🥃"
+    },
+    {
+      "id": "moscow-mule",
+      "nome": "Moscow Mule",
+      "categoria": "cocktail",
+      "prezzo": 8,
+      "emoji": "🍸"
+    },
+    {
+      "id": "mojito",
+      "nome": "Mojito",
+      "categoria": "cocktail",
+      "prezzo": 8,
+      "emoji": "🍹"
+    },
+    {
+      "id": "caipirinha",
+      "nome": "Caipirinha",
+      "categoria": "cocktail",
+      "prezzo": 8,
+      "emoji": "🍹"
+    },
+    {
+      "id": "cuba-libre",
+      "nome": "Cuba Libre",
+      "categoria": "cocktail",
+      "prezzo": 8,
+      "emoji": "🥃"
+    },
+    {
+      "id": "long-island",
+      "nome": "Long Island",
+      "categoria": "cocktail",
+      "prezzo": 9,
+      "emoji": "🍹"
+    },
+    {
+      "id": "espresso-martini",
+      "nome": "Espresso Martini",
+      "categoria": "cocktail",
+      "prezzo": 8,
+      "emoji": "🍸"
+    },
+    {
+      "id": "gin-tonic",
+      "nome": "Gin Tonic",
+      "categoria": "gin",
+      "prezzo": 8,
+      "emoji": "🍸",
+      "varianti": [
+        "Gordon's",
+        "Bombay Sapphire",
+        "Tanqueray",
+        "Hendrick's",
+        {
+          "nome": "Gin premium",
+          "prezzo": 10
+        }
+      ],
+      "descrizione": "Scegli il gin"
+    },
+    {
+      "id": "gin-lemon",
+      "nome": "Gin Lemon",
+      "categoria": "gin",
+      "prezzo": 7,
+      "emoji": "🍋"
+    },
+    {
+      "id": "vodka",
+      "nome": "Vodka",
+      "categoria": "gin",
+      "prezzo": 7,
+      "emoji": "🍸",
+      "varianti": [
+        "Lemon",
+        "Tonic",
+        "Red Bull"
+      ]
+    },
+    {
+      "id": "birra-alla-spina",
+      "nome": "Birra alla spina",
+      "categoria": "birre",
+      "prezzo": 4,
+      "emoji": "🍺",
+      "etichetta": "Spina",
+      "varianti": [
+        "Piccola",
+        {
+          "nome": "Media",
+          "prezzo": 6
+        }
+      ]
+    },
+    {
+      "id": "birra-in-bottiglia",
+      "nome": "Birra in bottiglia",
+      "categoria": "birre",
+      "prezzo": 5,
+      "emoji": "🍾",
+      "etichetta": "Bottiglia"
+    },
+    {
+      "id": "calice",
+      "nome": "Calice",
+      "categoria": "vini",
+      "prezzo": 5,
+      "emoji": "🍷",
+      "varianti": [
+        "Bianco",
+        "Rosso",
+        "Bollicine"
+      ]
+    },
+    {
+      "id": "prosecco",
+      "nome": "Prosecco",
+      "categoria": "vini",
+      "prezzo": 5,
+      "emoji": "🥂"
+    },
+    {
+      "id": "amaro",
+      "nome": "Amaro",
+      "categoria": "amari",
+      "prezzo": 4,
+      "emoji": "🥃",
+      "varianti": [
+        "Montenegro",
+        "Jägermeister",
+        "Averna",
+        "Braulio",
+        "Lucano"
+      ]
+    },
+    {
+      "id": "shot",
+      "nome": "Shot",
+      "categoria": "amari",
+      "prezzo": 3,
+      "emoji": "🥃"
+    },
+    {
+      "id": "whisky",
+      "nome": "Whisky",
+      "categoria": "amari",
+      "prezzo": 6,
+      "emoji": "🥃",
+      "varianti": [
+        "Whisky",
+        {
+          "nome": "Whisky premium",
+          "prezzo": 8
+        }
+      ]
+    },
+    {
+      "id": "rum",
+      "nome": "Rum",
+      "categoria": "amari",
+      "prezzo": 6,
+      "emoji": "🥃",
+      "varianti": [
+        "Rum",
+        {
+          "nome": "Rum premium",
+          "prezzo": 8
+        }
+      ]
+    },
+    {
+      "id": "coca-cola",
+      "nome": "Coca-Cola",
+      "categoria": "analcolici",
+      "prezzo": 3.5,
+      "emoji": "🥤",
+      "varianti": [
+        "Normale",
+        "Zero"
+      ]
+    },
+    {
+      "id": "bibita",
+      "nome": "Bibita",
+      "categoria": "analcolici",
+      "prezzo": 3.5,
+      "emoji": "🥤",
+      "varianti": [
+        "Fanta",
+        "Sprite",
+        "Tè freddo pesca",
+        "Tè freddo limone",
+        "Lemonsoda"
+      ]
+    },
+    {
+      "id": "succo-di-frutta",
+      "nome": "Succo di frutta",
+      "categoria": "analcolici",
+      "prezzo": 3.5,
+      "emoji": "🧃"
+    },
+    {
+      "id": "aperitivo-analcolico",
+      "nome": "Aperitivo analcolico",
+      "categoria": "analcolici",
+      "prezzo": 3.5,
+      "emoji": "🍹",
+      "varianti": [
+        "Crodino",
+        "San Bitter"
+      ]
+    },
+    {
+      "id": "red-bull",
+      "nome": "Red Bull",
+      "categoria": "analcolici",
+      "prezzo": 4,
+      "emoji": "⚡"
+    },
+    {
+      "id": "acqua",
+      "nome": "Acqua",
+      "categoria": "analcolici",
+      "prezzo": 1.5,
+      "emoji": "💧",
+      "varianti": [
+        "Naturale",
+        "Frizzante"
+      ]
+    },
+    {
+      "id": "caffe",
+      "nome": "Caffè",
+      "categoria": "analcolici",
+      "prezzo": 1.2,
+      "emoji": "☕"
+    },
+    {
+      "id": "tagliere-salumi-e-formaggi",
+      "nome": "Tagliere salumi e formaggi",
+      "categoria": "cucina",
+      "prezzo": 9,
+      "emoji": "🧀"
+    },
+    {
+      "id": "frittone",
+      "nome": "Frittone",
+      "categoria": "cucina",
+      "prezzo": 12,
+      "emoji": "🍤"
+    },
+    {
+      "id": "speedy-pollo",
+      "nome": "Speedy pollo",
+      "categoria": "cucina",
+      "prezzo": 4.5,
+      "emoji": "🍗"
+    },
+    {
+      "id": "speedy-alette-mexico",
+      "nome": "Speedy alette Mexico",
+      "categoria": "cucina",
+      "prezzo": 4.5,
+      "emoji": "🍗"
+    },
+    {
+      "id": "patatine-fritte",
+      "nome": "Patatine fritte",
+      "categoria": "cucina",
+      "prezzo": 4,
+      "emoji": "🍟"
+    },
+    {
+      "id": "mozzarelline",
+      "nome": "Mozzarelline",
+      "categoria": "cucina",
+      "prezzo": 3.5,
+      "emoji": "🧀"
+    },
+    {
+      "id": "olive-ascolane",
+      "nome": "Olive ascolane",
+      "categoria": "cucina",
+      "prezzo": 3.5,
+      "emoji": "🫒"
+    },
+    {
+      "id": "anelli-di-cipolla",
+      "nome": "Anelli di cipolla",
+      "categoria": "cucina",
+      "prezzo": 3.5,
+      "emoji": "🧅"
+    },
+    {
+      "id": "tagliere-reef",
+      "nome": "Tagliere Reef",
+      "categoria": "stuzzicheria",
+      "prezzo": 2.5,
+      "emoji": "🥖",
+      "descrizione": "A persona · fino alle 21:00"
+    },
+    {
+      "id": "tagliere-veg",
+      "nome": "Tagliere Veg",
+      "categoria": "stuzzicheria",
+      "prezzo": 2.5,
+      "emoji": "🥗",
+      "descrizione": "A persona · fino alle 21:00"
+    },
+    {
+      "id": "piadipizza",
+      "nome": "Piadipizza",
+      "categoria": "stuzzicheria",
+      "prezzo": 5,
+      "emoji": "🍕",
+      "descrizione": "Fino alle 21:00"
+    },
+    {
+      "id": "rolling-stones",
+      "nome": "Rolling Stones",
+      "categoria": "panini",
+      "prezzo": 3.5,
+      "emoji": "🥪",
+      "descrizione": "Cotto, fontina, salsa a scelta",
+      "varianti": [
+        "Panino",
+        {
+          "nome": "Piadina",
+          "prezzo": 4
+        },
+        {
+          "nome": "Focaccia",
+          "prezzo": 5
+        }
+      ]
+    },
+    {
+      "id": "iron-maiden",
+      "nome": "Iron Maiden",
+      "categoria": "panini",
+      "prezzo": 3.5,
+      "emoji": "🥪",
+      "descrizione": "Mozzarella, insalata, pomodoro, paté di olive",
+      "varianti": [
+        "Panino",
+        {
+          "nome": "Piadina",
+          "prezzo": 4
+        },
+        {
+          "nome": "Focaccia",
+          "prezzo": 5
+        }
+      ]
+    },
+    {
+      "id": "pink-floyd",
+      "nome": "Pink Floyd",
+      "categoria": "panini",
+      "prezzo": 4.5,
+      "emoji": "🥪",
+      "descrizione": "Crudo, mozzarella, salsa a scelta",
+      "varianti": [
+        "Panino",
+        {
+          "nome": "Piadina",
+          "prezzo": 5.5
+        },
+        {
+          "nome": "Focaccia",
+          "prezzo": 6.5
+        }
+      ]
+    },
+    {
+      "id": "led-zeppelin",
+      "nome": "Led Zeppelin",
+      "categoria": "panini",
+      "prezzo": 4.5,
+      "emoji": "🥪",
+      "descrizione": "Speck, brie, salsa a scelta",
+      "varianti": [
+        "Panino",
+        {
+          "nome": "Piadina",
+          "prezzo": 5.5
+        },
+        {
+          "nome": "Focaccia",
+          "prezzo": 6.5
+        }
+      ]
+    },
+    {
+      "id": "mind-the-gap",
+      "nome": "Mind the Gap",
+      "categoria": "panini",
+      "prezzo": 4.5,
+      "emoji": "🥪",
+      "descrizione": "Pancetta, fontina, senape, pepe, rucola",
+      "varianti": [
+        "Panino",
+        {
+          "nome": "Piadina",
+          "prezzo": 5.5
+        },
+        {
+          "nome": "Focaccia",
+          "prezzo": 6.5
+        }
+      ]
+    },
+    {
+      "id": "deep-purple",
+      "nome": "Deep Purple",
+      "categoria": "panini",
+      "prezzo": 4.5,
+      "emoji": "🥪",
+      "descrizione": "Cotto, fontina, insalata, pomodoro, maionese",
+      "varianti": [
+        "Panino",
+        {
+          "nome": "Piadina",
+          "prezzo": 5.5
+        },
+        {
+          "nome": "Focaccia",
+          "prezzo": 6.5
+        }
+      ]
+    },
+    {
+      "id": "motorhead",
+      "nome": "Motörhead",
+      "categoria": "panini",
+      "prezzo": 4.5,
+      "emoji": "🥪",
+      "descrizione": "Crudo, mozzarella, insalata, pomodoro, salsa rosa",
+      "varianti": [
+        "Panino",
+        {
+          "nome": "Piadina",
+          "prezzo": 5.5
+        },
+        {
+          "nome": "Focaccia",
+          "prezzo": 6.5
+        }
+      ]
+    },
+    {
+      "id": "queens-of-the-stone-age",
+      "nome": "Queens of the Stone Age",
+      "categoria": "panini",
+      "prezzo": 4.5,
+      "emoji": "🥪",
+      "descrizione": "Cotto, scamorza, rucola, salsa boscaiola",
+      "varianti": [
+        "Panino",
+        {
+          "nome": "Piadina",
+          "prezzo": 5.5
+        },
+        {
+          "nome": "Focaccia",
+          "prezzo": 6.5
+        }
+      ]
+    },
+    {
+      "id": "slipknot",
+      "nome": "Slipknot",
+      "categoria": "panini",
+      "prezzo": 4.5,
+      "emoji": "🥪",
+      "descrizione": "Brie, funghetti, rucola, salsa boscaiola",
+      "varianti": [
+        "Panino",
+        {
+          "nome": "Piadina",
+          "prezzo": 5.5
+        },
+        {
+          "nome": "Focaccia",
+          "prezzo": 6.5
+        }
+      ]
+    },
+    {
+      "id": "cornoltis",
+      "nome": "Cornoltis",
+      "categoria": "panini",
+      "prezzo": 4.5,
+      "emoji": "🥪",
+      "descrizione": "Pancetta, scamorza, insalata, paté di olive",
+      "varianti": [
+        "Panino",
+        {
+          "nome": "Piadina",
+          "prezzo": 5.5
+        },
+        {
+          "nome": "Focaccia",
+          "prezzo": 6.5
+        }
+      ]
+    },
+    {
+      "id": "ramones",
+      "nome": "Ramones",
+      "categoria": "panini",
+      "prezzo": 4.5,
+      "emoji": "🥪",
+      "descrizione": "Tonno, mozzarella, insalata, salsa tonnata",
+      "varianti": [
+        "Panino",
+        {
+          "nome": "Piadina",
+          "prezzo": 5.5
+        },
+        {
+          "nome": "Focaccia",
+          "prezzo": 6.5
+        }
+      ]
+    },
+    {
+      "id": "red-hot-chili-peppers",
+      "nome": "Red Hot Chili Peppers",
+      "categoria": "panini",
+      "prezzo": 4.5,
+      "emoji": "🥪",
+      "descrizione": "Salame, mozzarella, insalata, tabasco, salsa piccante",
+      "varianti": [
+        "Panino",
+        {
+          "nome": "Piadina",
+          "prezzo": 5.5
+        },
+        {
+          "nome": "Focaccia",
+          "prezzo": 6.5
+        }
+      ]
+    },
+    {
+      "id": "nirvana",
+      "nome": "Nirvana",
+      "categoria": "panini",
+      "prezzo": 4.5,
+      "emoji": "🥪",
+      "descrizione": "Bresaola, scamorza, rucola, funghetti, salsa boscaiola",
+      "varianti": [
+        "Panino",
+        {
+          "nome": "Piadina",
+          "prezzo": 5.5
+        },
+        {
+          "nome": "Focaccia",
+          "prezzo": 6.5
+        }
+      ]
+    },
+    {
+      "id": "plastic-made-sofa",
+      "nome": "Plastic Made Sofa",
+      "categoria": "panini",
+      "prezzo": 4.5,
+      "emoji": "🥪",
+      "descrizione": "Bresaola, brie, rucola, maionese",
+      "varianti": [
+        "Panino",
+        {
+          "nome": "Piadina",
+          "prezzo": 5.5
+        },
+        {
+          "nome": "Focaccia",
+          "prezzo": 6.5
+        }
+      ]
+    },
+    {
+      "id": "zz-top",
+      "nome": "ZZ Top",
+      "categoria": "panini",
+      "prezzo": 4.5,
+      "emoji": "🥪",
+      "descrizione": "Speck, scamorza, funghetti, maionese",
+      "varianti": [
+        "Panino",
+        {
+          "nome": "Piadina",
+          "prezzo": 5.5
+        },
+        {
+          "nome": "Focaccia",
+          "prezzo": 6.5
+        }
+      ]
+    },
+    {
+      "id": "burzum",
+      "nome": "Burzum",
+      "categoria": "panini",
+      "prezzo": 4.5,
+      "emoji": "🥪",
+      "descrizione": "Tonno, olive, cetrioli freschi, insalata, pomodoro, maionese",
+      "varianti": [
+        "Panino",
+        {
+          "nome": "Piadina",
+          "prezzo": 5.5
+        },
+        {
+          "nome": "Focaccia",
+          "prezzo": 6.5
+        }
+      ]
+    },
+    {
+      "id": "audioslave",
+      "nome": "Audioslave",
+      "categoria": "panini",
+      "prezzo": 4.5,
+      "emoji": "🥪",
+      "descrizione": "Bresaola, taleggio, rucola",
+      "varianti": [
+        "Panino",
+        {
+          "nome": "Piadina",
+          "prezzo": 5.5
+        },
+        {
+          "nome": "Focaccia",
+          "prezzo": 6.5
+        }
+      ]
+    },
+    {
+      "id": "aerosmith",
+      "nome": "Aerosmith",
+      "categoria": "panini",
+      "prezzo": 4.5,
+      "emoji": "🥪",
+      "descrizione": "Cotto, taleggio, salsa ai carciofi",
+      "varianti": [
+        "Panino",
+        {
+          "nome": "Piadina",
+          "prezzo": 5.5
+        },
+        {
+          "nome": "Focaccia",
+          "prezzo": 6.5
+        }
+      ]
+    },
+    {
+      "id": "soundgarden",
+      "nome": "Soundgarden",
+      "categoria": "panini",
+      "prezzo": 4.5,
+      "emoji": "🥪",
+      "descrizione": "Speck, taleggio, insalata, funghetti",
+      "varianti": [
+        "Panino",
+        {
+          "nome": "Piadina",
+          "prezzo": 5.5
+        },
+        {
+          "nome": "Focaccia",
+          "prezzo": 6.5
+        }
+      ]
+    },
+    {
+      "id": "kings-of-leon",
+      "nome": "Kings of Leon",
+      "categoria": "panini",
+      "prezzo": 4.5,
+      "emoji": "🥪",
+      "descrizione": "Tonno, insalata, pomodoro",
+      "varianti": [
+        "Panino",
+        {
+          "nome": "Piadina",
+          "prezzo": 5.5
+        },
+        {
+          "nome": "Focaccia",
+          "prezzo": 6.5
+        }
+      ]
+    },
+    {
+      "id": "guns-n-roses",
+      "nome": "Guns N' Roses",
+      "categoria": "panini",
+      "prezzo": 4.5,
+      "emoji": "🥪",
+      "descrizione": "Speck, brie, insalata, pomodoro, paté di olive",
+      "varianti": [
+        "Panino",
+        {
+          "nome": "Piadina",
+          "prezzo": 5.5
+        },
+        {
+          "nome": "Focaccia",
+          "prezzo": 6.5
+        }
+      ]
+    },
+    {
+      "id": "creedence",
+      "nome": "Creedence",
+      "categoria": "panini",
+      "prezzo": 4.5,
+      "emoji": "🥪",
+      "descrizione": "Speck, scamorza, salsa ai carciofi",
+      "varianti": [
+        "Panino",
+        {
+          "nome": "Piadina",
+          "prezzo": 5.5
+        },
+        {
+          "nome": "Focaccia",
+          "prezzo": 6.5
+        }
+      ]
+    },
+    {
+      "id": "pantera",
+      "nome": "Pantera",
+      "categoria": "panini",
+      "prezzo": 4.5,
+      "emoji": "🥪",
+      "descrizione": "Bresaola, insalata, olio, salsa ai carciofi",
+      "varianti": [
+        "Panino",
+        {
+          "nome": "Piadina",
+          "prezzo": 5.5
+        },
+        {
+          "nome": "Focaccia",
+          "prezzo": 6.5
+        }
+      ]
+    },
+    {
+      "id": "ac-dc",
+      "nome": "AC/DC",
+      "categoria": "panini",
+      "prezzo": 5,
+      "emoji": "🥪",
+      "descrizione": "Cotoletta, mozzarella, insalata, pomodoro, maionese · solo panino"
+    },
+    {
+      "id": "blur",
+      "nome": "Blur",
+      "categoria": "panini",
+      "prezzo": 7,
+      "emoji": "🥪",
+      "descrizione": "Cotto, cotoletta, mozzarella, insalata, pomodoro, maionese · solo focaccia"
+    },
+    {
+      "id": "toast",
+      "nome": "Toast",
+      "categoria": "toast",
+      "prezzo": 3.5,
+      "emoji": "🥪",
+      "descrizione": "Cotto, fontina"
+    },
+    {
+      "id": "toast-rock",
+      "nome": "Toast Rock",
+      "categoria": "toast",
+      "prezzo": 3.5,
+      "emoji": "🥪",
+      "descrizione": "Crudo, mozzarella"
+    },
+    {
+      "id": "hot-dog",
+      "nome": "Hot Dog",
+      "categoria": "toast",
+      "prezzo": 3.5,
+      "emoji": "🌭",
+      "descrizione": "Pane, würstel, senape e ketchup"
+    },
+    {
+      "id": "pane-e-salame",
+      "nome": "Pane e salame",
+      "categoria": "toast",
+      "prezzo": 3.5,
+      "emoji": "🥖"
+    },
+    {
+      "id": "pane-e-nutella",
+      "nome": "Pane e Nutella",
+      "categoria": "toast",
+      "prezzo": 3.5,
+      "emoji": "🍫"
+    },
+    {
+      "id": "piadina-e-nutella",
+      "nome": "Piadina e Nutella",
+      "categoria": "toast",
+      "prezzo": 4,
+      "emoji": "🍫"
+    }
+  ]
+}

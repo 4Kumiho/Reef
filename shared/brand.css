@@ -1,0 +1,52 @@
+/* Identità Reef Café — blu notte e rosso mattone come il badge del logo,
+   crema dorata della scritta "Reef Café" usata come accento, pareti rosse e vinili del locale. */
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/montserrat.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  --rf-night: #15141f;
+  --rf-coal: #1b1a28;
+  --rf-panel: #222134;
+  --rf-panel-2: #2b2a40;
+  --rf-navy: #353349;
+  --rf-line: rgba(235, 196, 133, .12);
+  --rf-line-2: rgba(235, 196, 133, .28);
+  --rf-white: #f7efe2;
+  --rf-muted: #a9a3b4;
+  --rf-cream: #ebc485;
+  --rf-cream-soft: rgba(235, 196, 133, .13);
+  --rf-cream-line: rgba(235, 196, 133, .5);
+  --rf-red: #a34849;
+  --rf-red-hi: #e0605c;
+  --rf-sans: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.rf-bg {
+  background-color: var(--rf-night);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(163, 72, 73, .16), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(235, 196, 133, .05), transparent 70%);
+  background-attachment: fixed;
+}
+
+/* Badge rotondo con doppio anello (rosso fuori, blu dentro), come il logo */
+.rf-ring {
+  border-radius: 50%;
+  border: 2px solid var(--rf-navy);
+  box-shadow: 0 0 0 2px var(--rf-red);
+  background: radial-gradient(circle at 35% 30%, #34324a, var(--rf-coal) 70%);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Etichette maiuscole spaziate, come "ROCK 'N' ROLL · DRINK 'N' DINE" */
+.rf-caps {
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  font-weight: 700;
+  font-size: 11px;
+}

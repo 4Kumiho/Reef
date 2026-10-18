@@ -1,0 +1,1661 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reef Café · Staff</title>
+<meta name="theme-color" content="#15141f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Reef Staff">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="stylesheet" href="../shared/brand.css">
+<style>
+  :root {
+    --bg: var(--rf-night);
+    --panel: var(--rf-panel);
+    --panel-2: var(--rf-panel-2);
+    --line: var(--rf-line);
+    --line-2: var(--rf-line-2);
+    --text: var(--rf-white);
+    --muted: var(--rf-muted);
+    --accent: var(--rf-cream);
+    --danger: var(--rf-red-hi);
+    --radius: 12px;
+    --top-h: 68px;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; color: var(--text); }
+  body {
+    font-family: var(--rf-sans); font-size: 15px; min-height: 100vh;
+    padding: 0 env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    -webkit-font-smoothing: antialiased;
+  }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  input { font: inherit; }
+  ::placeholder { color: var(--muted); opacity: .8; }
+  h2, h3 { font-family: var(--rf-sans); font-weight: 800; letter-spacing: -.01em; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ---------- Testata ---------- */
+  .top {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(21,20,31,.9); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+    padding: calc(env(safe-area-inset-top) + 8px) 24px 8px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  body.home .top { display: none; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
+  .brand img { width: 50px; height: 50px; }
+  .brand span { color: var(--muted); }
+  .tabs { margin-left: auto; display: flex; gap: 4px; }
+  .tabs a {
+    text-decoration: none; color: var(--muted); padding: 12px 18px; position: relative;
+    text-transform: uppercase; letter-spacing: .16em; font-size: 12px; font-weight: 700; border-radius: 8px;
+  }
+  .tabs a.on { color: var(--text); }
+  .tabs a.on::after { content: ""; position: absolute; left: 18px; right: 18px; bottom: 4px; height: 2px; background: var(--accent); }
+
+  main { max-width: 1440px; margin: 0 auto; padding: 24px; }
+  body.home main { max-width: none; padding: 0; }
+
+  /* ---------- Elementi comuni ---------- */
+  .btn {
+    border: 1px solid var(--line-2); background: transparent; border-radius: 10px;
+    padding: 12px 18px; min-height: 48px;
+    text-transform: uppercase; letter-spacing: .12em; font-size: 12px; font-weight: 700;
+    transition: background-color .12s, border-color .12s;
+  }
+  .btn:active { transform: scale(.97); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--rf-night); }
+  .btn.accent { background: var(--accent); border-color: var(--accent); color: var(--rf-night); }
+  .btn.danger { border-color: rgba(224,96,92,.6); color: var(--danger); }
+  .btn.danger.fill { background: var(--danger); border-color: var(--danger); color: #fff; }
+  .btn:disabled { opacity: .35; pointer-events: none; }
+  .search {
+    width: 100%; padding: 14px 16px; border-radius: 10px; border: 1px solid var(--line);
+    background: var(--panel); color: var(--text); outline: none; font-size: 16px;
+  }
+  .search:focus { border-color: var(--accent); }
+  .chips { display: flex; gap: 8px; overflow-x: auto; padding: 14px 0; scrollbar-width: none; flex-wrap: wrap; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip {
+    flex: none; border: 1px solid var(--line); background: transparent; color: var(--muted);
+    padding: 9px 16px; border-radius: 999px; font-size: 13px; font-weight: 600; letter-spacing: .02em;
+  }
+  .chip.on { background: var(--accent); color: var(--rf-night); border-color: var(--accent); font-weight: 700; }
+  .tile { width: 46px; height: 46px; display: grid; place-items: center; font-size: 22px; flex: none; margin: 4px; }
+  .empty { text-align: center; color: var(--muted); padding: 56px 16px; line-height: 1.6; }
+  .empty .big { font-size: 40px; margin-bottom: 10px; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); }
+  .page-title { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin: 4px 0 20px; }
+  .page-title h2 { margin: 0; font-size: 36px; line-height: 1; text-transform: uppercase; }
+  .page-title .sub { color: var(--muted); }
+  .page-title .btn { margin-left: auto; }
+  kbd {
+    font: inherit; font-size: 11px; border: 1px solid currentColor; border-radius: 5px; padding: 1px 6px; margin-left: 8px;
+    opacity: .65; letter-spacing: 0;
+  }
+
+  /* Su computer: effetti al passaggio del mouse */
+  @media (hover: hover) {
+    .btn:hover { border-color: var(--accent); }
+    .btn.primary:hover, .btn.accent:hover { background: #f3d39f; }
+    .btn.danger:hover { background: rgba(224,96,92,.12); }
+    .tabs a:hover { color: var(--text); background: rgba(255,255,255,.04); }
+    .chip:hover:not(.on) { border-color: var(--line-2); color: var(--text); }
+    .hcard:hover { border-color: var(--accent); }
+    .tcard:hover, .mrow:hover, .pbtn:hover, .vbtn:hover { border-color: var(--line-2); background-color: var(--panel-2); }
+    .acc-h:hover .acc-n { color: var(--accent); }
+    .step button:hover, .icon-btn:hover, .close:hover { color: var(--accent); }
+  }
+
+  /* ---------- Home ---------- */
+  .hero {
+    position: relative; min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column;
+    background: #000;
+  }
+  /* Slideshow: la foto nuova entra in dissolvenza SOPRA quella vecchia, che resta ferma finché non è coperta */
+  .hero .slides { position: absolute; inset: 0; overflow: hidden; z-index: 0; background: #000; }
+  .slide {
+    position: absolute; inset: 0; background: center 45% / cover no-repeat;
+    opacity: 0; z-index: 0; transform: scale(1); transform-origin: 50% 50%;
+    transition: none; will-change: transform, opacity; backface-visibility: hidden;
+  }
+  .slide.on { opacity: 1; z-index: 2; transform: scale(1.08); transition: opacity 1.6s ease-in-out, transform 7s linear; }
+  .slide.out { opacity: 1; z-index: 1; transform: scale(1.08); transition: transform 7s linear; }
+  @media (prefers-reduced-motion: reduce) { .slide.on, .slide.out { transform: none; } }
+  .dots { display: flex; justify-content: center; gap: 8px; margin-top: 18px; }
+  .dots button { width: 7px; height: 7px; padding: 0; border-radius: 50%; border: none; background: rgba(255,255,255,.3); }
+  .dots button.on { background: var(--accent); width: 22px; border-radius: 4px; transition: width .3s; }
+  .hero::before {
+    content: ""; position: absolute; inset: 0; z-index: 1;
+    background:
+      linear-gradient(180deg, rgba(21,20,31,.55) 0%, rgba(21,20,31,.45) 30%, rgba(21,20,31,.82) 62%, var(--rf-night) 92%);
+    backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+  }
+  .hero > *:not(.slides) { position: relative; z-index: 2; }
+  .hero-top {
+    padding: calc(env(safe-area-inset-top) + 48px) 20px 0; text-align: center; flex: 1;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .hero-top img { width: clamp(180px, 22vw, 280px); height: auto; filter: drop-shadow(0 10px 40px rgba(0,0,0,.6)); }
+  .hero-top .line { display: flex; align-items: center; gap: 14px; margin-top: 24px; color: var(--accent); }
+  .hero-top .line::before, .hero-top .line::after { content: ""; width: 36px; height: 2px; background: var(--rf-red); }
+  .hero-top .date { margin-top: 10px; color: var(--muted); font-size: 13px; letter-spacing: .06em; }
+  .hero-cards {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;
+    width: min(880px, 100%); margin: 40px auto 0; padding: 0 20px calc(48px + env(safe-area-inset-bottom));
+  }
+  .hcard {
+    text-align: left; text-decoration: none; color: var(--text);
+    background: rgba(34,33,52,.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--line-2); border-radius: 14px; padding: 24px 24px 22px;
+    display: flex; flex-direction: column; gap: 6px; min-height: 170px; position: relative; overflow: hidden;
+    transition: border-color .15s;
+  }
+  .hcard:active { transform: scale(.98); }
+  .hcard::after { content: "›"; position: absolute; right: 22px; top: 14px; font-size: 32px; color: var(--muted); font-weight: 300; }
+  .hcard .k { color: var(--accent); }
+  .hcard h3 { margin: 2px 0 0; font-size: 38px; line-height: 1; text-transform: uppercase; }
+  .hcard .v { margin-top: auto; color: var(--muted); font-size: 14px; }
+  .hcard .v b { color: var(--text); font-size: 20px; font-weight: 700; }
+
+  /* ---------- Lista tavoli ---------- */
+  .tgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+  .tcard {
+    text-align: left; padding: 18px 18px 16px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+    display: flex; flex-direction: column; gap: 4px; min-height: 140px;
+  }
+  .tcard:active { transform: scale(.98); border-color: var(--line-2); }
+  .tcard .n { font-size: 26px; font-weight: 800; line-height: 1.05; word-break: break-word; }
+  .tcard .i { color: var(--muted); font-size: 13px; }
+  .tcard .t { margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); font-size: 22px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .tcard.nuovo { border-style: dashed; border-color: var(--line-2); align-items: center; justify-content: center; color: var(--muted); }
+  .tcard.nuovo .n { font-size: 40px; font-weight: 300; color: var(--accent); }
+
+  /* ---------- Dettaglio tavolo ---------- */
+  .thead { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+  .thead h2 { margin: 0; font-size: 34px; line-height: 1; word-break: break-word; }
+  .thead .since { color: var(--muted); font-size: 13px; width: 100%; }
+  .back { text-decoration: none; display: inline-flex; align-items: center; color: var(--text); }
+  .icon-btn { width: 44px; height: 44px; border-radius: 10px; border: 1px solid var(--line); background: transparent; color: var(--muted); flex: none; }
+  .tlayout { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); align-items: start; }
+  .mtabs { display: none; }
+  @media (min-width: 900px) {
+    .tlayout { grid-template-columns: minmax(380px, .9fr) minmax(0, 1.2fr); }
+    .ordine { position: sticky; top: calc(var(--top-h) + env(safe-area-inset-top) + 16px); }
+  }
+  @media (max-width: 899px) {
+    .mtabs {
+      display: flex; gap: 6px; position: sticky; top: calc(env(safe-area-inset-top) + var(--top-h)); z-index: 5;
+      margin: 0 -20px 14px; padding: 8px 20px; background: rgba(21,20,31,.92);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line);
+    }
+    .mtabs button {
+      flex: 1; min-height: 48px; border-radius: 10px; border: 1px solid var(--line); background: transparent;
+      color: var(--muted); font-weight: 700; font-size: 13px; letter-spacing: .04em;
+    }
+    .mtabs button.on { background: var(--accent); border-color: var(--accent); color: var(--rf-night); }
+    .tlayout[data-pane="ordine"] #picker, .tlayout[data-pane="aggiungi"] #ordine { display: none; }
+  }
+  .righe { max-height: calc(100vh - 360px); overflow-y: auto; }
+  @media (max-width: 899px) { .righe { max-height: none; } }
+  .riga { display: flex; align-items: center; gap: 12px; padding: 12px 18px; border-bottom: 1px solid var(--line); }
+  .riga .info { flex: 1; min-width: 0; }
+  .riga .nome { font-weight: 700; font-size: 15px; }
+  .riga .cad { color: var(--muted); font-size: 12px; margin-top: 3px; }
+  .riga .tot { width: 84px; text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .step { display: flex; align-items: center; border-radius: 10px; border: 1px solid var(--line-2); }
+  .step button { width: 42px; height: 42px; border: none; background: none; font-size: 20px; }
+  .step span { min-width: 40px; text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .step.pay { border-color: var(--accent); background: var(--rf-cream-soft); }
+  .step.pay span { color: var(--accent); }
+  .mini { border: 1px solid var(--line); background: none; border-radius: 8px; padding: 8px 10px; font-size: 12px; color: var(--muted); }
+  .totale { display: flex; justify-content: space-between; align-items: baseline; padding: 18px; }
+  .totale span:first-child { text-transform: uppercase; letter-spacing: .2em; font-size: 12px; font-weight: 700; color: var(--muted); }
+  .totale .v { font-size: 42px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+  .totale.pay .v { color: var(--accent); }
+  .azioni { display: flex; gap: 10px; padding: 0 18px 18px; flex-wrap: wrap; }
+  .azioni .btn { flex: 1; min-width: 140px; }
+  .paga-banner { margin: 0 18px 14px; color: var(--muted); font-size: 13px; line-height: 1.5; }
+  .paga-banner b { color: var(--text); }
+
+  .picker { padding: 16px; }
+  .picker.off { opacity: .3; pointer-events: none; }
+  .plist { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 8px; }
+  .pbtn {
+    position: relative; display: flex; align-items: center; gap: 10px; text-align: left; padding: 8px 10px;
+    background: var(--panel-2); border: 1px solid var(--line); border-radius: 10px; min-height: 64px;
+  }
+  .pbtn:active { transform: scale(.97); }
+  .pbtn.flash { border-color: var(--accent); background: var(--rf-cream-soft); }
+  .pbtn .tile { width: 38px; height: 38px; font-size: 18px; }
+  .pbtn .n { font-weight: 700; line-height: 1.2; font-size: 14px; }
+  .pbtn .p { color: var(--muted); font-size: 12px; margin-top: 2px; }
+  .pbtn .i { color: var(--muted); font-size: 11px; margin-top: 3px; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .pbtn .badge {
+    position: absolute; top: -7px; right: -7px; min-width: 24px; height: 24px; padding: 0 6px; border-radius: 12px;
+    background: var(--accent); color: var(--rf-night); font-weight: 800; font-size: 12px; display: grid; place-items: center;
+  }
+  /* Menu a tendina per aggiungere al tavolo */
+  .acc-list { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+  .acc { border: 1px solid var(--line); border-radius: 12px; background: var(--panel-2); overflow: hidden; }
+  .acc.open { border-color: var(--line-2); }
+  .acc-h {
+    width: 100%; display: flex; align-items: center; gap: 12px; padding: 12px 16px; min-height: 56px;
+    background: none; border: none; text-align: left;
+  }
+  .acc-n { flex: 1; font-size: 17px; font-weight: 800; line-height: 1.1; text-transform: uppercase; letter-spacing: .02em; }
+  .acc-c { color: var(--muted); font-size: 12px; min-width: 22px; text-align: right; }
+  .chev { color: var(--muted); font-size: 24px; line-height: 1; transition: transform .2s ease; }
+  .acc.open > .acc-h .chev { transform: rotate(90deg); color: var(--accent); }
+  .acc.open > .acc-h .acc-n { color: var(--accent); }
+  .acc-b { padding: 0 10px 12px; }
+  .acc.sub { background: var(--panel); margin-top: 8px; }
+  .acc.sub .acc-h { min-height: 48px; padding: 10px 14px; }
+  .acc.sub .acc-n { font-size: 14px; font-weight: 700; text-transform: none; letter-spacing: 0; }
+  .acc.ter { background: var(--panel-2); }
+  .acc.ter .acc-h { min-height: 46px; }
+  .acc-b > .plist:first-child { margin-top: 2px; }
+  .vgrp { margin-top: 12px; }
+  .vgrp:first-child { margin-top: 4px; }
+  .vgrp-h { color: var(--accent); margin: 0 4px 8px; }
+  .vhead { padding: 26px 24px 6px; }
+  .vhead h3 { margin: 0; font-size: 30px; line-height: 1.05; padding-right: 48px; }
+  .vhead p { margin: 6px 0 0; color: var(--muted); }
+  .vlist { display: grid; gap: 8px; padding: 14px 24px 24px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .vbtn {
+    text-align: left; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel-2);
+    min-height: 62px; display: flex; flex-direction: column; justify-content: center; gap: 2px;
+  }
+  .vbtn:active { transform: scale(.97); border-color: var(--accent); }
+  .vbtn .n { font-weight: 700; }
+  .vbtn .i { color: var(--muted); font-size: 12px; }
+  .vbtn .p { color: var(--accent); font-size: 13px; font-weight: 700; }
+  .vbtn .k { color: var(--muted); font-size: 11px; }
+  .pbtn.libera { border-style: dashed; color: var(--muted); justify-content: center; text-transform: uppercase; letter-spacing: .12em; font-size: 12px; font-weight: 700; }
+
+  /* ---------- Finestre ---------- */
+  .overlay {
+    position: fixed; inset: 0; z-index: 50; background: rgba(8,8,14,.75);
+    display: flex; align-items: center; justify-content: center; padding: 16px;
+    opacity: 0; pointer-events: none; transition: opacity .15s ease;
+  }
+  .overlay.open { opacity: 1; pointer-events: auto; }
+  .box {
+    position: relative; background: var(--rf-coal); border: 1px solid var(--line-2); border-radius: 16px;
+    width: min(560px, 100%); max-height: calc(100vh - 32px); overflow-y: auto;
+  }
+  .box.small { width: min(440px, 100%); }
+  .close { position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line-2); background: transparent; color: var(--text); font-size: 18px; z-index: 1; }
+  .dlg { padding: 26px 24px 22px; }
+  .dlg h3 { margin: 0 0 8px; font-size: 28px; line-height: 1.1; }
+  .dlg p { color: var(--muted); line-height: 1.5; margin: 0 0 8px; }
+  .dlg label { display: block; margin-top: 16px; color: var(--muted); text-transform: uppercase; letter-spacing: .18em; font-size: 10px; font-weight: 700; }
+  .dlg input {
+    display: block; width: 100%; margin-top: 8px; padding: 14px; font-size: 18px; border-radius: 10px;
+    border: 1px solid var(--line-2); background: var(--rf-night); color: var(--text); outline: none;
+    text-transform: none; letter-spacing: normal; font-weight: 500;
+  }
+  .dlg input:focus { border-color: var(--accent); }
+  .dlg .err { color: var(--danger); min-height: 20px; margin-top: 8px; font-size: 14px; }
+  .dlg-actions { display: flex; gap: 10px; margin-top: 18px; }
+  .dlg-actions .btn { flex: 1; }
+
+  .toast {
+    position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom)); z-index: 60;
+    transform: translate(-50%, 20px); opacity: 0; transition: all .2s ease; pointer-events: none;
+    background: var(--text); color: var(--rf-night); font-weight: 700; padding: 14px 22px; border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.5); border-left: 4px solid var(--rf-red);
+  }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+  /* ---------- Gestione menu ---------- */
+  .me-tools { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .me-tools .btn { min-height: 42px; padding: 8px 14px; font-size: 11px; }
+  .banner {
+    border: 1px solid var(--rf-cream-line); background: var(--rf-cream-soft); border-radius: 12px;
+    padding: 14px 16px; margin-bottom: 14px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; line-height: 1.45;
+  }
+  .banner span { flex: 1; min-width: 220px; }
+  .banner .btn { min-height: 42px; }
+  .mlist { display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); }
+  .mrow {
+    display: flex; align-items: center; gap: 12px; padding: 8px 14px 8px 8px; text-align: left;
+    background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+  }
+  .mrow:active { border-color: var(--line-2); }
+  .mrow .tile { width: 40px; height: 40px; font-size: 19px; }
+  .mrow > div { min-width: 0; }
+  .mrow .n { font-weight: 700; line-height: 1.2; }
+  .mrow .s { color: var(--muted); font-size: 12px; margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mrow .p { margin-left: auto; color: var(--accent); font-weight: 700; white-space: nowrap; padding-left: 8px; }
+  .box.wide { width: min(780px, 100%); }
+  .editor h4 {
+    margin: 26px 0 4px; display: flex; align-items: center; gap: 12px; color: var(--text);
+    text-transform: uppercase; letter-spacing: .2em; font-size: 11px; font-weight: 800;
+  }
+  .editor h4::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .editor .hint { color: var(--muted); font-size: 12px; margin: 4px 0 0; line-height: 1.4; }
+  .egrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0 12px; }
+  .dlg textarea, .dlg select {
+    display: block; width: 100%; margin-top: 8px; padding: 12px 14px; font: inherit; font-size: 16px; border-radius: 10px;
+    border: 1px solid var(--line-2); background: var(--rf-night); color: var(--text); outline: none;
+    text-transform: none; letter-spacing: normal; font-weight: 500; resize: vertical;
+  }
+  .dlg select { appearance: none; -webkit-appearance: none; padding: 14px; font-size: 18px; }
+  .dlg textarea:focus, .dlg select:focus { border-color: var(--accent); }
+  .erow { display: flex; gap: 6px; margin-top: 8px; align-items: stretch; }
+  .erow input { margin-top: 0 !important; padding: 10px 12px !important; font-size: 15px !important; min-width: 0; }
+  .erow [data-f="nome"] { flex: 2; }
+  .erow [data-f="prezzo"] { flex: 0 0 96px; }
+  .erow [data-f="info"] { flex: 2; }
+  .erow .x, .erow .mv {
+    flex: none; width: 44px; border: 1px solid var(--line); border-radius: 10px; background: none; color: var(--muted); font-size: 16px;
+  }
+  .erow .cnt { flex: none; align-self: center; color: var(--muted); font-size: 12px; width: 54px; text-align: center; }
+  .add { margin-top: 10px; }
+  .btn.small { min-height: 40px; padding: 8px 14px; font-size: 11px; }
+  .dlg-actions .spacer { flex: 1; }
+  @media (max-width: 560px) {
+    .erow { flex-wrap: wrap; }
+    .erow [data-f="info"] { flex-basis: 100%; order: 5; }
+    .mlist { grid-template-columns: minmax(0, 1fr); }
+    .dlg-actions { flex-wrap: wrap; }
+  }
+
+  /* ---------- Pulsante Aggiorna ---------- */
+  .agg-btn {
+    display: inline-flex; align-items: center; gap: 8px; flex: none;
+    border: 1px solid var(--line-2); background: transparent; color: var(--text); border-radius: 999px;
+    padding: 9px 14px; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  }
+  .agg-btn .ic { font-size: 16px; line-height: 1; letter-spacing: 0; display: inline-block; }
+  .agg-btn.gira .ic { animation: gira 1s linear infinite; }
+  @keyframes gira { to { transform: rotate(360deg); } }
+  .hero > .hero-actions {
+    position: absolute; z-index: 3; top: calc(env(safe-area-inset-top) + 16px); right: 20px; display: flex; gap: 8px;
+  }
+  .hero-actions .agg-btn:not(.install) { background: rgba(21,20,31,.55); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .agg-btn.install { background: var(--accent); border-color: var(--accent); color: var(--rf-night); }
+  @media (hover: hover) { .agg-btn:hover { border-color: var(--accent); } .agg-btn.install:hover { background: #f3d39f; } }
+  [hidden] { display: none !important; }
+  .passi { margin: 6px 0 0; padding-left: 20px; color: var(--text); line-height: 1.6; }
+  .passi li { margin: 4px 0; }
+  .passi b { color: var(--accent); }
+
+  /* ---------- Avviso aggiornamenti ---------- */
+  .avviso {
+    position: fixed; left: 50%; top: calc(env(safe-area-inset-top) + 10px); z-index: 70;
+    transform: translate(-50%, -24px); opacity: 0; visibility: hidden; pointer-events: none;
+    transition: transform .3s ease, opacity .3s ease, visibility 0s linear .3s;
+    width: min(560px, calc(100% - 24px)); display: flex; align-items: center; gap: 12px;
+    background: var(--text); color: var(--rf-night); border-radius: 14px; padding: 10px 10px 10px 18px;
+    box-shadow: 0 14px 40px rgba(0,0,0,.6); border-left: 4px solid var(--rf-red); font-weight: 700; line-height: 1.35;
+  }
+  .avviso.show {
+    transform: translate(-50%, 0); opacity: 1; visibility: visible; pointer-events: auto;
+    transition: transform .3s ease, opacity .3s ease, visibility 0s;
+  }
+  .avviso span { flex: 1; }
+  .avviso .btn { min-height: 44px; background: var(--rf-night); color: var(--text); border-color: var(--rf-night); }
+  .stato-ok { color: var(--accent); }
+
+  /* ---------- Telefono ---------- */
+  @media (max-width: 560px) {
+    :root { --top-h: 60px; }
+    main { padding: 14px; }
+    .top { padding-left: 14px; padding-right: 14px; gap: 8px; }
+    .brand img { width: 42px; height: 42px; }
+    .brand span { display: none; }
+    .top .agg-btn { padding: 9px 11px; }
+    .top .agg-btn .tx { display: none; }
+    .tabs a { padding: 12px 10px; letter-spacing: .12em; }
+    .tabs a.on::after { left: 10px; right: 10px; }
+    .page-title h2 { font-size: 30px; }
+    .page-title .btn { width: 100%; }
+    kbd { display: none; }
+    .hero-cards { grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 0 14px calc(24px + env(safe-area-inset-bottom)); margin-top: 28px; }
+    .hcard { min-height: 0; padding: 18px; }
+    .hero-top { padding-top: calc(env(safe-area-inset-top) + 32px); }
+    .hero-top .line { font-size: 9px; letter-spacing: .16em; gap: 10px; margin-top: 18px; white-space: nowrap; }
+    .hero-top .line::before, .hero-top .line::after { width: 18px; }
+    .hcard h3 { font-size: 30px; }
+    .mtabs { margin: 0 -14px 12px; padding: 8px 14px; }
+    .picker { padding: 10px; }
+    .plist { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pbtn { gap: 6px; padding: 8px 6px; }
+    .pbtn .tile { width: 32px; height: 32px; font-size: 15px; margin: 3px; }
+    .pbtn .n { font-size: 13px; }
+    .riga { gap: 8px; padding: 12px; }
+    .riga .tot { width: 62px; font-size: 14px; }
+    .step button { width: 38px; height: 42px; }
+    .step span { min-width: 34px; }
+    .riga .mini { display: none; }
+    .totale { padding: 16px 12px; }
+    .totale .v { font-size: 36px; }
+    .azioni { padding: 0 12px 12px; }
+    .azioni .btn { min-width: 0; padding: 12px 10px; letter-spacing: .08em; }
+    .thead h2 { font-size: 28px; }
+  }
+</style>
+</head>
+<body class="rf-bg">
+  <div class="top">
+    <a class="brand" href="#home" aria-label="Home"><img id="brandLogo" alt=""><span class="rf-caps">Staff</span></a>
+    <nav class="tabs">
+      <a href="#tavoli" id="tabTavoli">Tavoli</a>
+      <a href="#menu" id="tabMenu">Menu</a>
+    </nav>
+    <button class="agg-btn install" data-action="installa" hidden><span class="ic">⬇</span><span class="tx">Installa app</span></button>
+    <button class="agg-btn" data-action="aggiorna" aria-label="Controlla aggiornamenti"><span class="ic">↻</span><span class="tx">Aggiorna</span></button>
+  </div>
+  <main id="app"></main>
+
+  <div class="overlay" id="overlay"><div class="box" id="box"></div></div>
+  <div class="toast" id="toast"></div>
+  <div class="avviso" id="avviso" role="status"><span id="avvisoTesto"></span><button class="btn" id="avvisoBtn">Aggiorna</button></div>
+
+<script src="../shared/config.js"></script>
+<script>
+(function () {
+  const C = window.REEF;
+  const KEY = "reef.staff.tavoli.v1";
+  const $ = (s, el = document) => el.querySelector(s);
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const fmt = new Intl.NumberFormat("it-IT", { style: "currency", currency: "EUR" });
+  const euro = (cent) => fmt.format(cent / 100);
+  const norm = (s) => String(s).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+  /* Il menu ufficiale è shared/menu.json (pubblicato su GitHub). Ogni dispositivo ne tiene una copia
+     per funzionare offline e controlla spesso se ne è uscita una versione nuova. */
+  const MENU_URL = "../shared/menu.json";
+  const MENU_CACHE = "reef.staff.menu.cache.v1";
+  const TOKEN_KEY = "reef.staff.github.token";
+  // versione del primo menu caricato: prima di una modifica dall'app non si mostra "aggiornato il…"
+  const MENU_INIZIALE = "2026-10-18T04:00:00.000Z";
+  const GH = C.github;
+  const clona = (o) => JSON.parse(JSON.stringify(o));
+  const menuValido = (m) => !!(m && Array.isArray(m.categorie) && Array.isArray(m.drinks));
+  function leggiCacheMenu() {
+    try { const m = JSON.parse(localStorage.getItem(MENU_CACHE)); return menuValido(m) ? m : null; } catch { return null; }
+  }
+  let MENU = leggiCacheMenu();
+  let menuNuovo = null;
+  function applicaMenu(m) {
+    MENU = m;
+    menuNuovo = null;
+    try { localStorage.setItem(MENU_CACHE, JSON.stringify(m)); } catch {}
+    nascondiAvviso();
+    if (!$("#overlay").classList.contains("open")) render();
+  }
+  async function scaricaMenu() {
+    const r = await fetch(`${MENU_URL}?t=${Date.now()}`, { cache: "no-store" });
+    if (!r.ok) throw new Error(r.status);
+    const m = await r.json();
+    if (!menuValido(m)) throw new Error("menu non valido");
+    return m;
+  }
+  // Controlla se online c'è un menu più recente di quello in uso
+  async function controllaMenu() {
+    try {
+      const m = await scaricaMenu();
+      if (!MENU) return applicaMenu(m);
+      if ((m.versione || "") > (MENU.versione || "")) {
+        menuNuovo = m;
+        mostraAvviso("menu");
+        // un menu nuovo può richiedere anche l'app nuova: controlla subito
+        if (navigator.serviceWorker && navigator.serviceWorker.getRegistration)
+          navigator.serviceWorker.getRegistration().then((r) => r && r.update()).catch(() => {});
+      }
+    } catch {}
+  }
+  const dataMenu = () => MENU && MENU.versione && MENU.versione > MENU_INIZIALE
+    ? new Date(MENU.versione).toLocaleString("it-IT", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" }) : "";
+
+  /* ---------- Avviso "aggiorna" ---------- */
+  let avvisoTipo = null;
+  function mostraAvviso(tipo) {
+    if (avvisoTipo === "app") return; // l'aggiornamento dell'app include già il menu
+    avvisoTipo = tipo;
+    $("#avvisoTesto").textContent = tipo === "app"
+      ? "È disponibile una nuova versione dell'app."
+      : "Il menu è stato aggiornato.";
+    $("#avviso").classList.add("show");
+  }
+  function nascondiAvviso() { avvisoTipo = null; $("#avviso").classList.remove("show"); }
+  $("#avvisoBtn").addEventListener("click", () => {
+    if (avvisoTipo === "app") return location.reload();
+    if (menuNuovo) { applicaMenu(menuNuovo); toast("Menu aggiornato"); }
+  });
+
+  /* ---------- Pubblicazione del menu su GitHub (solo con la chiave) ---------- */
+  const leggiToken = () => { try { return localStorage.getItem(TOKEN_KEY) || ""; } catch { return ""; } };
+  const ghApi = (path, opt = {}, token = leggiToken()) =>
+    fetch(`https://api.github.com/repos/${GH.owner}/${GH.repo}${path ? "/" + path : ""}`, {
+      ...opt,
+      cache: "no-store",
+      headers: { Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28", Authorization: `Bearer ${token}`, ...(opt.headers || {}) },
+    });
+  function aBase64(testo) {
+    const bytes = new TextEncoder().encode(testo);
+    let bin = "";
+    for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+    return btoa(bin);
+  }
+  const daBase64 = (b) => new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\s/g, "")), (c) => c.charCodeAt(0)));
+  async function pubblicaMenu(nuovo, messaggio) {
+    if (!leggiToken()) throw new Error("Su questo dispositivo manca la chiave di pubblicazione: Menu → Impostazioni.");
+    let r;
+    try { r = await ghApi(`contents/${GH.menuPath}?ref=${GH.branch}`); }
+    catch { throw new Error("Serve la connessione a internet per salvare le modifiche."); }
+    if (r.status === 401 || r.status === 403) throw new Error("La chiave di pubblicazione non è valida o è scaduta: Menu → Impostazioni.");
+    if (!r.ok) throw new Error(`Non riesco a leggere il menu online (errore ${r.status}).`);
+    const attuale = await r.json();
+    const remoto = JSON.parse(daBase64(attuale.content));
+    if ((remoto.versione || "") !== (MENU.versione || "")) {
+      applicaMenu(remoto);
+      throw new Error("Il menu è stato cambiato da un altro dispositivo: ho caricato la versione più recente, rifai la modifica.");
+    }
+    nuovo.versione = new Date().toISOString();
+    const put = await ghApi(`contents/${GH.menuPath}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: messaggio, content: aBase64(JSON.stringify(nuovo, null, 2) + "\n"), sha: attuale.sha, branch: GH.branch }),
+    });
+    if (put.status === 409 || put.status === 422) throw new Error("Il menu è stato cambiato da un altro dispositivo nello stesso momento: riprova.");
+    if (put.status === 401 || put.status === 403) throw new Error("La chiave non ha il permesso di modificare il menu: Menu → Impostazioni.");
+    if (!put.ok) throw new Error(`Salvataggio non riuscito (errore ${put.status}).`);
+    applicaMenu(nuovo);
+  }
+
+  const drinkById = (id) => MENU.drinks.find((d) => d.id === id);
+  const catNome = (id) => (MENU.categorie.find((c) => c.id === id) || {}).nome || "";
+  const varNome = (v) => (typeof v === "string" ? v : v.nome);
+  const varPrezzo = (d, v) => (typeof v === "object" && v.prezzo != null ? v.prezzo : d.prezzo);
+  const cent = (p) => Math.round(p * 100);
+  function prezzoLabel(d) {
+    const ps = (d.varianti || []).map((v) => varPrezzo(d, v));
+    const min = ps.length ? Math.min(...ps) : d.prezzo;
+    if (!min && !ps.some((p) => p)) return "Omaggio";
+    return (ps.some((p) => p !== ps[0]) ? "da " : "") + euro(cent(min));
+  }
+
+  $("#brandLogo").src = C.bar.logo;
+  document.title = `${C.bar.nome} · Staff`;
+  if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
+
+  /* ---------- Dati tavoli (salvati nel browser) ---------- */
+  let tavoli = carica();
+  function carica() {
+    try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch { return []; }
+  }
+  function salva() {
+    try { localStorage.setItem(KEY, JSON.stringify(tavoli)); }
+    catch { alert("Attenzione: impossibile salvare i dati sul dispositivo."); }
+  }
+  const tavoloById = (id) => tavoli.find((t) => t.id === id);
+  const totale = (t) => t.righe.reduce((s, r) => s + r.qty * r.prezzoCent, 0);
+  const pezzi = (t) => t.righe.reduce((s, r) => s + r.qty, 0);
+
+  // Se l'app è aperta in due finestre dello stesso computer, restano allineate
+  window.addEventListener("storage", (e) => {
+    if (e.key === KEY) { tavoli = carica(); render(); }
+  });
+
+  /* ---------- Stato interfaccia ---------- */
+  const ui = {
+    pickQ: "", apriGruppo: null, apriCat: null, apriVoce: null, // menu a tendina "Aggiungi"
+    meQ: "", meCat: "tutti",
+    pane: "ordine", // su telefono: "ordine" oppure "aggiungi"
+    pagamento: null, // { id: tavoloId, sel: { rigaId: quantità } }
+  };
+
+  const tileHtml = (d) => `<div class="tile rf-ring">${esc((d && d.emoji) || "🧾")}</div>`;
+
+  function filtra(lista, q, cat) {
+    const nq = norm(q.trim());
+    return lista.filter((d) => {
+      if (nq) return norm([d.nome, d.descrizione || "", ...(d.varianti || []).map(varNome)].join(" ")).includes(nq);
+      return cat === "tutti" || d.categoria === cat;
+    });
+  }
+  function chipsHtml(lista, sel, action) {
+    const cats = [{ id: "tutti", nome: "Tutti" }, ...MENU.categorie.filter((c) => lista.some((d) => d.categoria === c.id))];
+    return cats.map((c) => `<button class="chip ${c.id === sel ? "on" : ""}" data-action="${action}" data-cat="${esc(c.id)}">${esc(c.nome)}</button>`).join("");
+  }
+
+  /* ---------- Routing ---------- */
+  function route() {
+    const h = location.hash.slice(1);
+    if (h.startsWith("tavolo/")) return { view: "tavolo", id: decodeURIComponent(h.slice(7)) };
+    if (h === "tavoli" || h === "menu") return { view: h };
+    return { view: "home" };
+  }
+  function paneIniziale() {
+    const r = route();
+    const t = r.view === "tavolo" && tavoloById(r.id);
+    ui.pane = t && !t.righe.length ? "aggiungi" : "ordine";
+  }
+  window.addEventListener("hashchange", () => { ui.pagamento = null; ui.pickQ = ""; paneIniziale(); render(); window.scrollTo(0, 0); });
+
+  function render() {
+    const r = route();
+    document.body.classList.toggle("home", r.view === "home");
+    if (r.view !== "home") clearInterval(slideTimer);
+    $("#tabMenu").classList.toggle("on", r.view === "menu");
+    $("#tabTavoli").classList.toggle("on", r.view === "tavoli" || r.view === "tavolo");
+    $(".top [data-action='installa']").hidden = installata();
+    if (r.view === "home") return viewHome();
+    if (r.view === "menu") return viewMenu();
+    if (r.view === "tavolo") {
+      const t = tavoloById(r.id);
+      if (!t) { location.replace("#tavoli"); return viewTavoli(); }
+      return viewTavolo(t);
+    }
+    viewTavoli();
+  }
+
+  /* ---------- Home ---------- */
+  const foto = [].concat(C.bar.foto || []);
+  let slideTimer = null, outTimer = null, slideIdx = 0;
+  // Precarica le foto così il primo cambio non scatta
+  foto.forEach((src) => { const im = new Image(); im.src = src; if (im.decode) im.decode().catch(() => {}); });
+  function mostraSlide(i) {
+    const slides = [...document.querySelectorAll(".slide")];
+    if (!slides.length) return;
+    const next = (i + slides.length) % slides.length;
+    const prev = slides.find((el) => el.classList.contains("on"));
+    if (prev === slides[next]) return;
+    clearTimeout(outTimer);
+    slides.forEach((el) => el.classList.remove("out"));
+    if (prev) {
+      prev.classList.replace("on", "out");
+      outTimer = setTimeout(() => prev.classList.remove("out"), 1700);
+    }
+    slides[next].classList.add("on");
+    slideIdx = next;
+    document.querySelectorAll(".dots button").forEach((el, k) => el.classList.toggle("on", k === slideIdx));
+  }
+  function avviaSlide() {
+    clearInterval(slideTimer);
+    if (foto.length > 1) slideTimer = setInterval(() => mostraSlide(slideIdx + 1), 5000);
+  }
+
+  function viewHome() {
+    slideIdx = 0;
+    avviaSlide();
+    const aperti = tavoli.reduce((s, t) => s + totale(t), 0);
+    const oggi = new Date().toLocaleDateString("it-IT", { weekday: "long", day: "numeric", month: "long" });
+    const agg = dataMenu();
+    $("#app").innerHTML = `
+      <section class="hero">
+        <div class="hero-actions">
+          <button class="agg-btn install" data-action="installa" ${installata() ? "hidden" : ""}><span class="ic">⬇</span><span class="tx">Installa app</span></button>
+          <button class="agg-btn" data-action="aggiorna" aria-label="Controlla aggiornamenti"><span class="ic">↻</span><span class="tx">Aggiorna</span></button>
+        </div>
+        <div class="slides">${foto.map((f) => `<div class="slide" style="background-image:url('${esc(f)}')"></div>`).join("")}</div>
+        <div class="hero-top">
+          <img src="${esc(C.bar.logo)}" alt="${esc(C.bar.nome)}">
+          <div class="line rf-caps">${esc(C.bar.sottotitolo)}</div>
+          <div class="date">${esc(C.bar.luogo)} · ${esc(oggi)}</div>
+          ${foto.length > 1 ? `<div class="dots">${foto.map((_, i) => `<button data-action="slide" data-i="${i}" class="${i ? "" : "on"}" aria-label="Foto ${i + 1}"></button>`).join("")}</div>` : ""}
+        </div>
+        <div class="hero-cards">
+          <a class="hcard" href="#tavoli">
+            <span class="k rf-caps">Sala</span>
+            <h3>Tavoli</h3>
+            <div class="v">${tavoli.length
+              ? `<b>${tavoli.length}</b> ${tavoli.length === 1 ? "aperto" : "aperti"} · <b>${euro(aperti)}</b> da incassare`
+              : "Nessun tavolo aperto"}</div>
+          </a>
+          <a class="hcard" href="#menu">
+            <span class="k rf-caps">Gestione</span>
+            <h3>Menu</h3>
+            <div class="v"><b>${MENU.drinks.length}</b> voci · prezzi e prodotti${agg ? ` · aggiornato il ${esc(agg)}` : ""}</div>
+          </a>
+        </div>
+      </section>`;
+    requestAnimationFrame(() => requestAnimationFrame(() => mostraSlide(0)));
+  }
+
+  /* ---------- Lista tavoli ---------- */
+  function tempo(ts) {
+    const min = Math.floor((Date.now() - ts) / 60000);
+    const ora = new Date(ts).toLocaleTimeString("it-IT", { hour: "2-digit", minute: "2-digit" });
+    const da = min < 1 ? "adesso" : min < 60 ? `da ${min} min` : `da ${Math.floor(min / 60)} h ${min % 60} min`;
+    return `aperto alle ${ora} · ${da}`;
+  }
+  function viewTavoli() {
+    const aperti = tavoli.reduce((s, t) => s + totale(t), 0);
+    $("#app").innerHTML = `
+      <div class="page-title">
+        <h2>Tavoli</h2>
+        <span class="sub">${tavoli.length ? `${tavoli.length} ${tavoli.length === 1 ? "aperto" : "aperti"} · ${euro(aperti)} da incassare` : ""}</span>
+        <button class="btn primary" data-action="nuovo-tavolo">+ Nuovo tavolo<kbd>N</kbd></button>
+      </div>
+      ${tavoli.length
+        ? `<div class="tgrid">${tavoli.map((t) => `
+            <button class="tcard" data-action="apri-tavolo" data-id="${esc(t.id)}">
+              <div class="n">${esc(t.nome)}</div>
+              <div class="i">${pezzi(t)} ${pezzi(t) === 1 ? "articolo" : "articoli"}</div>
+              <div class="i">${tempo(t.creato)}</div>
+              <div class="t">${euro(totale(t))}</div>
+            </button>`).join("")}
+            <button class="tcard nuovo" data-action="nuovo-tavolo"><div class="n">+</div><div class="i">Nuovo tavolo</div></button></div>`
+        : `<div class="empty"><div class="big">🎸</div>Nessun tavolo aperto.<br>Premi <b>+ Nuovo tavolo</b> quando arriva qualcuno.</div>`}`;
+  }
+
+  async function nuovoTavolo() {
+    const v = await chiedi({
+      titolo: "Nuovo tavolo",
+      campi: [{ name: "nome", label: "Nome del tavolo", placeholder: "es. Tavolo 4, Bancone, Esterno 2…", value: propostaNome() }],
+      ok: "Crea tavolo",
+      valida: (v) => validaNome(v.nome),
+    });
+    if (!v) return;
+    const t = { id: uid(), nome: v.nome.trim(), creato: Date.now(), righe: [] };
+    tavoli.push(t);
+    salva();
+    location.hash = "#tavolo/" + encodeURIComponent(t.id);
+  }
+  // Propone il primo "Tavolo N" libero, così basta premere Invio
+  function propostaNome() {
+    for (let n = 1; ; n++) if (!tavoli.some((t) => norm(t.nome) === norm(`Tavolo ${n}`))) return `Tavolo ${n}`;
+  }
+  function validaNome(nome, escludiId) {
+    const n = (nome || "").trim();
+    if (!n) return "Scrivi un nome.";
+    if (tavoli.some((t) => t.id !== escludiId && norm(t.nome) === norm(n))) return "Esiste già un tavolo aperto con questo nome.";
+  }
+
+  /* ---------- Dettaglio tavolo ---------- */
+  function viewTavolo(t) {
+    $("#app").innerHTML = `
+      <div class="thead">
+        <a class="btn back" href="#tavoli">‹ Tavoli</a>
+        <h2 id="tNome">${esc(t.nome)}</h2>
+        <button class="icon-btn" data-action="rinomina" aria-label="Rinomina" title="Rinomina">✎</button>
+        <div class="since" id="tSince">${tempo(t.creato)}</div>
+      </div>
+      <div class="mtabs">
+        <button data-action="pane" data-pane="ordine" id="mtOrdine"></button>
+        <button data-action="pane" data-pane="aggiungi" id="mtAggiungi">+ Aggiungi</button>
+      </div>
+      <div class="tlayout" id="tlayout">
+        <div class="panel ordine" id="ordine"></div>
+        <div class="panel picker" id="picker">
+          <input class="search" id="pickQ" type="search" placeholder="Cerca: spritz, birra, Nirvana, patatine…  (tasto /)" value="${esc(ui.pickQ)}" autocomplete="off">
+          <div id="pickLista"></div>
+        </div>
+      </div>`;
+    $("#pickQ").addEventListener("input", (e) => { ui.pickQ = e.target.value; listaPicker(t); });
+    // Invio nella ricerca: aggiunge il primo risultato
+    $("#pickQ").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") { const b = $("#pickLista .pbtn[data-action='aggiungi']"); if (b) { e.preventDefault(); b.click(); } }
+      if (e.key === "Escape" && e.target.value) { e.stopPropagation(); e.target.value = ""; ui.pickQ = ""; listaPicker(t); }
+    });
+    aggiornaTavolo(t);
+    // al computer il cursore va subito nella ricerca: si scrive e si preme Invio
+    if (matchMedia("(hover: hover) and (min-width: 900px)").matches) $("#pickQ").focus();
+  }
+
+  function aggiornaTavolo(t) {
+    const pay = ui.pagamento && ui.pagamento.id === t.id ? ui.pagamento.sel : null;
+    const tot = totale(t);
+    let righe;
+    if (!t.righe.length) {
+      righe = `<div class="empty"><div class="big">🍺</div>Nessun ordine.<br>Aggiungi i prodotti dall'elenco.</div>`;
+    } else {
+      righe = t.righe.map((r) => {
+        const step = pay
+          ? `<div class="step pay">
+               <button data-action="pay-dec" data-riga="${r.id}" aria-label="Meno">−</button>
+               <span>${pay[r.id] || 0}/${r.qty}</span>
+               <button data-action="pay-inc" data-riga="${r.id}" aria-label="Più">+</button>
+             </div>
+             <button class="mini" data-action="pay-riga" data-riga="${r.id}">tutti</button>`
+          : `<div class="step">
+               <button data-action="dec" data-riga="${r.id}" aria-label="Togli uno">−</button>
+               <span>${r.qty}</span>
+               <button data-action="inc" data-riga="${r.id}" aria-label="Aggiungi uno">+</button>
+             </div>`;
+        const lineTot = pay ? (pay[r.id] || 0) * r.prezzoCent : r.qty * r.prezzoCent;
+        return `<div class="riga">
+            <div class="info"><div class="nome">${esc(r.nome)}</div><div class="cad">${euro(r.prezzoCent)} cad.</div></div>
+            ${step}
+            <div class="tot">${euro(lineTot)}</div>
+          </div>`;
+      }).join("");
+    }
+
+    let fondo;
+    if (pay) {
+      const sel = t.righe.reduce((s, r) => s + (pay[r.id] || 0) * r.prezzoCent, 0);
+      fondo = `
+        <div class="totale pay"><span>Da incassare ora</span><span class="v">${euro(sel)}</span></div>
+        <div class="paga-banner">Seleziona cosa paga questa persona. Resteranno da pagare <b>${euro(tot - sel)}</b>.</div>
+        <div class="azioni">
+          <button class="btn" data-action="pay-annulla">Annulla</button>
+          <button class="btn" data-action="pay-tutto">Tutto</button>
+          <button class="btn accent" data-action="pay-conferma" ${sel ? "" : "disabled"}>Incassa ${euro(sel)}</button>
+        </div>`;
+    } else {
+      fondo = `
+        <div class="totale"><span>Totale</span><span class="v">${euro(tot)}</span></div>
+        <div class="azioni">
+          <button class="btn primary" data-action="paga-separato" ${t.righe.length ? "" : "disabled"}>Paga separato</button>
+          <button class="btn danger" data-action="chiudi-tavolo">Chiudi tavolo</button>
+        </div>`;
+    }
+    $("#ordine").innerHTML = `<div class="righe">${righe}</div>${fondo}`;
+    $("#picker").classList.toggle("off", !!pay);
+    if (pay) ui.pane = "ordine";
+    $("#tlayout").dataset.pane = ui.pane;
+    $("#mtOrdine").classList.toggle("on", ui.pane === "ordine");
+    $("#mtAggiungi").classList.toggle("on", ui.pane === "aggiungi");
+    $("#mtOrdine").textContent = `Ordine (${pezzi(t)}) · ${euro(tot)}`;
+    $("#mtAggiungi").disabled = !!pay;
+    listaPicker(t);
+  }
+
+  /* Gruppi del menu a tendina (es. Paninoteca → Panini Rock, Toast & co.).
+     Le categorie non assegnate a un gruppo diventano un gruppo a sé. */
+  function gruppi() {
+    const esiste = (id) => MENU.categorie.some((c) => c.id === id);
+    const lista = (MENU.gruppi || [])
+      .map((g) => ({ ...g, categorie: g.categorie.filter(esiste) }))
+      .filter((g) => g.categorie.length);
+    const usate = new Set(lista.flatMap((g) => g.categorie));
+    MENU.categorie.filter((c) => !usate.has(c.id)).forEach((c) => lista.push({ id: "cat-" + c.id, nome: c.nome, categorie: [c.id] }));
+    return lista;
+  }
+  // Ogni prodotto ordinabile: le voci senza varianti, oppure ogni singola variante (es. ogni amaro, birra piccola/media)
+  const nomeRiga = (d, i) => (i == null ? d.nome : `${d.nome} · ${varNome(d.varianti[i])}`);
+  function prodotti(d) {
+    if (!d.varianti || !d.varianti.length) return [{ d, i: null, nome: d.nome, info: "", prezzo: d.prezzo }];
+    return d.varianti.map((v, i) => ({ d, i, nome: varNome(v), info: typeof v === "object" && v.info ? v.info : "", prezzo: varPrezzo(d, v) }));
+  }
+  function bottoneProdotto(p, t, titolo) {
+    const quanti = t.righe.filter((r) => r.drinkId === p.d.id && r.nome === nomeRiga(p.d, p.i)).reduce((s, r) => s + r.qty, 0);
+    const prezzo = p.prezzo ? euro(cent(p.prezzo)) : "Omaggio";
+    return `<button class="pbtn" data-action="aggiungi" data-id="${esc(p.d.id)}" data-v="${p.i == null ? "" : p.i}">
+        ${tileHtml(p.d)}
+        <div><div class="n">${esc(titolo)}</div><div class="p">${prezzo}${p.info ? " · " + esc(p.info) : ""}</div></div>
+        ${quanti ? `<span class="badge">${quanti}</span>` : ""}
+      </button>`;
+  }
+  // Un bottone per voce (es. un panino): se ha varianti si apre la scelta (Panino / Piadina / Focaccia)
+  function bottoneVoce(d, t) {
+    const quanti = t.righe.filter((r) => r.drinkId === d.id).reduce((s, r) => s + r.qty, 0);
+    return `<button class="pbtn" data-action="aggiungi" data-id="${esc(d.id)}" data-v="">
+        ${tileHtml(d)}
+        <div><div class="n">${esc(titoloVoce(d))}</div><div class="p">${prezzoLabel(d)}</div>${d.descrizione ? `<div class="i">${esc(d.descrizione)}</div>` : ""}</div>
+        ${quanti ? `<span class="badge">${quanti}</span>` : ""}
+      </button>`;
+  }
+  // nome mostrato sul bottone dentro il menu a tendina (l'etichetta, se c'è, è il nome breve: es. "Spina")
+  const titoloVoce = (d) => d.etichetta || d.nome;
+  // Prodotti di una categoria:
+  // - categoria "scelta" (es. Panini Rock): un bottone per voce, poi si sceglie il formato
+  // - categoria "a tendina": ogni voce si apre e mostra le sue varianti
+  // - voci semplici e voci con poche varianti (es. Calice) → bottoni col nome completo
+  // - voci con tante varianti (spritz, gin, amari…) → in fondo, con un titoletto e sotto le varianti
+  function prodottiCategoria(catId, t) {
+    const voci = MENU.drinks.filter((d) => d.categoria === catId);
+    const cat = MENU.categorie.find((c) => c.id === catId) || {};
+    const vuota = `<div class="empty" style="padding:16px">Nessuna voce.</div>`;
+    if (cat.scelta) return voci.length ? `<div class="plist">${voci.map((d) => bottoneVoce(d, t)).join("")}</div>` : vuota;
+    if (cat.tendina) {
+      return voci.map((d) => {
+        const aperta = ui.apriVoce === d.id;
+        const lista = prodotti(d).map((p) => bottoneProdotto(p, t, p.i == null ? titoloVoce(d) : p.nome)).join("");
+        return `<div class="acc sub ter ${aperta ? "open" : ""}">
+          <button class="acc-h" data-action="acc-voce" data-id="${esc(d.id)}"><span class="acc-n">${esc(titoloVoce(d))}</span><span class="acc-c">${prodotti(d).length}</span><span class="chev">›</span></button>
+          ${aperta ? `<div class="acc-b"><div class="plist">${lista}</div></div>` : ""}
+        </div>`;
+      }).join("") || vuota;
+    }
+    const tante = (d) => d.varianti && d.varianti.length > 3;
+    const semplici = voci.filter((d) => !tante(d)).flatMap(prodotti)
+      .map((p) => bottoneProdotto(p, t, p.i == null ? titoloVoce(p.d) : `${titoloVoce(p.d)} · ${p.nome}`));
+    let html = semplici.length ? `<div class="plist">${semplici.join("")}</div>` : "";
+    voci.filter(tante).forEach((d) => {
+      html += `<div class="vgrp"><div class="vgrp-h rf-caps">${esc(titoloVoce(d))}</div><div class="plist">${prodotti(d).map((p) => bottoneProdotto(p, t, p.nome)).join("")}</div></div>`;
+    });
+    return html || vuota;
+  }
+  const quantiVoci = (catIds) => MENU.drinks.filter((d) => catIds.includes(d.categoria)).reduce((s, d) => {
+    const cat = MENU.categorie.find((c) => c.id === d.categoria) || {};
+    return s + (cat.scelta ? 1 : prodotti(d).length);
+  }, 0);
+
+  function listaPicker(t) {
+    const q = norm(ui.pickQ.trim());
+    let html;
+    if (q) {
+      // Ricerca: trova qualsiasi prodotto, anche le singole varianti
+      const trovati = MENU.drinks.flatMap(prodotti).filter((p) =>
+        norm([p.d.nome, p.nome, p.info, p.d.descrizione || "", catNome(p.d.categoria)].join(" ")).includes(q));
+      html = trovati.length
+        ? `<div class="plist" style="margin-top:12px">${trovati.map((p) => bottoneProdotto(p, t, nomeRiga(p.d, p.i))).join("")}</div>`
+        : `<div class="empty" style="padding:24px 8px">Nessun risultato per «${esc(ui.pickQ.trim())}».</div>`;
+    } else {
+      html = `<div class="acc-list">${gruppi().map((g) => {
+        const aperto = ui.apriGruppo === g.id;
+        let corpo = "";
+        if (aperto) {
+          corpo = g.categorie.length > 1
+            ? g.categorie.map((c) => {
+                const apertoCat = ui.apriCat === c;
+                return `<div class="acc sub ${apertoCat ? "open" : ""}">
+                  <button class="acc-h" data-action="acc-cat" data-c="${esc(c)}"><span class="acc-n">${esc(catNome(c))}</span><span class="acc-c">${quantiVoci([c])}</span><span class="chev">›</span></button>
+                  ${apertoCat ? `<div class="acc-b">${prodottiCategoria(c, t)}</div>` : ""}
+                </div>`;
+              }).join("")
+            : prodottiCategoria(g.categorie[0], t);
+        }
+        return `<div class="acc ${aperto ? "open" : ""}" id="acc-${esc(g.id)}">
+          <button class="acc-h" data-action="acc" data-g="${esc(g.id)}"><span class="acc-n">${esc(g.nome)}</span><span class="acc-c">${quantiVoci(g.categorie)}</span><span class="chev">›</span></button>
+          ${aperto ? `<div class="acc-b">${corpo}</div>` : ""}
+        </div>`;
+      }).join("")}</div>`;
+    }
+    $("#pickLista").innerHTML = html + `<div class="plist" style="margin-top:12px"><button class="pbtn libera" data-action="voce-libera">+ Voce libera</button></div>`;
+  }
+
+  function aggiungiRiga(t, { drinkId = null, nome, prezzoCent }) {
+    const r = t.righe.find((x) => x.drinkId === drinkId && x.nome === nome && x.prezzoCent === prezzoCent);
+    if (r) r.qty++;
+    else t.righe.push({ id: uid(), drinkId, nome, prezzoCent, qty: 1 });
+    salva();
+    aggiornaTavolo(t);
+  }
+
+  function sceltaVariante(d) {
+    apriFinestra(`
+      <button class="close" data-action="chiudi-finestra" aria-label="Chiudi">✕</button>
+      <div class="vhead"><h3>${esc(d.nome)}</h3><p>${d.descrizione ? esc(d.descrizione) : "Scegli:"}</p></div>
+      <div class="vlist">${d.varianti.map((v, i) => `
+        <button class="vbtn" data-action="aggiungi-var" data-id="${esc(d.id)}" data-i="${i}">
+          <span class="n">${esc(varNome(v))}</span>
+          ${typeof v === "object" && v.info ? `<span class="i">${esc(v.info)}</span>` : ""}
+          <span class="p">${euro(cent(varPrezzo(d, v)))}</span>
+          ${i < 9 ? `<span class="k">tasto ${i + 1}</span>` : ""}
+        </button>`).join("")}</div>`);
+    const primo = $("#box .vbtn");
+    if (primo) primo.focus();
+  }
+
+  /* ---------- Finestre (dialoghi) ---------- */
+  let risolvi = null, finestraBloccata = false;
+  function apriFinestra(html, small) {
+    if (risolvi) { const r = risolvi; risolvi = null; r(null); }
+    finestraBloccata = false;
+    $("#box").className = "box" + (small ? " small" : "");
+    $("#box").innerHTML = html;
+    $("#box").scrollTop = 0;
+    $("#overlay").classList.add("open");
+  }
+  function chiudiFinestra(valore = null) {
+    finestraBloccata = false;
+    if ($("#box").contains(document.activeElement)) document.activeElement.blur();
+    $("#overlay").classList.remove("open");
+    const r = risolvi; risolvi = null;
+    if (r) r(valore);
+  }
+  function conferma({ titolo, testo, ok = "Conferma", pericolo = false }) {
+    apriFinestra(`
+      <div class="dlg">
+        <h3>${esc(titolo)}</h3>
+        <p>${testo}</p>
+        <div class="dlg-actions">
+          <button class="btn" data-action="chiudi-finestra">Annulla</button>
+          <button class="btn ${pericolo ? "danger fill" : "primary"}" data-action="finestra-ok">${esc(ok)}</button>
+        </div>
+      </div>`, true);
+    $("#box [data-action='finestra-ok']").focus();
+    return new Promise((res) => (risolvi = res));
+  }
+  function chiedi({ titolo, campi, ok = "OK", valida }) {
+    apriFinestra(`
+      <form class="dlg" id="dlgForm" autocomplete="off">
+        <h3>${esc(titolo)}</h3>
+        ${campi.map((c) => `<label>${esc(c.label)}<input name="${c.name}" value="${esc(c.value || "")}" placeholder="${esc(c.placeholder || "")}" ${c.inputmode ? `inputmode="${c.inputmode}"` : ""}></label>`).join("")}
+        <div class="err" id="dlgErr"></div>
+        <div class="dlg-actions">
+          <button type="button" class="btn" data-action="chiudi-finestra">Annulla</button>
+          <button type="submit" class="btn primary">${esc(ok)}</button>
+        </div>
+      </form>`, true);
+    const form = $("#dlgForm");
+    const primo = form.querySelector("input");
+    primo.focus();
+    primo.select();
+    return new Promise((res) => {
+      risolvi = res;
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const v = Object.fromEntries(new FormData(form));
+        const err = valida && valida(v);
+        if (err) { $("#dlgErr").textContent = err; return; }
+        chiudiFinestra(v);
+      });
+    });
+  }
+  $("#overlay").addEventListener("click", (e) => { if (e.target.id === "overlay" && !finestraBloccata) chiudiFinestra(null); });
+
+  /* ---------- Tastiera (computer) ---------- */
+  document.addEventListener("keydown", (e) => {
+    const aperta = $("#overlay").classList.contains("open");
+    if (e.key === "Escape") { if (aperta && !finestraBloccata) chiudiFinestra(null); return; }
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    const scrivendo = /^(INPUT|TEXTAREA|SELECT)$/.test((e.target || {}).tagName || "");
+    if (aperta) {
+      // scelta della variante con i tasti 1…9
+      const n = /^[1-9]$/.test(e.key) && !scrivendo ? +e.key : 0;
+      const b = n && document.querySelectorAll("#box .vbtn")[n - 1];
+      if (b) { e.preventDefault(); b.click(); }
+      return;
+    }
+    if (scrivendo) return;
+    const v = route().view;
+    if ((e.key === "n" || e.key === "N") && (v === "tavoli" || v === "home")) { e.preventDefault(); nuovoTavolo(); }
+    if (e.key === "/" && v === "tavolo" && $("#pickQ")) { e.preventDefault(); $("#pickQ").focus(); }
+    if (e.key === "/" && v === "menu" && $("#meQ")) { e.preventDefault(); $("#meQ").focus(); }
+  });
+
+  let toastTimer;
+  function toast(msg) {
+    const el = $("#toast");
+    el.textContent = msg;
+    el.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.remove("show"), 2200);
+  }
+
+
+  /* ---------- Gestione menu ---------- */
+  function viewMenu() {
+    const conChiave = !!leggiToken();
+    const agg = dataMenu();
+    $("#app").innerHTML = `
+      <div class="page-title">
+        <h2>Menu</h2>
+        <span class="sub">${MENU.drinks.length} voci${agg ? ` · aggiornato il ${esc(agg)}` : ""}</span>
+        <button class="btn primary" data-action="me-nuova">+ Nuova voce</button>
+      </div>
+      ${conChiave ? "" : `<div class="banner"><span>Le modifiche al menu vengono pubblicate su <b>tutti i dispositivi</b>.
+        Per salvarle, su questo computer serve la <b>chiave di pubblicazione</b> (solo titolare / responsabile).</span>
+        <button class="btn accent" data-action="me-impostazioni">Inserisci chiave</button></div>`}
+      <div class="me-tools">
+        <button class="btn" data-action="me-categorie">Categorie</button>
+        <button class="btn" data-action="me-esporta">Scarica copia</button>
+        <button class="btn" data-action="me-impostazioni">Impostazioni${conChiave ? " ✓" : ""}</button>
+      </div>
+      <input class="search" id="meQ" type="search" placeholder="Cerca una voce…  (tasto /)" value="${esc(ui.meQ)}" autocomplete="off">
+      <div class="chips" id="meChips"></div>
+      <div class="mlist" id="meLista"></div>`;
+    $("#meQ").addEventListener("input", (e) => { ui.meQ = e.target.value; listaMenu(); });
+    listaMenu();
+  }
+  function listaMenu() {
+    $("#meChips").innerHTML = chipsHtml(MENU.drinks, ui.meQ.trim() ? "" : ui.meCat, "me-cat");
+    const items = filtra(MENU.drinks, ui.meQ, ui.meCat);
+    $("#meLista").innerHTML = items.length
+      ? items.map((d) => {
+          const info = [catNome(d.categoria)];
+          if (d.varianti && d.varianti.length) info.push(d.varianti.map(varNome).join(", "));
+          else if (d.descrizione) info.push(d.descrizione);
+          return `<button class="mrow" data-action="me-modifica" data-id="${esc(d.id)}">
+            ${tileHtml(d)}
+            <div><div class="n">${esc(d.nome)}</div><div class="s">${esc(info.join(" · "))}</div></div>
+            <span class="p">${prezzoLabel(d)}</span>
+          </button>`;
+        }).join("")
+      : `<div class="empty">Nessuna voce trovata.</div>`;
+  }
+
+  const numero = (v) => { const n = parseFloat(String(v).replace(",", ".").trim()); return isFinite(n) ? n : NaN; };
+  const prezzoTxt = (p) => (p == null ? "" : String(p).replace(".", ","));
+  function slug(nome) {
+    const base = norm(nome).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "voce";
+    let id = base, i = 2;
+    while (MENU.drinks.some((d) => d.id === id) || MENU.categorie.some((c) => c.id === id)) id = `${base}-${i++}`;
+    return id;
+  }
+  // base = prezzo della voce: si mostra anche sulle varianti che non hanno un prezzo loro
+  function rigaVariante(v = {}, base) {
+    return `<div class="erow">
+        <input data-f="nome" placeholder="Nome (es. Aperol, Piadina)" value="${esc(v.nome || "")}">
+        <input data-f="prezzo" placeholder="Prezzo" inputmode="decimal" value="${esc(prezzoTxt(v.prezzo != null ? v.prezzo : base))}">
+        <input data-f="info" placeholder="Descrizione breve (facoltativa)" value="${esc(v.info || "")}">
+        <button type="button" class="x" data-action="me-del-row" aria-label="Togli">✕</button></div>`;
+  }
+
+  function apriEditor(id) {
+    const d = id ? MENU.drinks.find((x) => x.id === id) : null;
+    const v = d || { categoria: ui.meCat !== "tutti" ? ui.meCat : (MENU.categorie[0] || {}).id, emoji: "🍺" };
+    const varianti = (v.varianti || []).map((x) => (typeof x === "string" ? { nome: x } : x));
+    apriFinestra(`
+      <button class="close" data-action="chiudi-finestra" aria-label="Chiudi">✕</button>
+      <form class="dlg editor" id="meForm" autocomplete="off" data-id="${esc(d ? d.id : "")}">
+        <h3>${d ? "Modifica voce" : "Nuova voce"}</h3>
+        <div class="egrid">
+          <label style="grid-column: span 2">Nome<input name="nome" value="${esc(v.nome || "")}" placeholder="es. Negroni"></label>
+          <label>Prezzo (€)<input name="prezzo" inputmode="decimal" value="${esc(prezzoTxt(v.prezzo))}" placeholder="es. 8 oppure 4,50"></label>
+          <label>Categoria<select name="categoria">${MENU.categorie.map((c) =>
+            `<option value="${esc(c.id)}" ${c.id === v.categoria ? "selected" : ""}>${esc(c.nome)}</option>`).join("")}</select></label>
+          <label>Icona<input name="emoji" value="${esc(v.emoji || "")}" placeholder="🍺" maxlength="8"></label>
+          <label style="grid-column: span 2">Nome breve nel menu a tendina<input name="etichetta" value="${esc(v.etichetta || "")}" placeholder="Facoltativo (es. Spina)"></label>
+        </div>
+        <label>Ingredienti / descrizione<textarea name="descrizione" rows="2" placeholder="Facoltativa (es. Cotto, fontina, salsa a scelta)">${esc(v.descrizione || "")}</textarea></label>
+
+        <h4>Varianti</h4>
+        <p class="hint">Le scelte che compaiono quando aggiungi la voce a un tavolo (gusti dello spritz, piccola/media,
+          panino/piadina/focaccia…). Prezzo vuoto = prezzo della voce.</p>
+        <div id="eVar">${varianti.map((x) => rigaVariante(x, v.prezzo)).join("")}</div>
+        <button type="button" class="btn small add" data-action="me-add-row" data-into="eVar">+ Aggiungi variante</button>
+
+        <div class="err" id="meErr"></div>
+        <div class="dlg-actions">
+          ${d ? `<button type="button" class="btn danger" data-action="me-elimina">Elimina voce</button><span class="spacer"></span>` : ""}
+          <button type="button" class="btn" data-action="chiudi-finestra">Annulla</button>
+          <button type="submit" class="btn primary">Salva</button>
+        </div>
+      </form>`);
+    $("#box").classList.add("wide");
+    finestraBloccata = true;
+    $("#meForm").addEventListener("submit", (e) => { e.preventDefault(); salvaVoce(); });
+    $(d ? "#meForm [name=prezzo]" : "#meForm [name=nome]").focus();
+  }
+
+  async function salvaVoce() {
+    const f = $("#meForm");
+    const val = (n) => f.elements[n].value.trim();
+    const errore = (m) => { $("#meErr").textContent = m; $("#meErr").scrollIntoView({ block: "nearest" }); };
+    const nome = val("nome");
+    if (!nome) return errore("Scrivi il nome.");
+    const prezzo = numero(val("prezzo"));
+    if (!(prezzo >= 0)) return errore("Prezzo non valido (es. 8 oppure 4,50).");
+
+    const varianti = [];
+    for (const el of f.querySelectorAll("#eVar .erow")) {
+      const r = Object.fromEntries([...el.querySelectorAll("[data-f]")].map((x) => [x.dataset.f, x.value.trim()]));
+      if (!r.nome) continue;
+      const o = { nome: r.nome };
+      if (r.prezzo) {
+        const vp = numero(r.prezzo);
+        if (!(vp >= 0)) return errore(`Prezzo non valido nella variante «${r.nome}».`);
+        if (vp !== prezzo) o.prezzo = vp;
+      }
+      if (r.info) o.info = r.info;
+      varianti.push(Object.keys(o).length === 1 ? o.nome : o);
+    }
+
+    const id = f.dataset.id;
+    const vecchia = id ? MENU.drinks.find((x) => x.id === id) : null;
+    const voce = vecchia ? { ...vecchia } : { id: slug(nome) };
+    Object.assign(voce, { nome, categoria: val("categoria"), prezzo, emoji: val("emoji") || "🍺" });
+    for (const [k, v] of Object.entries({ etichetta: val("etichetta"), descrizione: val("descrizione") })) { if (v) voce[k] = v; else delete voce[k]; }
+    if (varianti.length) voce.varianti = varianti; else delete voce.varianti;
+
+    const lista = MENU.drinks.filter((x) => x.id !== voce.id);
+    let pos = vecchia && vecchia.categoria === voce.categoria ? MENU.drinks.indexOf(vecchia) : -1;
+    if (pos < 0) {
+      const ultimo = lista.map((x) => x.categoria).lastIndexOf(voce.categoria);
+      pos = ultimo >= 0 ? ultimo + 1 : lista.length;
+    }
+    lista.splice(pos, 0, voce);
+    const nuovo = clona(MENU);
+    nuovo.drinks = lista;
+    const btn = f.querySelector("[type=submit]");
+    btn.disabled = true; btn.textContent = "Pubblico…";
+    try {
+      await pubblicaMenu(nuovo, `Menu: ${vecchia ? "modificato" : "aggiunto"} «${nome}»`);
+    } catch (err) {
+      btn.disabled = false; btn.textContent = "Salva";
+      return errore(err.message);
+    }
+    chiudiFinestra(null);
+    toast(vecchia ? `Salvato «${nome}» per tutti` : `Aggiunto «${nome}» per tutti`);
+    if (route().view === "menu") viewMenu();
+  }
+
+  function apriCategorie() {
+    const riga = (c) => {
+      const n = MENU.drinks.filter((d) => d.categoria === c.id).length;
+      return `<div class="erow" data-id="${esc(c.id || "")}">
+        <button type="button" class="mv" data-action="me-cat-su" aria-label="Su">↑</button>
+        <input data-f="nome" value="${esc(c.nome || "")}" placeholder="Nome categoria">
+        <span class="cnt">${c.id ? `${n} voci` : "nuova"}</span>
+        <button type="button" class="x" data-action="me-cat-del" ${n ? "disabled title='Contiene voci'" : ""} aria-label="Elimina">✕</button>
+      </div>`;
+    };
+    apriFinestra(`
+      <button class="close" data-action="chiudi-finestra" aria-label="Chiudi">✕</button>
+      <form class="dlg editor" id="catForm" autocomplete="off">
+        <h3>Categorie</h3>
+        <p class="hint">Rinomina, riordina con ↑ o aggiungi categorie. Si può eliminare solo una categoria vuota.</p>
+        <div id="eCat">${MENU.categorie.map(riga).join("")}</div>
+        <button type="button" class="btn small add" data-action="me-cat-add">+ Nuova categoria</button>
+        <div class="err" id="catErr"></div>
+        <div class="dlg-actions">
+          <button type="button" class="btn" data-action="chiudi-finestra">Annulla</button>
+          <button type="submit" class="btn primary">Salva</button>
+        </div>
+      </form>`);
+    finestraBloccata = true;
+    apriCategorie.riga = riga;
+    $("#catForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const nuove = [];
+      for (const r of document.querySelectorAll("#eCat .erow")) {
+        const nome = r.querySelector("[data-f=nome]").value.trim();
+        if (!nome) { $("#catErr").textContent = "Ogni categoria deve avere un nome."; return; }
+        if (nuove.some((c) => norm(c.nome) === norm(nome))) { $("#catErr").textContent = `La categoria «${nome}» è ripetuta.`; return; }
+        const vecchia = MENU.categorie.find((c) => c.id === r.dataset.id);
+        nuove.push({ ...(vecchia || {}), id: r.dataset.id || slug(nome), nome });
+      }
+      const nuovo = clona(MENU);
+      nuovo.categorie = nuove;
+      const btn = $("#catForm [type=submit]");
+      btn.disabled = true; btn.textContent = "Pubblico…";
+      try { await pubblicaMenu(nuovo, "Menu: categorie aggiornate"); }
+      catch (err) { btn.disabled = false; btn.textContent = "Salva"; $("#catErr").textContent = err.message; return; }
+      chiudiFinestra(null);
+      toast("Categorie salvate per tutti");
+      if (route().view === "menu") viewMenu();
+    });
+  }
+
+  async function esportaMenu() {
+    const dati = { app: "reef-staff", tipo: "menu", esportato: new Date().toISOString(), gruppi: MENU.gruppi, categorie: MENU.categorie, drinks: MENU.drinks };
+    const nome = `menu-reef-${new Date().toISOString().slice(0, 10)}.json`;
+    const blob = new Blob([JSON.stringify(dati, null, 2)], { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob); a.download = nome;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+  }
+  function apriImpostazioni() {
+    const t = leggiToken();
+    apriFinestra(`
+      <button class="close" data-action="chiudi-finestra" aria-label="Chiudi">✕</button>
+      <form class="dlg editor" id="keyForm" autocomplete="off">
+        <h3>Chiave di pubblicazione</h3>
+        <p>Serve per salvare le modifiche al menu e mandarle a tutti i dispositivi.
+          Inseriscila solo sul computer del titolare o del responsabile.</p>
+        <p>Stato: ${t ? `<b class="stato-ok">chiave inserita ✓</b>` : "<b>nessuna chiave</b>"}</p>
+        <label>Chiave GitHub (inizia con github_pat_)<input name="token" type="password" placeholder="${t ? "•••••• (lascia vuoto per non cambiarla)" : "github_pat_…"}" autocomplete="off" autocapitalize="off" spellcheck="false"></label>
+        <p class="hint">Come crearla: su github.com, account <b>${esc(GH.owner)}</b> → Settings → Developer settings →
+          Personal access tokens → Fine-grained tokens → Generate new token. Repository: solo <b>${esc(GH.repo)}</b>.
+          Permessi: <b>Contents → Read and write</b>. Le istruzioni passo passo sono nel README.</p>
+        <div class="err" id="keyErr"></div>
+        <div class="dlg-actions">
+          ${t ? `<button type="button" class="btn danger" data-action="me-chiave-rimuovi">Rimuovi chiave</button><span class="spacer"></span>` : ""}
+          <button type="button" class="btn" data-action="chiudi-finestra">Annulla</button>
+          <button type="submit" class="btn primary">Verifica e salva</button>
+        </div>
+      </form>`);
+    finestraBloccata = true;
+    $("#keyForm [name=token]").focus();
+    $("#keyForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const nuovo = e.target.elements.token.value.trim();
+      if (!nuovo) return chiudiFinestra(null);
+      const btn = e.target.querySelector("[type=submit]");
+      btn.disabled = true; btn.textContent = "Verifico…";
+      let ok = false, msg = "";
+      try {
+        const r = await ghApi(`contents/${GH.menuPath}?ref=${GH.branch}`, {}, nuovo);
+        const repo = r.ok ? await (await ghApi("", {}, nuovo)).json() : null;
+        ok = r.ok && repo && repo.permissions && repo.permissions.push;
+        if (r.status === 401) msg = "Chiave non valida o scaduta.";
+        else if (!r.ok) msg = `La chiave non può leggere il repository ${GH.repo} (errore ${r.status}).`;
+        else if (!ok) msg = "La chiave può leggere ma non modificare: serve il permesso Contents → Read and write.";
+      } catch { msg = "Serve la connessione a internet per verificare la chiave."; }
+      if (!ok) { btn.disabled = false; btn.textContent = "Verifica e salva"; $("#keyErr").textContent = msg; return; }
+      try { localStorage.setItem(TOKEN_KEY, nuovo); } catch {}
+      chiudiFinestra(null);
+      toast("Chiave salvata: ora puoi modificare il menu");
+      if (route().view === "menu") viewMenu();
+    });
+  }
+
+  document.addEventListener("click", async (e) => {
+    const b = e.target.closest("[data-action^='me-']");
+    if (!b) return;
+    switch (b.dataset.action) {
+      case "me-cat": ui.meCat = b.dataset.cat; ui.meQ = ""; $("#meQ").value = ""; return listaMenu();
+      case "me-nuova": return apriEditor(null);
+      case "me-modifica": return apriEditor(b.dataset.id);
+      case "me-add-row": {
+        const box = document.getElementById(b.dataset.into);
+        box.insertAdjacentHTML("beforeend", rigaVariante());
+        box.lastElementChild.querySelector("input").focus();
+        return;
+      }
+      case "me-del-row": return b.closest(".erow").remove();
+      case "me-elimina": {
+        if (!b.classList.contains("fill")) { b.classList.add("fill"); b.textContent = "Clicca ancora per eliminare"; return; }
+        const id = $("#meForm").dataset.id;
+        const voce = MENU.drinks.find((x) => x.id === id);
+        const nuovo = clona(MENU);
+        nuovo.drinks = nuovo.drinks.filter((x) => x.id !== id);
+        b.disabled = true; b.textContent = "Pubblico…";
+        try { await pubblicaMenu(nuovo, `Menu: eliminato «${voce ? voce.nome : id}»`); }
+        catch (err) { b.disabled = false; b.textContent = "Elimina voce"; b.classList.remove("fill"); $("#meErr").textContent = err.message; return; }
+        chiudiFinestra(null);
+        toast(`Eliminato «${voce ? voce.nome : ""}» per tutti`);
+        return viewMenu();
+      }
+      case "me-categorie": return apriCategorie();
+      case "me-cat-add": {
+        $("#eCat").insertAdjacentHTML("beforeend", apriCategorie.riga({ nome: "" }));
+        return $("#eCat").lastElementChild.querySelector("input").focus();
+      }
+      case "me-cat-su": {
+        const r = b.closest(".erow");
+        if (r.previousElementSibling) r.parentNode.insertBefore(r, r.previousElementSibling);
+        return;
+      }
+      case "me-cat-del": return b.closest(".erow").remove();
+      case "me-esporta": return esportaMenu();
+      case "me-impostazioni": return apriImpostazioni();
+      case "me-chiave-rimuovi": {
+        try { localStorage.removeItem(TOKEN_KEY); } catch {}
+        chiudiFinestra(null);
+        toast("Chiave rimossa da questo dispositivo");
+        if (route().view === "menu") viewMenu();
+        return;
+      }
+    }
+  });
+
+  /* ---------- Azioni ---------- */
+  document.addEventListener("click", async (e) => {
+    const b = e.target.closest("[data-action]");
+    if (!b) return;
+    const a = b.dataset.action;
+    const r = route();
+    const t = r.view === "tavolo" ? tavoloById(r.id) : null;
+    const riga = t && b.dataset.riga ? t.righe.find((x) => x.id === b.dataset.riga) : null;
+    const pay = ui.pagamento && t && ui.pagamento.id === t.id ? ui.pagamento.sel : null;
+
+    switch (a) {
+      case "chiudi-finestra": return chiudiFinestra(null);
+      case "finestra-ok": return chiudiFinestra(true);
+      case "slide": mostraSlide(+b.dataset.i); return avviaSlide();
+      case "aggiorna": return controllaAggiornamenti();
+      case "installa": return installa();
+      case "nuovo-tavolo": return nuovoTavolo();
+      case "apri-tavolo": location.hash = "#tavolo/" + encodeURIComponent(b.dataset.id); return;
+    }
+    if (!t) return;
+
+    switch (a) {
+      case "acc": {
+        ui.apriGruppo = ui.apriGruppo === b.dataset.g ? null : b.dataset.g;
+        const g = gruppi().find((x) => x.id === ui.apriGruppo);
+        ui.apriCat = g && g.categorie.length > 1 ? null : ui.apriCat;
+        listaPicker(t);
+        const el = document.getElementById("acc-" + ui.apriGruppo);
+        if (el) el.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        return;
+      }
+      case "acc-cat":
+        ui.apriCat = ui.apriCat === b.dataset.c ? null : b.dataset.c;
+        ui.apriVoce = null;
+        return listaPicker(t);
+      case "acc-voce":
+        ui.apriVoce = ui.apriVoce === b.dataset.id ? null : b.dataset.id;
+        return listaPicker(t);
+
+      case "aggiungi": {
+        const d = drinkById(b.dataset.id);
+        if (!d) return;
+        const i = b.dataset.v === "" || b.dataset.v == null ? null : +b.dataset.v;
+        if (i == null && d.varianti && d.varianti.length) return sceltaVariante(d);
+        const prezzo = i == null ? d.prezzo : varPrezzo(d, d.varianti[i]);
+        aggiungiRiga(t, { drinkId: d.id, nome: nomeRiga(d, i), prezzoCent: cent(prezzo) });
+        const nb = document.querySelector(`.pbtn[data-id="${CSS.escape(d.id)}"][data-v="${i == null ? "" : i}"]`);
+        if (nb) { nb.classList.add("flash"); setTimeout(() => nb.classList.remove("flash"), 250); }
+        toast(`+ ${nomeRiga(d, i)}`);
+        return;
+      }
+
+      case "aggiungi-var": {
+        const d = drinkById(b.dataset.id);
+        const v = d && d.varianti[+b.dataset.i];
+        if (!v) return;
+        const nome = `${d.nome} · ${varNome(v)}`;
+        chiudiFinestra(null);
+        aggiungiRiga(t, { drinkId: d.id, nome, prezzoCent: cent(varPrezzo(d, v)) });
+        toast(`+ ${nome}`);
+        return;
+      }
+
+      case "voce-libera": {
+        const v = await chiedi({
+          titolo: "Voce libera",
+          campi: [
+            { name: "nome", label: "Descrizione", placeholder: "es. Shot speciale, Torta…" },
+            { name: "prezzo", label: "Prezzo (€)", placeholder: "es. 3,50", inputmode: "decimal" },
+          ],
+          ok: "Aggiungi",
+          valida: (v) => {
+            if (!v.nome.trim()) return "Scrivi una descrizione.";
+            const p = parseFloat(v.prezzo.replace(",", "."));
+            if (!(p >= 0)) return "Prezzo non valido.";
+          },
+        });
+        if (!v) return;
+        return aggiungiRiga(t, { nome: v.nome.trim(), prezzoCent: Math.round(parseFloat(v.prezzo.replace(",", ".")) * 100) });
+      }
+
+      case "inc": if (riga) { riga.qty++; salva(); aggiornaTavolo(t); } return;
+      case "dec":
+        if (!riga) return;
+        riga.qty--;
+        if (riga.qty <= 0) t.righe = t.righe.filter((x) => x !== riga);
+        salva(); aggiornaTavolo(t);
+        return;
+
+      case "rinomina": {
+        const v = await chiedi({
+          titolo: "Rinomina tavolo",
+          campi: [{ name: "nome", label: "Nome del tavolo", value: t.nome }],
+          ok: "Salva",
+          valida: (v) => validaNome(v.nome, t.id),
+        });
+        if (!v) return;
+        t.nome = v.nome.trim(); salva();
+        $("#tNome").textContent = t.nome;
+        return;
+      }
+
+      case "pane":
+        ui.pane = b.dataset.pane; aggiornaTavolo(t); window.scrollTo(0, 0);
+        return;
+
+      case "paga-separato": ui.pagamento = { id: t.id, sel: {} }; return aggiornaTavolo(t);
+      case "pay-annulla": ui.pagamento = null; return aggiornaTavolo(t);
+      case "pay-inc": if (pay && riga) { pay[riga.id] = Math.min(riga.qty, (pay[riga.id] || 0) + 1); aggiornaTavolo(t); } return;
+      case "pay-dec": if (pay && riga) { pay[riga.id] = Math.max(0, (pay[riga.id] || 0) - 1); aggiornaTavolo(t); } return;
+      case "pay-riga": if (pay && riga) { pay[riga.id] = pay[riga.id] === riga.qty ? 0 : riga.qty; aggiornaTavolo(t); } return;
+      case "pay-tutto": if (pay) { t.righe.forEach((x) => (pay[x.id] = x.qty)); aggiornaTavolo(t); } return;
+
+      case "pay-conferma": {
+        if (!pay) return;
+        const incassato = t.righe.reduce((s, x) => s + (pay[x.id] || 0) * x.prezzoCent, 0);
+        t.righe.forEach((x) => (x.qty -= pay[x.id] || 0));
+        t.righe = t.righe.filter((x) => x.qty > 0);
+        ui.pagamento = null;
+        salva(); aggiornaTavolo(t);
+        toast(`Incassati ${euro(incassato)}`);
+        if (!t.righe.length) {
+          const ok = await conferma({ titolo: "Tavolo saldato", testo: `<b>${esc(t.nome)}</b> ha pagato tutto. Vuoi chiudere il tavolo?`, ok: "Chiudi tavolo" });
+          if (ok) eliminaTavolo(t);
+        }
+        return;
+      }
+
+      case "chiudi-tavolo": {
+        const tot = totale(t);
+        const ok = await conferma({
+          titolo: `Chiudere «${t.nome}»?`,
+          testo: tot
+            ? `Il tavolo verrà eliminato con tutti gli ordini.<br>Totale da incassare: <b style="color:var(--text)">${euro(tot)}</b>`
+            : "Il tavolo verrà eliminato.",
+          ok: tot ? `Pagato ${euro(tot)} · Chiudi` : "Chiudi tavolo",
+          pericolo: true,
+        });
+        if (ok) eliminaTavolo(t);
+        return;
+      }
+    }
+  });
+
+  function eliminaTavolo(t) {
+    tavoli = tavoli.filter((x) => x.id !== t.id);
+    salva();
+    toast(`Tavolo «${t.nome}» chiuso`);
+    location.hash = "#tavoli";
+  }
+
+  // Aggiorna i tempi "aperto da…" ogni 30 secondi
+  setInterval(() => {
+    if ($("#overlay").classList.contains("open")) return;
+    const r = route();
+    if (r.view === "tavoli") viewTavoli();
+    if (r.view === "tavolo") { const t = tavoloById(r.id); const el = $("#tSince"); if (t && el) el.textContent = tempo(t.creato); }
+  }, 30000);
+
+  /* ---------- Installazione sul computer (icona nel menu Start, sul desktop e nella barra) ---------- */
+  let richiestaInstalla = null;
+  function installata() {
+    return matchMedia("(display-mode: standalone)").matches || matchMedia("(display-mode: window-controls-overlay)").matches || navigator.standalone === true;
+  }
+  function mostraInstalla() { document.querySelectorAll("[data-action='installa']").forEach((b) => (b.hidden = installata())); }
+  window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); richiestaInstalla = e; mostraInstalla(); });
+  window.addEventListener("appinstalled", () => {
+    richiestaInstalla = null;
+    toast("App installata: la trovi nel menu Start e sul desktop");
+  });
+  matchMedia("(display-mode: standalone)").addEventListener("change", mostraInstalla);
+  async function installa() {
+    if (richiestaInstalla) {
+      const r = richiestaInstalla;
+      richiestaInstalla = null;
+      r.prompt();
+      try { await r.userChoice; } catch {}
+      return;
+    }
+    // Il browser non offre l'installazione diretta (Firefox, Safari, oppure app già installata): spiega come fare
+    const ua = navigator.userAgent;
+    const edge = /Edg\//.test(ua), chrome = /Chrome\//.test(ua) && !edge, safari = /Safari\//.test(ua) && !/Chrome|Chromium|Edg/.test(ua);
+    let passi;
+    if (edge) passi = `<li>In alto a destra clicca <b>⋯</b> → <b>App</b> → <b>Installa questo sito come app</b>.</li>
+        <li>Clicca <b>Installa</b>. Spunta <b>Aggiungi al desktop</b> e <b>Aggiungi alla barra delle applicazioni</b>.</li>`;
+    else if (chrome) passi = `<li>Nella barra dell'indirizzo, a destra, clicca l'icona <b>Installa</b> (uno schermo con la freccia).</li>
+        <li>Se non c'è: menu <b>⋮</b> → <b>Trasmetti, salva e condividi</b> → <b>Installa pagina come app…</b></li>
+        <li>Clicca <b>Installa</b>.</li>`;
+    else if (safari) passi = `<li>Menu <b>File</b> → <b>Aggiungi al Dock</b>.</li><li>Clicca <b>Aggiungi</b>.</li>`;
+    else passi = `<li>Questo browser non installa app. Apri questo indirizzo con <b>Microsoft Edge</b> o <b>Google Chrome</b>:<br><b>${esc(location.href.split("#")[0])}</b></li>
+        <li>Poi clicca di nuovo <b>Installa app</b>.</li>`;
+    messaggio("Installa l'app", `Così il Reef Staff si apre in una finestra sua, con il logo nel menu Start, sul desktop e nella barra delle applicazioni,
+      e funziona anche senza internet.<ol class="passi">${passi}</ol>
+      <span style="display:block;margin-top:10px">Se è già installata, aprila dall'icona <b>Reef Staff</b>.</span>`);
+  }
+
+  /* ---------- Pulsante «Aggiorna»: controlla subito app e menu ---------- */
+  let aggiornandoApp = false, controlloInCorso = false;
+  function messaggio(titolo, testo) {
+    apriFinestra(`
+      <div class="dlg">
+        <h3>${esc(titolo)}</h3>
+        <p>${testo}</p>
+        <div class="dlg-actions"><button class="btn primary" data-action="chiudi-finestra">OK</button></div>
+      </div>`, true);
+  }
+  async function nuovaVersioneApp() {
+    // se l'app non era ancora installata non c'è niente da aggiornare (si sta solo salvando per l'offline)
+    if (!("serviceWorker" in navigator) || !navigator.serviceWorker.controller) return false;
+    const reg = await navigator.serviceWorker.getRegistration();
+    if (!reg) return false;
+    await reg.update();
+    const sw = reg.installing || reg.waiting;
+    if (!sw) return false;
+    // aspetta che la nuova versione sia pronta (al massimo 20 secondi)
+    await new Promise((ok) => {
+      if (sw.state === "activated") return ok();
+      const t = setTimeout(ok, 20000);
+      sw.addEventListener("statechange", () => { if (sw.state === "activated") { clearTimeout(t); ok(); } });
+    });
+    return true;
+  }
+  async function controllaAggiornamenti() {
+    if (controlloInCorso) return;
+    controlloInCorso = true;
+    const btns = document.querySelectorAll(".agg-btn");
+    btns.forEach((b) => b.classList.add("gira"));
+    const fine = () => { controlloInCorso = false; btns.forEach((b) => b.classList.remove("gira")); };
+    let online = true, menuCambiato = false;
+    try {
+      const m = await scaricaMenu();
+      if (!MENU || (m.versione || "") > (MENU.versione || "")) { applicaMenu(m); menuCambiato = true; }
+    } catch { online = false; }
+    if (!online) { fine(); return messaggio("Nessuna connessione", "Serve internet per controllare gli aggiornamenti. Riprova quando sei collegato."); }
+    let appNuova = false;
+    try { aggiornandoApp = true; appNuova = await nuovaVersioneApp(); } catch {}
+    if (appNuova) { toast("Aggiorno l'app…"); setTimeout(() => location.reload(), 600); return; }
+    aggiornandoApp = false;
+    fine();
+    if (menuCambiato) return messaggio("Menu aggiornato", "Ho caricato l'ultima versione del menu.");
+    const quando = dataMenu() ? ` Menu aggiornato il ${esc(dataMenu())}.` : "";
+    messaggio("App già aggiornata", `Hai già l'ultima versione dell'app e del menu.${quando}`);
+  }
+
+  // Avvio: si usa subito la copia del menu salvata sul dispositivo, poi si controlla se online ce n'è una nuova
+  async function avvio() {
+    if (!MENU) {
+      $("#app").innerHTML = `<div class="empty"><div class="big">🎸</div>Carico il menu…</div>`;
+      await controllaMenu();
+      if (!MENU) {
+        $("#app").innerHTML = `<div class="empty"><div class="big">📶</div>Per il primo avvio serve internet:<br>collegati e riapri l'app.</div>`;
+        return;
+      }
+    } else {
+      controllaMenu();
+    }
+    paneIniziale();
+    render();
+  }
+  avvio();
+  setInterval(controllaMenu, 2 * 60 * 1000);
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) return;
+    controllaMenu();
+    if (navigator.serviceWorker && navigator.serviceWorker.getRegistration)
+      navigator.serviceWorker.getRegistration().then((r) => r && r.update()).catch(() => {});
+  });
+
+  if ("serviceWorker" in navigator) {
+    const avevaSw = !!navigator.serviceWorker.controller;
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      if (aggiornandoApp) return location.reload();
+      if (avevaSw) mostraAvviso("app");
+    });
+    navigator.serviceWorker.register("sw.js").then((r) => r.update()).catch(() => {});
+  }
+})();
+</script>
+</body>
+</html>
