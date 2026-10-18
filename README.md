@@ -1,4 +1,4 @@
-<p align="center">
+zzi di tutto quandto e <p align="center">
   <img src="docs/logo.png" width="150" alt="Reef Staff">
 </p>
 
@@ -61,13 +61,13 @@ Le foto del locale scorrono dietro il logo. Sotto ci sono i due riquadri: **Tavo
 L'app propone già il primo nome libero (*Tavolo 1*, *Tavolo 2*…): premi **Invio** oppure scrivi il nome che vuoi (*Bancone*, *Esterno 2*…).
 
 ### 3. Segna cosa prendono
-A destra c'è il menu diviso in gruppi: **Cocktail & Long drink**, **Birre**, **Vini & Bollicine**, **Shot, Amari & Distillati**,
-**Analcolici & Caffè**, **Cucina & Stuzzicheria**, **Paninoteca**. Clicca un prodotto e si aggiunge all'ordine: **il totale si aggiorna da solo**.
+A destra c'è il menu diviso in gruppi come il menu cartaceo: **Aperitivi**, **Cocktail**, **Birre**, **Vini & Bollicine**,
+**Gin, Vodka, Rum & Whisky**, **Amari, Liquori & Shot**, **Analcolici & Caffè**, **Cucina**, **Paninoteca**. Clicca un prodotto e si aggiunge all'ordine: **il totale si aggiorna da solo**.
 Con **−** e **+** cambi le quantità.
 
 <p align="center"><img src="docs/screenshots/pc-tavolo.jpg" width="720" alt="Ordine del tavolo"></p>
 
-**Il modo più veloce, con la tastiera:** appena apri un tavolo puoi già scrivere. Scrivi *aperol*, *media*, *nirvana*, *patatine*…
+**Il modo più veloce, con la tastiera:** appena apri un tavolo puoi già scrivere. Scrivi *spritz*, *loburg*, *nirvana*, *patatine*…
 e premi **Invio** per aggiungere il primo risultato. Il tasto **/** riporta il cursore nella ricerca.
 
 Per i **panini** si sceglie il formato: **Panino**, **Piadina** o **Focaccia**, ognuno col suo prezzo (anche con i tasti **1**, **2**, **3**).
@@ -135,11 +135,13 @@ No, ogni modifica viene salvata subito nella cartella `dati`.
 L'app si può aprire una volta sola (due finestre si sovrascriverebbero i tavoli): cercala sulla barra delle applicazioni.
 
 **Come aggiorno l'app a una versione nuova?**
-Scarica di nuovo lo ZIP e sostituisci solo il file `Reef Staff.exe`. La cartella `dati` resta com'è.
+Scarica di nuovo lo ZIP e sostituisci solo il file `Reef Staff.exe`. La cartella `dati` resta com'è: i tavoli aperti non si perdono.
+Se la versione nuova porta un **menu nuovo**, questo prende il posto di quello modificato dall'app
+(prima di aggiornare, se vuoi tenere le tue modifiche, fai **Menu → Scarica copia**).
 
-**I prezzi delle bevande sono giusti?**
-I prezzi della **cucina**, della **stuzzicheria** e della **paninoteca** vengono dal menu cartaceo del locale.
-Quelli delle **bevande** sono indicativi (il listino non è pubblicato online): controllali e correggili dalla scheda **Menu**.
+**Da dove vengono voci e prezzi?**
+Dal menu cartaceo del locale: aperitivi, cocktail, birre, vini, distillati, amari, analcolici, cucina e paninoteca.
+L'**acqua** non è nel cartaceo: è stata lasciata a 1,50 €, controlla il prezzo.
 
 ---
 

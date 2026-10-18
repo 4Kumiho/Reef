@@ -15,8 +15,9 @@ QtObject {
         foto: ["img/bancone.jpg", "img/sala.jpg", "img/spine.jpg", "img/sala-rossa.jpg",
                "img/bancone-2.jpg", "img/divanetti.jpg", "img/corridoio.jpg", "img/sala-2.jpg"]
     })
-    // versione del primo menu: prima di una modifica dall'app non si mostra "aggiornato il…"
-    readonly property string menuIniziale: "2026-10-18T04:00:00.000Z"
+    // versione del menu incluso nell'app (desktop/assets/menu.json): prima di una modifica
+    // dall'app non si mostra "aggiornato il…"
+    property string menuIniziale: ""
 
     property var menu: ({ gruppi: [], categorie: [], drinks: [] })
     property var tavoli: []
@@ -78,9 +79,13 @@ QtObject {
     /* ---------- Avvio e salvataggio ---------- */
     function menuValido(m) { return !!(m && Array.isArray(m.categorie) && Array.isArray(m.drinks)) }
     function avvia() {
+        const predefinito = JSON.parse(backend.menuPredefinito());
+        menuIniziale = predefinito.versione || "";
         let m = null;
         try { m = JSON.parse(backend.leggi("menu") || "null") } catch (e) {}
-        if (!menuValido(m)) m = JSON.parse(backend.menuPredefinito());
+        // il menu salvato vale solo se deriva dal menu incluso in questa versione dell'app (campo «base»):
+        // così un aggiornamento dell'app con un menu nuovo lo porta anche sul computer del bar
+        if (!menuValido(m) || m.base !== menuIniziale) m = predefinito;
         menu = m;
         let t = [];
         try { t = JSON.parse(backend.leggi("tavoli") || "[]") } catch (e) {}
@@ -94,6 +99,7 @@ QtObject {
     // salva il menu nel file locale; restituisce un messaggio d'errore oppure ""
     function salvaMenu(nuovo) {
         nuovo.versione = new Date().toISOString();
+        nuovo.base = menuIniziale;
         if (!backend.scrivi("menu", JSON.stringify(nuovo, null, 2) + "\n"))
             return "Salvataggio non riuscito: la cartella dei dati non è scrivibile.";
         menu = nuovo;
@@ -102,7 +108,7 @@ QtObject {
     }
     function dataMenu() {
         const v = menu && menu.versione;
-        if (!v || v <= menuIniziale) return "";
+        if (!v || v === menuIniziale) return "";
         return Qt.locale("it_IT").toString(new Date(v), "d MMMM 'alle' HH:mm");
     }
 
@@ -277,7 +283,7 @@ QtObject {
     }
     function aggiungiVariante(d, i) {
         const t = tavolo();
-        const v = d && d.varianti[i];
+        const v = d && d.varianti && d.varianti[i];
         if (!t || !v) return;
         const nome = d.nome + " · " + varNome(v);
         Ui.chiudi(null);

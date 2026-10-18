@@ -1,48 +1,77 @@
 {
-  "versione": "2026-10-18T04:00:00.000Z",
+  "versione": "2026-10-18T20:45:00.000Z",
   "gruppi": [
     {
-      "id": "drink",
-      "nome": "Cocktail & Long drink",
+      "id": "aperitivi-g",
+      "nome": "Aperitivi",
       "categorie": [
+        "aperitivi"
+      ]
+    },
+    {
+      "id": "cocktail-g",
+      "nome": "Cocktail",
+      "categorie": [
+        "novita",
         "cocktail",
-        "gin"
+        "vintage"
       ]
     },
     {
       "id": "birre",
       "nome": "Birre",
       "categorie": [
-        "birre"
+        "spina",
+        "bottiglia"
       ]
     },
     {
       "id": "vini",
       "nome": "Vini & Bollicine",
       "categorie": [
-        "vini"
+        "rossi",
+        "bianchi",
+        "bollicine"
       ]
     },
     {
-      "id": "amari",
-      "nome": "Shot, Amari & Distillati",
+      "id": "distillati",
+      "nome": "Gin, Vodka, Rum & Whisky",
       "categorie": [
-        "amari"
+        "gin",
+        "vodka",
+        "rum",
+        "whisky"
+      ]
+    },
+    {
+      "id": "amari-g",
+      "nome": "Amari, Liquori & Shot",
+      "categorie": [
+        "amari",
+        "liquori",
+        "grappe",
+        "shots"
       ]
     },
     {
       "id": "analcolici",
       "nome": "Analcolici & Caffè",
       "categorie": [
-        "analcolici"
+        "caffetteria",
+        "bibite",
+        "aperitivi-analcolici",
+        "cocktail-analcolici"
       ]
     },
     {
       "id": "cucina-g",
-      "nome": "Cucina & Stuzzicheria",
+      "nome": "Cucina",
       "categorie": [
         "cucina",
-        "stuzzicheria"
+        "stuzzicheria",
+        "gastronomia",
+        "dolci"
       ]
     },
     {
@@ -56,28 +85,88 @@
   ],
   "categorie": [
     {
+      "id": "aperitivi",
+      "nome": "Aperitivi"
+    },
+    {
+      "id": "novita",
+      "nome": "Novità"
+    },
+    {
       "id": "cocktail",
       "nome": "Cocktail"
     },
     {
+      "id": "vintage",
+      "nome": "Cocktail vintage"
+    },
+    {
+      "id": "spina",
+      "nome": "Alla spina"
+    },
+    {
+      "id": "bottiglia",
+      "nome": "In bottiglia"
+    },
+    {
+      "id": "rossi",
+      "nome": "Rossi"
+    },
+    {
+      "id": "bianchi",
+      "nome": "Bianchi"
+    },
+    {
+      "id": "bollicine",
+      "nome": "Bollicine"
+    },
+    {
       "id": "gin",
-      "nome": "Gin & Vodka"
+      "nome": "Gin"
     },
     {
-      "id": "birre",
-      "nome": "Birre"
+      "id": "vodka",
+      "nome": "Vodka"
     },
     {
-      "id": "vini",
-      "nome": "Vini & Bollicine"
+      "id": "rum",
+      "nome": "Rum"
+    },
+    {
+      "id": "whisky",
+      "nome": "Whisky"
     },
     {
       "id": "amari",
-      "nome": "Shot, Amari & Distillati"
+      "nome": "Amari"
     },
     {
-      "id": "analcolici",
-      "nome": "Analcolici & Caffè"
+      "id": "liquori",
+      "nome": "Liquori"
+    },
+    {
+      "id": "grappe",
+      "nome": "Grappe"
+    },
+    {
+      "id": "shots",
+      "nome": "Shots"
+    },
+    {
+      "id": "caffetteria",
+      "nome": "Caffetteria"
+    },
+    {
+      "id": "bibite",
+      "nome": "Bibite & Succhi"
+    },
+    {
+      "id": "aperitivi-analcolici",
+      "nome": "Aperitivi analcolici"
+    },
+    {
+      "id": "cocktail-analcolici",
+      "nome": "Cocktail analcolici"
     },
     {
       "id": "cucina",
@@ -86,6 +175,14 @@
     {
       "id": "stuzzicheria",
       "nome": "Stuzzicheria"
+    },
+    {
+      "id": "gastronomia",
+      "nome": "Gastronomia sotto azoto"
+    },
+    {
+      "id": "dolci",
+      "nome": "Desserts"
     },
     {
       "id": "panini",
@@ -101,123 +198,889 @@
     {
       "id": "spritz",
       "nome": "Spritz",
-      "categoria": "cocktail",
-      "prezzo": 7,
+      "categoria": "aperitivi",
+      "prezzo": 6,
       "emoji": "🍹",
-      "varianti": [
-        "Aperol",
-        "Campari",
-        "Select",
-        "Hugo"
-      ]
+      "descrizione": "Aperol, Prosecco, Soda"
     },
     {
-      "id": "negroni",
-      "nome": "Negroni",
-      "categoria": "cocktail",
-      "prezzo": 8,
-      "emoji": "🥃"
+      "id": "pirlo",
+      "nome": "Pirlo",
+      "categoria": "aperitivi",
+      "prezzo": 6,
+      "emoji": "🍹",
+      "descrizione": "Campari, Prosecco, Soda"
     },
     {
-      "id": "negroni-sbagliato",
-      "nome": "Negroni Sbagliato",
-      "categoria": "cocktail",
-      "prezzo": 8,
-      "emoji": "🍸"
+      "id": "garibaldi",
+      "nome": "Garibaldi",
+      "categoria": "aperitivi",
+      "prezzo": 6,
+      "emoji": "🍊",
+      "descrizione": "Campari, Succo di Arancia"
+    },
+    {
+      "id": "spritz-electric",
+      "nome": "Spritz Electric",
+      "categoria": "aperitivi",
+      "prezzo": 6,
+      "emoji": "🍹",
+      "descrizione": "Prosecco, Blu Curaçao, Peach Tree, Soda"
     },
     {
       "id": "americano",
       "nome": "Americano",
+      "categoria": "aperitivi",
+      "prezzo": 7,
+      "emoji": "🥃",
+      "descrizione": "Campari, Vermouth Rosso, Angostura, Soda"
+    },
+    {
+      "id": "vermuttino",
+      "nome": "Vermuttino",
+      "categoria": "aperitivi",
+      "prezzo": 7,
+      "emoji": "🍷",
+      "descrizione": "Vermouth Rosso, Lemon, Frutta Mista"
+    },
+    {
+      "id": "negroni",
+      "nome": "Negroni",
+      "categoria": "aperitivi",
+      "prezzo": 7,
+      "emoji": "🥃",
+      "descrizione": "Campari, Vermouth Rosso, Gin"
+    },
+    {
+      "id": "cardinale",
+      "nome": "Cardinale",
+      "categoria": "aperitivi",
+      "prezzo": 7,
+      "emoji": "🥃",
+      "descrizione": "Gin, Campari, Vermouth Dry"
+    },
+    {
+      "id": "sbagliato",
+      "nome": "Sbagliato",
+      "categoria": "aperitivi",
+      "prezzo": 7,
+      "emoji": "🥂",
+      "descrizione": "Campari, Vermouth Rosso, Prosecco"
+    },
+    {
+      "id": "negrosky",
+      "nome": "Negrosky",
+      "categoria": "aperitivi",
+      "prezzo": 7,
+      "emoji": "🥃",
+      "descrizione": "Campari, Vermouth Rosso, Vodka"
+    },
+    {
+      "id": "negrum",
+      "nome": "Negrum",
+      "categoria": "aperitivi",
+      "prezzo": 7,
+      "emoji": "🥃",
+      "descrizione": "Campari, Vermouth Rosso, Rum"
+    },
+    {
+      "id": "siberian",
+      "nome": "Siberian",
+      "categoria": "aperitivi",
+      "prezzo": 7,
+      "emoji": "🍸",
+      "descrizione": "Campari, Martini Bianco, Angostura, Vodka"
+    },
+    {
+      "id": "savicevic",
+      "nome": "Savicevic",
+      "categoria": "aperitivi",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "descrizione": "Aperol, Montenegro, Angostura, Prosecco, Soda"
+    },
+    {
+      "id": "rometa",
+      "nome": "Rometa",
+      "categoria": "aperitivi",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "descrizione": "Aperol, Blu Curaçao, Succo di Cranberry, Prosecco, Soda"
+    },
+    {
+      "id": "valtellinese",
+      "nome": "Valtellinese",
+      "categoria": "aperitivi",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "descrizione": "Aperol, Braulio, Angostura, Prosecco, Soda"
+    },
+    {
+      "id": "crodisland",
+      "nome": "Crodisland",
+      "categoria": "aperitivi",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "descrizione": "Vodka, Rum, Gin, Triple Sec, Sour, Crodino"
+    },
+    {
+      "id": "reef",
+      "nome": "Reef",
+      "categoria": "aperitivi",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "descrizione": "Vodka, Aperol, Succo di Arancia, Angostura"
+    },
+    {
+      "id": "reef-ii",
+      "nome": "Reef II",
+      "categoria": "aperitivi",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "descrizione": "Vodka, Aperol, Succo di Pompelmo, Angostura"
+    },
+    {
+      "id": "hugo",
+      "nome": "Hugo",
+      "categoria": "aperitivi",
+      "prezzo": 7,
+      "emoji": "🥂",
+      "descrizione": "St. Germain, Prosecco, Menta, Sciroppo di Sambuco, Soda"
+    },
+    {
+      "id": "bloody-mary",
+      "nome": "Bloody Mary",
+      "categoria": "aperitivi",
+      "prezzo": 7,
+      "emoji": "🍅",
+      "descrizione": "Vodka, Succo di Pomodoro, Sale, Pepe, Limone, Tabasco, Salsa Worcestershire"
+    },
+    {
+      "id": "bloody-maria",
+      "nome": "Bloody Maria",
+      "categoria": "aperitivi",
+      "prezzo": 7,
+      "emoji": "🍅",
+      "descrizione": "Espolon Tequila, Succo di Pomodoro, Sale, Pepe, Limone, Tabasco, Salsa Worcestershire"
+    },
+    {
+      "id": "mojito-ai-lamponi",
+      "nome": "Mojito ai Lamponi",
+      "categoria": "novita",
+      "prezzo": 8,
+      "emoji": "🍹",
+      "descrizione": "Rum Bianco, Lime, Zucchero di Canna, Menta, Soda, Succo ai Lamponi (fatto da noi)"
+    },
+    {
+      "id": "mojito-alla-fragola",
+      "nome": "Mojito alla Fragola",
+      "categoria": "novita",
+      "prezzo": 8,
+      "emoji": "🍓",
+      "descrizione": "Rum Bianco, Lime, Zucchero di Canna, Menta, Soda, Succo alla Fragola (fatto da noi)"
+    },
+    {
+      "id": "mojito-alle-more",
+      "nome": "Mojito alle More",
+      "categoria": "novita",
+      "prezzo": 8,
+      "emoji": "🍹",
+      "descrizione": "Rum Bianco, Lime, Zucchero di Canna, Menta, Soda, Succo alle More (fatto da noi)"
+    },
+    {
+      "id": "mojito-passion",
+      "nome": "Mojito Passion",
+      "categoria": "novita",
+      "prezzo": 8,
+      "emoji": "🍹",
+      "descrizione": "Rum Bianco, Passoã, Lime, Zucchero di Canna, Menta, Soda"
+    },
+    {
+      "id": "red-passion",
+      "nome": "Red Passion",
+      "categoria": "novita",
+      "prezzo": 8,
+      "emoji": "🍸",
+      "descrizione": "Gin, Passoã, Lime, Succo ai Lamponi"
+    },
+    {
+      "id": "caipirina-ai-lamponi",
+      "nome": "Caipiriña ai Lamponi",
+      "categoria": "novita",
+      "prezzo": 8,
+      "emoji": "🍹",
+      "descrizione": "Cachaça, Lime, Zucchero di Canna, Succo ai Lamponi (fatto da noi)"
+    },
+    {
+      "id": "caipirina-alla-fragola",
+      "nome": "Caipiriña alla Fragola",
+      "categoria": "novita",
+      "prezzo": 8,
+      "emoji": "🍓",
+      "descrizione": "Cachaça, Lime, Zucchero di Canna, Succo alla Fragola (fatto da noi)"
+    },
+    {
+      "id": "caipirina-alle-more",
+      "nome": "Caipiriña alle More",
+      "categoria": "novita",
+      "prezzo": 8,
+      "emoji": "🍹",
+      "descrizione": "Cachaça, Lime, Zucchero di Canna, Succo alle More (fatto da noi)"
+    },
+    {
+      "id": "caipiroska-passion",
+      "nome": "Caipiroska Passion",
+      "categoria": "novita",
+      "prezzo": 8,
+      "emoji": "🍹",
+      "descrizione": "Cachaça, Passoã, Lime, Zucchero di Canna, Succo all'Ananas"
+    },
+    {
+      "id": "cuba-libre",
+      "nome": "Cuba Libre",
       "categoria": "cocktail",
       "prezzo": 7,
-      "emoji": "🥃"
+      "emoji": "🥃",
+      "descrizione": "Rum, Coca Cola"
+    },
+    {
+      "id": "gin-tonic",
+      "nome": "Gin Tonic",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍸",
+      "descrizione": "Gin, Acqua Tonica"
+    },
+    {
+      "id": "gin-lemon",
+      "nome": "Gin Lemon",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍋",
+      "descrizione": "Gin, Lemon Soda"
+    },
+    {
+      "id": "vodka-tonic",
+      "nome": "Vodka Tonic",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍸",
+      "descrizione": "Vodka, Acqua Tonica"
+    },
+    {
+      "id": "vodka-lemon",
+      "nome": "Vodka Lemon",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍋",
+      "descrizione": "Vodka, Lemon Soda"
+    },
+    {
+      "id": "screwdriver",
+      "nome": "Screwdriver",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍊",
+      "descrizione": "Vodka, Succo di Arancia"
+    },
+    {
+      "id": "salty-dog",
+      "nome": "Salty Dog",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍸",
+      "descrizione": "Vodka, Succo di Pompelmo"
+    },
+    {
+      "id": "sea-breeze",
+      "nome": "Sea Breeze",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "descrizione": "Vodka, Succo di Pompelmo, Succo di Cranberry"
+    },
+    {
+      "id": "vodka-sour",
+      "nome": "Vodka Sour",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍸",
+      "descrizione": "Vodka, Sour"
+    },
+    {
+      "id": "whiskey-sour",
+      "nome": "Whiskey Sour",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🥃",
+      "descrizione": "Whiskey Wild Turkey, Sour"
+    },
+    {
+      "id": "gin-fizz",
+      "nome": "Gin Fizz",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍸",
+      "descrizione": "Gin, Sour"
+    },
+    {
+      "id": "tequila-sunrise",
+      "nome": "Tequila Sunrise",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "descrizione": "Tequila, Succo d'Arancia, Granatina"
+    },
+    {
+      "id": "paloma",
+      "nome": "Paloma",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "descrizione": "Espolon Tequila, Succo di Lime, Tonica al Pompelmo Rosa"
+    },
+    {
+      "id": "whiskey-cola",
+      "nome": "Whiskey Cola",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🥃",
+      "descrizione": "Whiskey Wild Turkey, Coca Cola"
     },
     {
       "id": "moscow-mule",
       "nome": "Moscow Mule",
       "categoria": "cocktail",
-      "prezzo": 8,
-      "emoji": "🍸"
+      "prezzo": 7,
+      "emoji": "🍸",
+      "descrizione": "Vodka, Succo di Limone, Ginger Beer"
+    },
+    {
+      "id": "dark-n-stormy",
+      "nome": "Dark'n Stormy",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🥃",
+      "descrizione": "Rum Scuro, Succo di Limone, Ginger Beer"
+    },
+    {
+      "id": "london-mule",
+      "nome": "London Mule",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍸",
+      "descrizione": "Gin, Succo di Limone, Ginger Beer"
+    },
+    {
+      "id": "mamie-taylor",
+      "nome": "Mamie Taylor",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🥃",
+      "descrizione": "Scotch Whiskey, Succo di Lime, Ginger Beer"
+    },
+    {
+      "id": "cape-codder",
+      "nome": "Cape Codder",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "descrizione": "Vodka, Succo di Cranberry, Lime"
+    },
+    {
+      "id": "italian-ice-tea",
+      "nome": "Italian Ice Tea",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "descrizione": "Vodka, Rum, Gin, Disaronno, Sour, Coca Cola"
+    },
+    {
+      "id": "texas-ice-tea",
+      "nome": "Texas Ice Tea",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "descrizione": "Vodka, Rum, Gin, Tequila, Tabasco, Sour, Coca Cola"
+    },
+    {
+      "id": "mother-f-er-ice-tea",
+      "nome": "Mother F***er Ice Tea",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "descrizione": "Vodka, Rum, Gin, Triple Sec, Jack Daniel's, Sour, Coca Cola"
+    },
+    {
+      "id": "london-ice-tea",
+      "nome": "London Ice Tea",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "descrizione": "Vodka, Rum, Gin, Triple Sec, Sour, Birra"
+    },
+    {
+      "id": "long-island-ice-tea",
+      "nome": "Long Island Ice Tea",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "descrizione": "Vodka, Rum, Gin, Triple Sec, Sour, Coca Cola"
+    },
+    {
+      "id": "long-beach-ice-tea",
+      "nome": "Long Beach Ice Tea",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "descrizione": "Vodka, Rum, Gin, Triple Sec, Sour, Succo di Cranberry"
+    },
+    {
+      "id": "japan-ice-tea",
+      "nome": "Japan Ice Tea",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "descrizione": "Vodka, Rum, Gin, Midori, Sour, Lemon Soda"
+    },
+    {
+      "id": "miami-vice-ice-tea",
+      "nome": "Miami Vice Ice Tea",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "descrizione": "Vodka, Rum, Gin, Blu Curaçao, Sour, Lemon Soda"
+    },
+    {
+      "id": "green-lizard",
+      "nome": "Green Lizard",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "descrizione": "Rum, Midori, Succo d'Ananas, Lemon Soda"
+    },
+    {
+      "id": "fernando",
+      "nome": "Fernando",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🥃",
+      "descrizione": "Fernet, Coca Cola"
+    },
+    {
+      "id": "whiskey-ale",
+      "nome": "Whiskey Ale",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🥃",
+      "descrizione": "Whiskey Wild Turkey, Ginger Ale"
+    },
+    {
+      "id": "amarange",
+      "nome": "Amarange",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍊",
+      "descrizione": "Amaretto Disaronno, Succo d'Arancia"
+    },
+    {
+      "id": "purple-haze",
+      "nome": "Purple Haze",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍸",
+      "descrizione": "Vodka, Liquore alla Violetta, Sour, Lemon Soda"
+    },
+    {
+      "id": "agua-de-valencia",
+      "nome": "Agua de Valencia",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🥂",
+      "descrizione": "Vodka, Gin, Succo d'Arancia, Prosecco"
+    },
+    {
+      "id": "sex-on-the-beach",
+      "nome": "Sex on the Beach",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "descrizione": "Vodka, Peach Tree, Succo d'Arancia, Cranberry"
+    },
+    {
+      "id": "f-k-on-the-beach",
+      "nome": "F**k on the Beach",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "descrizione": "Vodka, Peach Tree, Midori, Succo d'Ananas, Cranberry"
+    },
+    {
+      "id": "fausto",
+      "nome": "Faustò",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "descrizione": "Vecchia Romagna, Succo di Limone, Tamarindo, Tassoni"
+    },
+    {
+      "id": "campari-passion",
+      "nome": "Campari Passion",
+      "categoria": "cocktail",
+      "prezzo": 7,
+      "emoji": "🍹",
+      "descrizione": "Campari, Arancia, Zucchero di Canna, Succo di Arancia"
     },
     {
       "id": "mojito",
       "nome": "Mojito",
       "categoria": "cocktail",
       "prezzo": 8,
-      "emoji": "🍹"
+      "emoji": "🍹",
+      "descrizione": "Rum Bianco, Lime, Zucchero di Canna, Menta, Soda"
+    },
+    {
+      "id": "mojito-fidel",
+      "nome": "Mojito Fidel",
+      "categoria": "cocktail",
+      "prezzo": 8,
+      "emoji": "🍹",
+      "descrizione": "Rum Bianco, Birra, Lime, Zucchero di Canna, Menta, Tabasco"
+    },
+    {
+      "id": "black-mojito",
+      "nome": "Black Mojito",
+      "categoria": "cocktail",
+      "prezzo": 8,
+      "emoji": "🍹",
+      "descrizione": "Rum Bianco, Liquore Liquirizia, Lime, Zucchero di Canna, Menta, Tabasco"
+    },
+    {
+      "id": "cuba-pestato",
+      "nome": "Cuba Pestato",
+      "categoria": "cocktail",
+      "prezzo": 8,
+      "emoji": "🥃",
+      "descrizione": "Rum Bianco, Coca Cola, Lime, Zucchero di Canna"
+    },
+    {
+      "id": "caipiroska",
+      "nome": "Caipiroska",
+      "categoria": "cocktail",
+      "prezzo": 8,
+      "emoji": "🍹",
+      "descrizione": "Vodka, Lime, Zucchero di Canna, Soda"
     },
     {
       "id": "caipirinha",
       "nome": "Caipirinha",
       "categoria": "cocktail",
       "prezzo": 8,
-      "emoji": "🍹"
+      "emoji": "🍹",
+      "descrizione": "Cachaça, Lime, Zucchero di Canna, Soda"
     },
     {
-      "id": "cuba-libre",
-      "nome": "Cuba Libre",
+      "id": "caipirissima",
+      "nome": "Caipirissima",
       "categoria": "cocktail",
       "prezzo": 8,
-      "emoji": "🥃"
+      "emoji": "🍹",
+      "descrizione": "Rum Bianco, Lime, Zucchero di Canna, Soda"
     },
     {
-      "id": "long-island",
-      "nome": "Long Island",
+      "id": "caipirilla",
+      "nome": "Caipirilla",
       "categoria": "cocktail",
+      "prezzo": 8,
+      "emoji": "🍹",
+      "descrizione": "Tequila, Lime, Zucchero di Canna, Soda"
+    },
+    {
+      "id": "caipirizia",
+      "nome": "Caipirizia",
+      "categoria": "cocktail",
+      "prezzo": 8,
+      "emoji": "🍹",
+      "descrizione": "Vodka, Liquore Liquirizia, Lime, Zucchero di Canna, Soda"
+    },
+    {
+      "id": "caipirotto",
+      "nome": "Caipirotto",
+      "categoria": "cocktail",
+      "prezzo": 8,
+      "emoji": "🍹",
+      "descrizione": "Montenegro, Lime, Zucchero di Canna, Soda"
+    },
+    {
+      "id": "cranberry-special",
+      "nome": "Cranberry Special",
+      "categoria": "cocktail",
+      "prezzo": 8,
+      "emoji": "🍹",
+      "descrizione": "Gin, Lime, Zucchero di Canna, Succo di Cranberry"
+    },
+    {
+      "id": "rum-cooler",
+      "nome": "Rum Cooler",
+      "categoria": "cocktail",
+      "prezzo": 8,
+      "emoji": "🍹",
+      "descrizione": "Rum Bianco, Lime, Arancia, Zucchero di Canna, Angostura, Ginger Ale"
+    },
+    {
+      "id": "bourb-on-the-usa",
+      "nome": "Bourb-on the USA",
+      "categoria": "cocktail",
+      "prezzo": 8,
+      "emoji": "🥃",
+      "descrizione": "Wild Turkey Bourbon, Succo di Lime, Ginger Ale"
+    },
+    {
+      "id": "pina-colada",
+      "nome": "Piña Colada",
+      "categoria": "cocktail",
+      "prezzo": 8,
+      "emoji": "🍍",
+      "descrizione": "Rum, Batida de Cocco, Succo d'Ananas, Sciroppo di Cocco"
+    },
+    {
+      "id": "black-russian",
+      "nome": "Black Russian",
+      "categoria": "cocktail",
+      "prezzo": 8,
+      "emoji": "🥃",
+      "descrizione": "Vodka, Kahlúa"
+    },
+    {
+      "id": "bronx",
+      "nome": "Bronx",
+      "categoria": "vintage",
       "prezzo": 9,
-      "emoji": "🍹"
-    },
-    {
-      "id": "espresso-martini",
-      "nome": "Espresso Martini",
-      "categoria": "cocktail",
-      "prezzo": 8,
-      "emoji": "🍸"
-    },
-    {
-      "id": "gin-tonic",
-      "nome": "Gin Tonic",
-      "categoria": "gin",
-      "prezzo": 8,
       "emoji": "🍸",
+      "descrizione": "Vermouth Dry, Vermouth Rosso, Gin Bulldog, Succo d'Arancia"
+    },
+    {
+      "id": "manhattan",
+      "nome": "Manhattan",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🍸",
+      "descrizione": "Vermouth Rosso, Wild Turkey Rye Whiskey, Angostura"
+    },
+    {
+      "id": "martini-cocktail",
+      "nome": "Martini Cocktail",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🍸",
+      "descrizione": "Vermouth Dry, Gin Bulldog, Scorza di Limone"
+    },
+    {
+      "id": "vodka-martini",
+      "nome": "Vodka Martini",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🍸",
+      "descrizione": "Vermouth Dry, Vodka, Scorza di Limone"
+    },
+    {
+      "id": "martini-perfect",
+      "nome": "Martini Perfect",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🍸",
+      "descrizione": "Gin Bulldog, Vermouth Dry, Vermouth Rosso, Scorza d'Arancia"
+    },
+    {
+      "id": "vesper-martini",
+      "nome": "Vesper Martini",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🍸",
+      "descrizione": "Gin Bulldog, Vodka, Lillet Blanc"
+    },
+    {
+      "id": "boulevardier",
+      "nome": "Boulevardier",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🥃",
+      "descrizione": "Campari, Vermouth Rosso, Wild Turkey Bourbon"
+    },
+    {
+      "id": "japanese-slipper",
+      "nome": "Japanese Slipper",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🍸",
+      "descrizione": "Triple Sec, Midori, Succo di Limone"
+    },
+    {
+      "id": "old-fashioned",
+      "nome": "Old Fashioned",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🥃",
+      "descrizione": "Wild Turkey Bourbon, Zucchero, Angostura, Soda"
+    },
+    {
+      "id": "margarita",
+      "nome": "Margarita",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🍸",
+      "descrizione": "Tequila Espolon, Cointreau, Succo di Limone"
+    },
+    {
+      "id": "sidecar",
+      "nome": "Sidecar",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🍸",
+      "descrizione": "Cognac, Cointreau, Succo di Limone"
+    },
+    {
+      "id": "sazerac",
+      "nome": "Sazerac",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🥃",
+      "descrizione": "Cognac, Zucchero, Peychaud's Bitter, Assenzio"
+    },
+    {
+      "id": "aviation",
+      "nome": "Aviation",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🍸",
+      "descrizione": "Gin Bulldog, Liquore alla Violetta, Lime, Maraschino"
+    },
+    {
+      "id": "tommy-s-margarita",
+      "nome": "Tommy's Margarita",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🍸",
+      "descrizione": "Mezcal, Nettare d'Agave, Succo di Lime"
+    },
+    {
+      "id": "daiquiri",
+      "nome": "Daiquiri",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🍸",
+      "descrizione": "Rum, Sour"
+    },
+    {
+      "id": "mai-tai",
+      "nome": "Mai Tai",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🍹",
+      "descrizione": "Rum Chiaro, Rum Scuro, Triple Sec, Succo di Lime, Orzata"
+    },
+    {
+      "id": "god-father",
+      "nome": "God Father",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🥃",
+      "descrizione": "Scotch, Amaretto Disaronno"
+    },
+    {
+      "id": "god-mother",
+      "nome": "God Mother",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🥃",
+      "descrizione": "Vodka, Amaretto Disaronno"
+    },
+    {
+      "id": "kamikaze",
+      "nome": "Kamikaze",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🍸",
+      "descrizione": "Vodka, Triple Sec, Succo di Limone"
+    },
+    {
+      "id": "white-lady",
+      "nome": "White Lady",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🍸",
+      "descrizione": "Gin Bulldog, Cointreau, Succo di Limone"
+    },
+    {
+      "id": "french-connection",
+      "nome": "French Connection",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🥃",
+      "descrizione": "Cognac, Amaretto Disaronno"
+    },
+    {
+      "id": "martinez",
+      "nome": "Martinez",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🍸",
+      "descrizione": "Gin Bulldog, Vermouth Rosso, Maraschino, Orange Bitter"
+    },
+    {
+      "id": "stinger",
+      "nome": "Stinger",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🍸",
+      "descrizione": "Cognac, Liquore alla Menta"
+    },
+    {
+      "id": "bijou",
+      "nome": "Bijou",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🍸",
+      "descrizione": "Gin Bulldog, Vermouth Rosso, Chartreuse, Orange Bitter"
+    },
+    {
+      "id": "angelo-azzurro",
+      "nome": "Angelo Azzurro",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🍸",
+      "descrizione": "Gin Bulldog, Cointreau, Blue Curaçao"
+    },
+    {
+      "id": "between-the-sheets",
+      "nome": "Between the Sheets",
+      "categoria": "vintage",
+      "prezzo": 9,
+      "emoji": "🍸",
+      "descrizione": "Brandy, Rum Bianco, Cointreau"
+    },
+    {
+      "id": "loburg",
+      "nome": "Loburg",
+      "categoria": "spina",
+      "prezzo": 3,
+      "emoji": "🍺",
+      "descrizione": "Birra bionda 5,8%",
       "varianti": [
-        "Gordon's",
-        "Bombay Sapphire",
-        "Tanqueray",
-        "Hendrick's",
+        "Piccola",
         {
-          "nome": "Gin premium",
-          "prezzo": 10
+          "nome": "Media",
+          "prezzo": 5
         }
-      ],
-      "descrizione": "Scegli il gin"
-    },
-    {
-      "id": "gin-lemon",
-      "nome": "Gin Lemon",
-      "categoria": "gin",
-      "prezzo": 7,
-      "emoji": "🍋"
-    },
-    {
-      "id": "vodka",
-      "nome": "Vodka",
-      "categoria": "gin",
-      "prezzo": 7,
-      "emoji": "🍸",
-      "varianti": [
-        "Lemon",
-        "Tonic",
-        "Red Bull"
       ]
     },
     {
-      "id": "birra-alla-spina",
-      "nome": "Birra alla spina",
-      "categoria": "birre",
-      "prezzo": 4,
+      "id": "super-tennent-s",
+      "nome": "Super Tennent's",
+      "categoria": "spina",
+      "prezzo": 3.5,
       "emoji": "🍺",
-      "etichetta": "Spina",
+      "descrizione": "Birra bionda doppio malto 9%",
       "varianti": [
         "Piccola",
         {
@@ -227,154 +1090,920 @@
       ]
     },
     {
-      "id": "birra-in-bottiglia",
-      "nome": "Birra in bottiglia",
-      "categoria": "birre",
-      "prezzo": 5,
-      "emoji": "🍾",
-      "etichetta": "Bottiglia"
+      "id": "goose",
+      "nome": "Goose",
+      "categoria": "spina",
+      "prezzo": 3.5,
+      "emoji": "🍺",
+      "descrizione": "IPA from Chicago 5,9%",
+      "varianti": [
+        "Piccola",
+        {
+          "nome": "Media",
+          "prezzo": 6
+        }
+      ]
     },
     {
-      "id": "calice",
-      "nome": "Calice",
-      "categoria": "vini",
+      "id": "leffe-rouge",
+      "nome": "Leffe Rouge",
+      "categoria": "spina",
+      "prezzo": 6,
+      "emoji": "🍺",
+      "descrizione": "Birra rossa 6,6%",
+      "varianti": [
+        "Media"
+      ]
+    },
+    {
+      "id": "beck-s",
+      "nome": "Beck's",
+      "categoria": "bottiglia",
+      "prezzo": 4,
+      "emoji": "🍾"
+    },
+    {
+      "id": "corona",
+      "nome": "Corona",
+      "categoria": "bottiglia",
+      "prezzo": 4,
+      "emoji": "🍾"
+    },
+    {
+      "id": "stella-artois",
+      "nome": "Stella Artois",
+      "categoria": "bottiglia",
+      "prezzo": 4,
+      "emoji": "🍾"
+    },
+    {
+      "id": "bud",
+      "nome": "Bud",
+      "categoria": "bottiglia",
+      "prezzo": 4,
+      "emoji": "🍾"
+    },
+    {
+      "id": "franziskaner",
+      "nome": "Franziskaner",
+      "categoria": "bottiglia",
+      "prezzo": 5,
+      "emoji": "🍾"
+    },
+    {
+      "id": "calepino-valcalepio",
+      "nome": "Calepino Valcalepio",
+      "categoria": "rossi",
       "prezzo": 5,
       "emoji": "🍷",
       "varianti": [
-        "Bianco",
-        "Rosso",
-        "Bollicine"
+        "Bicchiere",
+        {
+          "nome": "Bottiglia",
+          "prezzo": 20
+        }
       ]
     },
     {
-      "id": "prosecco",
-      "nome": "Prosecco",
-      "categoria": "vini",
+      "id": "campofiorin-ripasso-masi",
+      "nome": "Campofiorin Ripasso Masi",
+      "categoria": "rossi",
       "prezzo": 5,
-      "emoji": "🥂"
-    },
-    {
-      "id": "amaro",
-      "nome": "Amaro",
-      "categoria": "amari",
-      "prezzo": 4,
-      "emoji": "🥃",
+      "emoji": "🍷",
       "varianti": [
-        "Montenegro",
-        "Jägermeister",
-        "Averna",
-        "Braulio",
-        "Lucano"
+        "Bicchiere",
+        {
+          "nome": "Bottiglia",
+          "prezzo": 25
+        }
       ]
     },
     {
-      "id": "shot",
-      "nome": "Shot",
-      "categoria": "amari",
-      "prezzo": 3,
+      "id": "l-atto-cantine-del-notaio",
+      "nome": "L'Atto Cantine del Notaio",
+      "categoria": "rossi",
+      "prezzo": 25,
+      "emoji": "🍷",
+      "varianti": [
+        "Bottiglia"
+      ]
+    },
+    {
+      "id": "lugana-perla-del-garda",
+      "nome": "Lugana Perla del Garda",
+      "categoria": "bianchi",
+      "prezzo": 5,
+      "emoji": "🥂",
+      "varianti": [
+        "Bicchiere",
+        {
+          "nome": "Bottiglia",
+          "prezzo": 20
+        }
+      ]
+    },
+    {
+      "id": "ribolla-gialla-attems",
+      "nome": "Ribolla Gialla Attems",
+      "categoria": "bianchi",
+      "prezzo": 5,
+      "emoji": "🥂",
+      "varianti": [
+        "Bicchiere",
+        {
+          "nome": "Bottiglia",
+          "prezzo": 25
+        }
+      ]
+    },
+    {
+      "id": "pecorino-orlandi",
+      "nome": "Pecorino Orlandi",
+      "categoria": "bianchi",
+      "prezzo": 25,
+      "emoji": "🥂",
+      "varianti": [
+        "Bottiglia"
+      ]
+    },
+    {
+      "id": "prosecco-andreola-valdobbiadene",
+      "nome": "Prosecco Andreola Valdobbiadene",
+      "categoria": "bollicine",
+      "prezzo": 5,
+      "emoji": "🍾",
+      "varianti": [
+        "Bicchiere",
+        {
+          "nome": "Bottiglia",
+          "prezzo": 20
+        }
+      ]
+    },
+    {
+      "id": "franciacorta-brut-ferghettina",
+      "nome": "Franciacorta Brut Ferghettina",
+      "categoria": "bollicine",
+      "prezzo": 6,
+      "emoji": "🍾",
+      "varianti": [
+        "Bicchiere",
+        {
+          "nome": "Bottiglia",
+          "prezzo": 30
+        }
+      ]
+    },
+    {
+      "id": "calepino-non-dosato-valcalepio",
+      "nome": "Calepino Non Dosato Valcalepio",
+      "categoria": "bollicine",
+      "prezzo": 30,
+      "emoji": "🍾",
+      "varianti": [
+        "Bottiglia"
+      ]
+    },
+    {
+      "id": "bombay",
+      "nome": "Bombay",
+      "categoria": "gin",
+      "prezzo": 8,
+      "emoji": "🍸",
+      "varianti": [
+        "Drink"
+      ]
+    },
+    {
+      "id": "tanqueray",
+      "nome": "Tanqueray",
+      "categoria": "gin",
+      "prezzo": 8,
+      "emoji": "🍸",
+      "varianti": [
+        "Drink"
+      ]
+    },
+    {
+      "id": "martin-miller",
+      "nome": "Martin Miller",
+      "categoria": "gin",
+      "prezzo": 6,
+      "emoji": "🍸",
+      "varianti": [
+        "Liscio",
+        {
+          "nome": "Drink",
+          "prezzo": 8
+        }
+      ]
+    },
+    {
+      "id": "bulldog",
+      "nome": "Bulldog",
+      "categoria": "gin",
+      "prezzo": 7,
+      "emoji": "🍸",
+      "varianti": [
+        "Liscio",
+        {
+          "nome": "Drink",
+          "prezzo": 9
+        }
+      ]
+    },
+    {
+      "id": "hendrick-s",
+      "nome": "Hendrick's",
+      "categoria": "gin",
+      "prezzo": 7,
+      "emoji": "🍸",
+      "varianti": [
+        "Liscio",
+        {
+          "nome": "Drink",
+          "prezzo": 10
+        }
+      ]
+    },
+    {
+      "id": "brockmans",
+      "nome": "Brockmans",
+      "categoria": "gin",
+      "prezzo": 7,
+      "emoji": "🍸",
+      "varianti": [
+        "Liscio",
+        {
+          "nome": "Drink",
+          "prezzo": 10
+        }
+      ]
+    },
+    {
+      "id": "nordes",
+      "nome": "Nordes",
+      "categoria": "gin",
+      "prezzo": 7,
+      "emoji": "🍸",
+      "varianti": [
+        "Liscio",
+        {
+          "nome": "Drink",
+          "prezzo": 10
+        }
+      ]
+    },
+    {
+      "id": "gin-del-professore",
+      "nome": "Gin del Professore",
+      "categoria": "gin",
+      "prezzo": 8,
+      "emoji": "🍸",
+      "varianti": [
+        "Liscio",
+        {
+          "nome": "Drink",
+          "prezzo": 10
+        }
+      ]
+    },
+    {
+      "id": "mare",
+      "nome": "Mare",
+      "categoria": "gin",
+      "prezzo": 8,
+      "emoji": "🍸",
+      "varianti": [
+        "Liscio",
+        {
+          "nome": "Drink",
+          "prezzo": 10
+        }
+      ]
+    },
+    {
+      "id": "monkey-47",
+      "nome": "Monkey 47",
+      "categoria": "gin",
+      "prezzo": 9,
+      "emoji": "🍸",
+      "varianti": [
+        "Liscio",
+        {
+          "nome": "Drink",
+          "prezzo": 12
+        }
+      ]
+    },
+    {
+      "id": "skyy",
+      "nome": "Skyy",
+      "categoria": "vodka",
+      "prezzo": 6,
+      "emoji": "🍸",
+      "varianti": [
+        "Drink"
+      ]
+    },
+    {
+      "id": "grey-goose",
+      "nome": "Grey Goose",
+      "categoria": "vodka",
+      "prezzo": 7,
+      "emoji": "🍸",
+      "varianti": [
+        "Liscio",
+        {
+          "nome": "Drink",
+          "prezzo": 9
+        }
+      ]
+    },
+    {
+      "id": "belvedere",
+      "nome": "Belvedere",
+      "categoria": "vodka",
+      "prezzo": 8,
+      "emoji": "🍸",
+      "varianti": [
+        "Liscio",
+        {
+          "nome": "Drink",
+          "prezzo": 10
+        }
+      ]
+    },
+    {
+      "id": "brugal-anejo",
+      "nome": "Brugal Añejo",
+      "categoria": "rum",
+      "prezzo": 5,
       "emoji": "🥃"
     },
     {
-      "id": "whisky",
-      "nome": "Whisky",
-      "categoria": "amari",
-      "prezzo": 6,
+      "id": "matusalem",
+      "nome": "Matusalem",
+      "categoria": "rum",
+      "prezzo": 8,
+      "emoji": "🥃"
+    },
+    {
+      "id": "diplomatico-riserva",
+      "nome": "Diplomatico Riserva",
+      "categoria": "rum",
+      "prezzo": 9,
+      "emoji": "🥃"
+    },
+    {
+      "id": "zacapa",
+      "nome": "Zacapa",
+      "categoria": "rum",
+      "prezzo": 9,
+      "emoji": "🥃"
+    },
+    {
+      "id": "four-roses",
+      "nome": "Four Roses",
+      "categoria": "whisky",
+      "prezzo": 5,
+      "emoji": "🥃"
+    },
+    {
+      "id": "johnnie-walker",
+      "nome": "Johnnie Walker",
+      "categoria": "whisky",
+      "prezzo": 5,
+      "emoji": "🥃"
+    },
+    {
+      "id": "jack-daniel-s",
+      "nome": "Jack Daniel's",
+      "categoria": "whisky",
+      "prezzo": 5,
+      "emoji": "🥃"
+    },
+    {
+      "id": "wild-turkey",
+      "nome": "Wild Turkey",
+      "categoria": "whisky",
+      "prezzo": 7,
       "emoji": "🥃",
       "varianti": [
-        "Whisky",
-        {
-          "nome": "Whisky premium",
-          "prezzo": 8
-        }
+        "Bourbon",
+        "Rye"
       ]
     },
     {
-      "id": "rum",
-      "nome": "Rum",
-      "categoria": "amari",
-      "prezzo": 6,
+      "id": "bulleit",
+      "nome": "Bulleit",
+      "categoria": "whisky",
+      "prezzo": 8,
       "emoji": "🥃",
       "varianti": [
-        "Rum",
-        {
-          "nome": "Rum premium",
-          "prezzo": 8
-        }
+        "Bourbon",
+        "Rye"
+      ]
+    },
+    {
+      "id": "laphroaig",
+      "nome": "Laphroaig",
+      "categoria": "whisky",
+      "prezzo": 9,
+      "emoji": "🥃"
+    },
+    {
+      "id": "ardbeg",
+      "nome": "Ardbeg",
+      "categoria": "whisky",
+      "prezzo": 10,
+      "emoji": "🥃"
+    },
+    {
+      "id": "oban",
+      "nome": "Oban",
+      "categoria": "whisky",
+      "prezzo": 10,
+      "emoji": "🥃"
+    },
+    {
+      "id": "lagavulin",
+      "nome": "Lagavulin",
+      "categoria": "whisky",
+      "prezzo": 10,
+      "emoji": "🥃"
+    },
+    {
+      "id": "askaig-100-proof",
+      "nome": "Askaig 100° Proof",
+      "categoria": "whisky",
+      "prezzo": 12,
+      "emoji": "🥃"
+    },
+    {
+      "id": "montenegro",
+      "nome": "Montenegro",
+      "categoria": "amari",
+      "prezzo": 4,
+      "emoji": "🥃"
+    },
+    {
+      "id": "jagermeister",
+      "nome": "Jägermeister",
+      "categoria": "amari",
+      "prezzo": 4,
+      "emoji": "🥃"
+    },
+    {
+      "id": "braulio",
+      "nome": "Braulio",
+      "categoria": "amari",
+      "prezzo": 4,
+      "emoji": "🥃"
+    },
+    {
+      "id": "fernet-branca",
+      "nome": "Fernet Branca",
+      "categoria": "amari",
+      "prezzo": 4,
+      "emoji": "🥃"
+    },
+    {
+      "id": "branca-menta",
+      "nome": "Branca Menta",
+      "categoria": "amari",
+      "prezzo": 4,
+      "emoji": "🥃"
+    },
+    {
+      "id": "petrus",
+      "nome": "Petrus",
+      "categoria": "amari",
+      "prezzo": 4,
+      "emoji": "🥃"
+    },
+    {
+      "id": "lucano",
+      "nome": "Lucano",
+      "categoria": "amari",
+      "prezzo": 4,
+      "emoji": "🥃"
+    },
+    {
+      "id": "averna",
+      "nome": "Averna",
+      "categoria": "amari",
+      "prezzo": 4,
+      "emoji": "🥃"
+    },
+    {
+      "id": "ramazzotti",
+      "nome": "Ramazzotti",
+      "categoria": "amari",
+      "prezzo": 4,
+      "emoji": "🥃"
+    },
+    {
+      "id": "cynar",
+      "nome": "Cynar",
+      "categoria": "amari",
+      "prezzo": 4,
+      "emoji": "🥃"
+    },
+    {
+      "id": "amaro-del-capo",
+      "nome": "Amaro del Capo",
+      "categoria": "amari",
+      "prezzo": 4,
+      "emoji": "🥃"
+    },
+    {
+      "id": "hierbas-ibicencas",
+      "nome": "Hierbas Ibicencas",
+      "categoria": "amari",
+      "prezzo": 5,
+      "emoji": "🥃"
+    },
+    {
+      "id": "chartreuse-verde",
+      "nome": "Chartreuse Verde",
+      "categoria": "amari",
+      "prezzo": 5,
+      "emoji": "🥃"
+    },
+    {
+      "id": "braulio-riserva",
+      "nome": "Braulio Riserva",
+      "categoria": "amari",
+      "prezzo": 5,
+      "emoji": "🥃"
+    },
+    {
+      "id": "mandragola",
+      "nome": "Mandragola",
+      "categoria": "amari",
+      "prezzo": 5,
+      "emoji": "🥃"
+    },
+    {
+      "id": "amaretto-disaronno",
+      "nome": "Amaretto Disaronno",
+      "categoria": "liquori",
+      "prezzo": 4,
+      "emoji": "🥃"
+    },
+    {
+      "id": "baileys",
+      "nome": "Baileys",
+      "categoria": "liquori",
+      "prezzo": 4,
+      "emoji": "🥃"
+    },
+    {
+      "id": "cointreau",
+      "nome": "Cointreau",
+      "categoria": "liquori",
+      "prezzo": 4,
+      "emoji": "🥃"
+    },
+    {
+      "id": "sambuca",
+      "nome": "Sambuca",
+      "categoria": "liquori",
+      "prezzo": 4,
+      "emoji": "🥃"
+    },
+    {
+      "id": "mirto-zedda-piras",
+      "nome": "Mirto Zedda Piras",
+      "categoria": "liquori",
+      "prezzo": 4,
+      "emoji": "🥃"
+    },
+    {
+      "id": "eclisse",
+      "nome": "Eclisse",
+      "categoria": "liquori",
+      "prezzo": 4,
+      "emoji": "🥃"
+    },
+    {
+      "id": "sandeman-tawny-porto",
+      "nome": "Sandeman Tawny Porto",
+      "categoria": "liquori",
+      "prezzo": 4,
+      "emoji": "🥃"
+    },
+    {
+      "id": "frangelico",
+      "nome": "Frangelico",
+      "categoria": "liquori",
+      "prezzo": 4,
+      "emoji": "🥃"
+    },
+    {
+      "id": "pastis-ricard",
+      "nome": "Pastis Ricard",
+      "categoria": "liquori",
+      "prezzo": 5,
+      "emoji": "🥃"
+    },
+    {
+      "id": "saint-germain",
+      "nome": "Saint Germain",
+      "categoria": "liquori",
+      "prezzo": 5,
+      "emoji": "🥃"
+    },
+    {
+      "id": "blanc-e-neri-moscato",
+      "nome": "Blanc e Neri Moscato",
+      "categoria": "grappe",
+      "prezzo": 4,
+      "emoji": "🥃"
+    },
+    {
+      "id": "blanc-e-neri-refosco",
+      "nome": "Blanc e Neri Refosco",
+      "categoria": "grappe",
+      "prezzo": 4,
+      "emoji": "🥃"
+    },
+    {
+      "id": "blanc-e-neri-riserva",
+      "nome": "Blanc e Neri Riserva",
+      "categoria": "grappe",
+      "prezzo": 4,
+      "emoji": "🥃"
+    },
+    {
+      "id": "storica-nera",
+      "nome": "Storica Nera",
+      "categoria": "grappe",
+      "prezzo": 5,
+      "emoji": "🥃"
+    },
+    {
+      "id": "chupito",
+      "nome": "Chupito",
+      "categoria": "shots",
+      "prezzo": 3.5,
+      "emoji": "🥃"
+    },
+    {
+      "id": "shot-distillati-e-liquori-industriali",
+      "nome": "Shot distillati e liquori industriali",
+      "categoria": "shots",
+      "prezzo": 3.5,
+      "emoji": "🥃"
+    },
+    {
+      "id": "shot-distillati-e-liquori-pregiati",
+      "nome": "Shot distillati e liquori pregiati",
+      "categoria": "shots",
+      "prezzo": 5,
+      "emoji": "🥃",
+      "descrizione": "A partire da 5 € (correggi il prezzo se serve)"
+    },
+    {
+      "id": "shot-con-parte-di-assenzio",
+      "nome": "Shot con parte di assenzio",
+      "categoria": "shots",
+      "prezzo": 4,
+      "emoji": "🥃",
+      "descrizione": "Non si servono shot di solo assenzio"
+    },
+    {
+      "id": "caffe",
+      "nome": "Caffè",
+      "categoria": "caffetteria",
+      "prezzo": 1,
+      "emoji": "☕"
+    },
+    {
+      "id": "cappuccino",
+      "nome": "Cappuccino",
+      "categoria": "caffetteria",
+      "prezzo": 1.5,
+      "emoji": "☕"
+    },
+    {
+      "id": "caffe-corretto",
+      "nome": "Caffè corretto",
+      "categoria": "caffetteria",
+      "prezzo": 1.5,
+      "emoji": "☕"
+    },
+    {
+      "id": "succo-di-frutta",
+      "nome": "Succo di frutta",
+      "categoria": "bibite",
+      "prezzo": 3,
+      "emoji": "🧃",
+      "varianti": [
+        "Arancia",
+        "Ananas",
+        "Pesca",
+        "Pera",
+        "Pompelmo"
       ]
     },
     {
       "id": "coca-cola",
       "nome": "Coca-Cola",
-      "categoria": "analcolici",
-      "prezzo": 3.5,
-      "emoji": "🥤",
-      "varianti": [
-        "Normale",
-        "Zero"
-      ]
+      "categoria": "bibite",
+      "prezzo": 3,
+      "emoji": "🥤"
     },
     {
-      "id": "bibita",
-      "nome": "Bibita",
-      "categoria": "analcolici",
-      "prezzo": 3.5,
-      "emoji": "🥤",
-      "varianti": [
-        "Fanta",
-        "Sprite",
-        "Tè freddo pesca",
-        "Tè freddo limone",
-        "Lemonsoda"
-      ]
+      "id": "sprite",
+      "nome": "Sprite",
+      "categoria": "bibite",
+      "prezzo": 3,
+      "emoji": "🥤"
     },
     {
-      "id": "succo-di-frutta",
-      "nome": "Succo di frutta",
-      "categoria": "analcolici",
-      "prezzo": 3.5,
+      "id": "estathe-al-limone",
+      "nome": "Estathé al limone",
+      "categoria": "bibite",
+      "prezzo": 3,
       "emoji": "🧃"
     },
     {
-      "id": "aperitivo-analcolico",
-      "nome": "Aperitivo analcolico",
-      "categoria": "analcolici",
-      "prezzo": 3.5,
-      "emoji": "🍹",
-      "varianti": [
-        "Crodino",
-        "San Bitter"
-      ]
+      "id": "estathe-pesca",
+      "nome": "Estathé pesca",
+      "categoria": "bibite",
+      "prezzo": 3,
+      "emoji": "🧃"
     },
     {
-      "id": "red-bull",
-      "nome": "Red Bull",
-      "categoria": "analcolici",
+      "id": "lemon-soda",
+      "nome": "Lemon Soda",
+      "categoria": "bibite",
+      "prezzo": 3,
+      "emoji": "🍋"
+    },
+    {
+      "id": "acqua-tonica-schweppes",
+      "nome": "Acqua tonica Schweppes",
+      "categoria": "bibite",
+      "prezzo": 3,
+      "emoji": "🥤"
+    },
+    {
+      "id": "aranciata-amara",
+      "nome": "Aranciata amara",
+      "categoria": "bibite",
+      "prezzo": 3,
+      "emoji": "🍊"
+    },
+    {
+      "id": "cedrata-tassoni",
+      "nome": "Cedrata Tassoni",
+      "categoria": "bibite",
+      "prezzo": 3,
+      "emoji": "🍋"
+    },
+    {
+      "id": "red-bull-energy-drink",
+      "nome": "Red Bull Energy Drink",
+      "categoria": "bibite",
       "prezzo": 4,
       "emoji": "⚡"
     },
     {
+      "id": "fever-tree-tonic",
+      "nome": "Fever Tree Tonic",
+      "categoria": "bibite",
+      "prezzo": 4,
+      "emoji": "🥤"
+    },
+    {
+      "id": "fever-tree-ginger-beer",
+      "nome": "Fever Tree Ginger Beer",
+      "categoria": "bibite",
+      "prezzo": 4,
+      "emoji": "🥤"
+    },
+    {
+      "id": "fever-tree-ginger-ale",
+      "nome": "Fever Tree Ginger Ale",
+      "categoria": "bibite",
+      "prezzo": 4,
+      "emoji": "🥤"
+    },
+    {
       "id": "acqua",
       "nome": "Acqua",
-      "categoria": "analcolici",
+      "categoria": "bibite",
       "prezzo": 1.5,
       "emoji": "💧",
+      "descrizione": "Non è nel menu cartaceo: controlla il prezzo",
       "varianti": [
         "Naturale",
         "Frizzante"
       ]
     },
     {
-      "id": "caffe",
-      "nome": "Caffè",
-      "categoria": "analcolici",
-      "prezzo": 1.2,
-      "emoji": "☕"
+      "id": "crodino",
+      "nome": "Crodino",
+      "categoria": "aperitivi-analcolici",
+      "prezzo": 3,
+      "emoji": "🍹"
+    },
+    {
+      "id": "succo-di-pomodoro",
+      "nome": "Succo di pomodoro",
+      "categoria": "aperitivi-analcolici",
+      "prezzo": 3,
+      "emoji": "🍅",
+      "descrizione": "Condito a piacimento"
+    },
+    {
+      "id": "analcolico-florida",
+      "nome": "Florida",
+      "categoria": "cocktail-analcolici",
+      "prezzo": 6,
+      "emoji": "🍹",
+      "descrizione": "Succo d'Arancia, Succo di Pompelmo, Sour, Soda"
+    },
+    {
+      "id": "analcolico-virgin-colada",
+      "nome": "Virgin Colada",
+      "categoria": "cocktail-analcolici",
+      "prezzo": 6,
+      "emoji": "🍍",
+      "descrizione": "Succo d'Arancia, Sciroppo di Cocco"
+    },
+    {
+      "id": "analcolico-kiss-on-the-beach",
+      "nome": "Kiss on the Beach",
+      "categoria": "cocktail-analcolici",
+      "prezzo": 6,
+      "emoji": "🍹",
+      "descrizione": "Succo d'Ananas, Succo di Cranberry, Granatina"
+    },
+    {
+      "id": "analcolico-sweety",
+      "nome": "Sweety",
+      "categoria": "cocktail-analcolici",
+      "prezzo": 6,
+      "emoji": "🍓",
+      "descrizione": "Succo d'Arancia, Succo d'Ananas, Sciroppo di Fragola"
+    },
+    {
+      "id": "analcolico-lovely",
+      "nome": "Lovely",
+      "categoria": "cocktail-analcolici",
+      "prezzo": 6,
+      "emoji": "🍓",
+      "descrizione": "Succo d'Arancia, Succo di Pompelmo, Sciroppo di Fragola"
+    },
+    {
+      "id": "analcolico-caribbean",
+      "nome": "Caribbean",
+      "categoria": "cocktail-analcolici",
+      "prezzo": 6,
+      "emoji": "🍹",
+      "descrizione": "Succo d'Arancia, Succo di Limone, Sciroppo di Banana, Sciroppo di Mango"
+    },
+    {
+      "id": "analcolico-slimer",
+      "nome": "Slimer",
+      "categoria": "cocktail-analcolici",
+      "prezzo": 6,
+      "emoji": "🍹",
+      "descrizione": "Succo d'Arancia, Sour, Sciroppo di Blu Curaçao"
+    },
+    {
+      "id": "analcolico-shirley-temple",
+      "nome": "Shirley Temple",
+      "categoria": "cocktail-analcolici",
+      "prezzo": 6,
+      "emoji": "🍹",
+      "descrizione": "Ginger Ale, Granatina"
+    },
+    {
+      "id": "analcolico-mojo",
+      "nome": "Mojo",
+      "categoria": "cocktail-analcolici",
+      "prezzo": 6,
+      "emoji": "🍹",
+      "descrizione": "Lime, Zucchero, Menta, Succo di Pompelmo, Sour, Soda"
+    },
+    {
+      "id": "analcolico-zero-tonic",
+      "nome": "Zero Tonic",
+      "categoria": "cocktail-analcolici",
+      "prezzo": 6,
+      "emoji": "🍹",
+      "descrizione": "Amaro Analcolico, Acqua Tonica"
     },
     {
       "id": "tagliere-salumi-e-formaggi",
       "nome": "Tagliere salumi e formaggi",
       "categoria": "cucina",
-      "prezzo": 9,
+      "prezzo": 10,
       "emoji": "🧀"
     },
     {
@@ -399,38 +2028,45 @@
       "emoji": "🍗"
     },
     {
+      "id": "nuggets",
+      "nome": "Nuggets",
+      "categoria": "cucina",
+      "prezzo": 4.5,
+      "emoji": "🍗"
+    },
+    {
       "id": "patatine-fritte",
       "nome": "Patatine fritte",
       "categoria": "cucina",
-      "prezzo": 4,
+      "prezzo": 5,
       "emoji": "🍟"
     },
     {
       "id": "mozzarelline",
       "nome": "Mozzarelline",
       "categoria": "cucina",
-      "prezzo": 3.5,
+      "prezzo": 4.5,
       "emoji": "🧀"
     },
     {
       "id": "olive-ascolane",
       "nome": "Olive ascolane",
       "categoria": "cucina",
-      "prezzo": 3.5,
+      "prezzo": 4.5,
       "emoji": "🫒"
     },
     {
       "id": "anelli-di-cipolla",
       "nome": "Anelli di cipolla",
       "categoria": "cucina",
-      "prezzo": 3.5,
+      "prezzo": 4.5,
       "emoji": "🧅"
     },
     {
       "id": "tagliere-reef",
       "nome": "Tagliere Reef",
       "categoria": "stuzzicheria",
-      "prezzo": 2.5,
+      "prezzo": 3,
       "emoji": "🥖",
       "descrizione": "A persona · fino alle 21:00"
     },
@@ -438,7 +2074,7 @@
       "id": "tagliere-veg",
       "nome": "Tagliere Veg",
       "categoria": "stuzzicheria",
-      "prezzo": 2.5,
+      "prezzo": 3,
       "emoji": "🥗",
       "descrizione": "A persona · fino alle 21:00"
     },
@@ -451,21 +2087,70 @@
       "descrizione": "Fino alle 21:00"
     },
     {
+      "id": "tortiglioni-all-arrabbiata",
+      "nome": "Tortiglioni all'arrabbiata",
+      "categoria": "gastronomia",
+      "prezzo": 10,
+      "emoji": "🍝"
+    },
+    {
+      "id": "lasagne-alla-bolognese",
+      "nome": "Lasagne alla bolognese",
+      "categoria": "gastronomia",
+      "prezzo": 10,
+      "emoji": "🍝"
+    },
+    {
+      "id": "spaghetti-cacio-e-pepe",
+      "nome": "Spaghetti cacio e pepe",
+      "categoria": "gastronomia",
+      "prezzo": 10,
+      "emoji": "🍝"
+    },
+    {
+      "id": "gnocchetti-sardi-con-salsiccia-pomodoro-e-pecorino",
+      "nome": "Gnocchetti sardi con salsiccia, pomodoro e pecorino",
+      "categoria": "gastronomia",
+      "prezzo": 10,
+      "emoji": "🍝"
+    },
+    {
+      "id": "cotoletta-alla-milanese-con-patate-novelle",
+      "nome": "Cotoletta alla milanese con patate novelle",
+      "categoria": "gastronomia",
+      "prezzo": 10,
+      "emoji": "🍖"
+    },
+    {
+      "id": "pollo-con-riso-basmati-e-curry",
+      "nome": "Pollo con riso basmati e curry",
+      "categoria": "gastronomia",
+      "prezzo": 10,
+      "emoji": "🍛"
+    },
+    {
+      "id": "souffle-al-cioccolato",
+      "nome": "Soufflé al cioccolato",
+      "categoria": "dolci",
+      "prezzo": 4,
+      "emoji": "🍫"
+    },
+    {
       "id": "rolling-stones",
       "nome": "Rolling Stones",
       "categoria": "panini",
-      "prezzo": 3.5,
+      "prezzo": 4.5,
       "emoji": "🥪",
       "descrizione": "Cotto, fontina, salsa a scelta",
       "varianti": [
         "Panino",
         {
           "nome": "Piadina",
-          "prezzo": 4
+          "prezzo": 5.5
         },
         {
           "nome": "Focaccia",
-          "prezzo": 5
+          "prezzo": 6.5
         }
       ]
     },
@@ -473,18 +2158,18 @@
       "id": "iron-maiden",
       "nome": "Iron Maiden",
       "categoria": "panini",
-      "prezzo": 3.5,
+      "prezzo": 4.5,
       "emoji": "🥪",
       "descrizione": "Mozzarella, insalata, pomodoro, paté di olive",
       "varianti": [
         "Panino",
         {
           "nome": "Piadina",
-          "prezzo": 4
+          "prezzo": 5.5
         },
         {
           "nome": "Focaccia",
-          "prezzo": 5
+          "prezzo": 6.5
         }
       ]
     },
@@ -665,7 +2350,7 @@
       "categoria": "panini",
       "prezzo": 4.5,
       "emoji": "🥪",
-      "descrizione": "Salame, mozzarella, insalata, tabasco, salsa piccante",
+      "descrizione": "Tonno, mozzarella, insalata, tabasco, salsa piccante",
       "varianti": [
         "Panino",
         {
@@ -741,7 +2426,7 @@
       "categoria": "panini",
       "prezzo": 4.5,
       "emoji": "🥪",
-      "descrizione": "Tonno, olive, cetrioli freschi, insalata, pomodoro, maionese",
+      "descrizione": "Fontina, olive, insalata, pomodoro, maionese",
       "varianti": [
         "Panino",
         {
@@ -812,8 +2497,8 @@
       ]
     },
     {
-      "id": "kings-of-leon",
-      "nome": "Kings of Leon",
+      "id": "kings-of-lion",
+      "nome": "Kings of Lion",
       "categoria": "panini",
       "prezzo": 4.5,
       "emoji": "🥪",
@@ -891,9 +2576,12 @@
       "id": "ac-dc",
       "nome": "AC/DC",
       "categoria": "panini",
-      "prezzo": 5,
+      "prezzo": 6,
       "emoji": "🥪",
-      "descrizione": "Cotoletta, mozzarella, insalata, pomodoro, maionese · solo panino"
+      "descrizione": "Cotoletta, mozzarella, insalata, pomodoro, maionese",
+      "varianti": [
+        "Panino"
+      ]
     },
     {
       "id": "blur",
@@ -901,13 +2589,16 @@
       "categoria": "panini",
       "prezzo": 7,
       "emoji": "🥪",
-      "descrizione": "Cotto, cotoletta, mozzarella, insalata, pomodoro, maionese · solo focaccia"
+      "descrizione": "Cotto, cotoletta, mozzarella, insalata, pomodoro, maionese",
+      "varianti": [
+        "Focaccia"
+      ]
     },
     {
       "id": "toast",
       "nome": "Toast",
       "categoria": "toast",
-      "prezzo": 3.5,
+      "prezzo": 4,
       "emoji": "🥪",
       "descrizione": "Cotto, fontina"
     },
@@ -915,7 +2606,7 @@
       "id": "toast-rock",
       "nome": "Toast Rock",
       "categoria": "toast",
-      "prezzo": 3.5,
+      "prezzo": 4,
       "emoji": "🥪",
       "descrizione": "Crudo, mozzarella"
     },
@@ -923,7 +2614,7 @@
       "id": "hot-dog",
       "nome": "Hot Dog",
       "categoria": "toast",
-      "prezzo": 3.5,
+      "prezzo": 4,
       "emoji": "🌭",
       "descrizione": "Pane, würstel, senape e ketchup"
     },
@@ -931,14 +2622,14 @@
       "id": "pane-e-salame",
       "nome": "Pane e salame",
       "categoria": "toast",
-      "prezzo": 3.5,
+      "prezzo": 4,
       "emoji": "🥖"
     },
     {
       "id": "pane-e-nutella",
       "nome": "Pane e Nutella",
       "categoria": "toast",
-      "prezzo": 3.5,
+      "prezzo": 4,
       "emoji": "🍫"
     },
     {
