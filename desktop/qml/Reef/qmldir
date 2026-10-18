@@ -1,0 +1,29 @@
+module Reef
+singleton Theme 1.0 Theme.qml
+singleton Store 1.0 Store.qml
+singleton Ui 1.0 Ui.qml
+Acc 1.0 Acc.qml
+AutoGrid 1.0 AutoGrid.qml
+Btn 1.0 Btn.qml
+Campo 1.0 Campo.qml
+Caps 1.0 Caps.qml
+Chip 1.0 Chip.qml
+Chiudi 1.0 Chiudi.qml
+CorpoCategoria 1.0 CorpoCategoria.qml
+Etichetta 1.0 Etichetta.qml
+HomeView 1.0 HomeView.qml
+IconaBtn 1.0 IconaBtn.qml
+MenuView 1.0 MenuView.qml
+Passo 1.0 Passo.qml
+ProdottoBtn 1.0 ProdottoBtn.qml
+Ricerca 1.0 Ricerca.qml
+Scelta 1.0 Scelta.qml
+Sezione 1.0 Sezione.qml
+T 1.0 T.qml
+TavoliView 1.0 TavoliView.qml
+TavoloView 1.0 TavoloView.qml
+Tile 1.0 Tile.qml
+TitoloPagina 1.0 TitoloPagina.qml
+TopBar 1.0 TopBar.qml
+Tratteggio 1.0 Tratteggio.qml
+Vuoto 1.0 Vuoto.qml

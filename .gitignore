@@ -1,0 +1,7 @@
+# Dati dell'app (tavoli e menu modificato): restano sul computer, non vanno nella repo
+dati/
+
+# Python / build
+__pycache__/
+*.pyc
+build/

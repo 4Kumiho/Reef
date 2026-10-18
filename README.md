@@ -1,18 +1,14 @@
 <p align="center">
-  <img src="staff/icon-512.png" width="150" alt="Reef Staff">
+  <img src="docs/logo.png" width="150" alt="Reef Staff">
 </p>
 
 <h1 align="center">Reef Café · App Staff</h1>
 
 <p align="center">
-  L'app della cassa del <b>Reef Café</b> (Borgo Santa Caterina 25, Bergamo), pensata per il <b>computer</b>:<br>
+  Il programma della cassa del <b>Reef Café</b> (Borgo Santa Caterina 25, Bergamo), per il <b>computer</b>:<br>
   <b>tavoli</b> con il conto che si calcola da solo e <b>pagamenti separati</b>,<br>
-  e un <b>menu modificabile</b> (prezzi, prodotti nuovi, prodotti tolti) che si aggiorna su tutti i dispositivi.
-</p>
-
-<p align="center">
-  <a href="https://4kumiho.github.io/Reef/staff/"><b>👉 APRI L'APP 👈</b></a><br>
-  <code>https://4kumiho.github.io/Reef/staff/</code>
+  e un <b>menu modificabile</b> (prezzi, prodotti nuovi, prodotti tolti).<br>
+  Funziona <b>senza internet</b> e tiene tutti i dati <b>sul computer</b>.
 </p>
 
 <p align="center">
@@ -21,44 +17,38 @@
 
 ---
 
-## 💻 Installa l'app sul computer (1 minuto, una volta sola)
+## 💻 Come si avvia (1 minuto, una volta sola)
 
-Non servono account né programmi da scaricare. Dopo l'installazione il **Reef Staff** si apre in una finestra sua,
-con il **logo Reef** nel menu Start, sul desktop e sulla barra delle applicazioni, e **funziona anche senza internet**.
+Serve un computer con **Windows 10 o 11**. Non c'è niente da installare.
 
-### Il modo più semplice
-1. Apri **[👉 Reef Staff](https://4kumiho.github.io/Reef/staff/)** con **Microsoft Edge** o **Google Chrome**.
-2. Clicca il pulsante giallo **⬇ Installa app** in alto a destra.
-3. Conferma con **Installa**. Fatto ✅
+1. Scarica la cartella: in alto in questa pagina **Code** → **Download ZIP**.
+2. Apri il file ZIP e trascina la cartella **Reef** dove vuoi tenerla, per esempio in **Documenti**. ⚠️ Non lasciarla dentro lo ZIP.
+3. Nella cartella fai **doppio clic su `Reef Staff.exe`**. Fatto ✅
 
-<p align="center"><img src="docs/screenshots/pc-installa.jpg" width="620" alt="Installa app"></p>
+> **La prima volta Windows potrebbe mostrare «Windows ha protetto il PC».**
+> È normale per i programmi scaricati da internet: clicca **Ulteriori informazioni** → **Esegui comunque**.
+> Non lo chiederà più.
 
-> Se cliccando **Installa app** compare una finestra con le istruzioni invece della conferma, segui quelle: dipende dal browser.
+💡 **Icona sul desktop**: clic destro su `Reef Staff.exe` → **Mostra altre opzioni** → **Invia a** → **Desktop (crea collegamento)**.
+Puoi anche trascinare l'icona sulla barra delle applicazioni.
 
-<details>
-<summary><b>Installarla a mano (se il pulsante non c'è)</b></summary>
+L'app si apre a tutto schermo. All'avvio ci mette qualche secondo.
 
-**Microsoft Edge** (già presente su ogni PC Windows)
-1. Apri **[Reef Staff](https://4kumiho.github.io/Reef/staff/)**.
-2. Menu **⋯** in alto a destra → **App** → **Installa questo sito come app**.
-3. Clicca **Installa**. Nella finestra che segue spunta **Aggiungi al desktop** e **Aggiungi alla barra delle applicazioni**.
+---
 
-**Google Chrome**
-1. Apri **[Reef Staff](https://4kumiho.github.io/Reef/staff/)**.
-2. Nella barra dell'indirizzo, a destra, clicca l'icona **Installa** (uno schermo con una freccia).
-   *Se non c'è:* menu **⋮** → **Trasmetti, salva e condividi** → **Installa pagina come app…**
-3. Clicca **Installa**.
+## 🗂️ Dove sono i dati
 
-**Safari su Mac**: menu **File** → **Aggiungi al Dock** → **Aggiungi**.
+Tutto viene salvato **subito** in una cartella **`dati`**, accanto a `Reef Staff.exe`:
 
-*Firefox non installa le app: usa Edge o Chrome.*
+| File | Cosa contiene |
+|---|---|
+| `dati/tavoli.json` | I tavoli aperti con i loro ordini |
+| `dati/menu.json` | Il menu con le modifiche fatte dall'app (compare dopo la prima modifica) |
+| `dati/*.bak` | La copia precedente di ogni file, nel caso qualcosa vada storto |
 
-</details>
-
-> ⚠️ **Importante:** da quel momento apri l'app **sempre dall'icona Reef Staff**.
-> I tavoli vengono salvati sul computer: se apri il sito da un altro browser vedi una memoria diversa (vuota).
-
-💡 **Scorciatoie**: clic destro sull'icona nella barra delle applicazioni → **Tavoli** oppure **Menu** per andare dritto lì.
+- Se chiudi l'app o spegni il computer **non perdi niente**.
+- **Non cancellare la cartella `dati`**. Per spostare l'app su un altro computer, copia **tutta** la cartella (exe + `dati`).
+- Se la cartella non si può scrivere (per esempio dentro *Programmi*), i dati vanno in `%LOCALAPPDATA%\Reef Staff\dati`.
 
 ---
 
@@ -101,7 +91,7 @@ Dalla scheda **Tavoli** vedi tutti i tavoli con articoli, da quanto sono aperti 
 <p align="center"><img src="docs/screenshots/pc-tavoli.jpg" width="720" alt="Lista tavoli"></p>
 
 ### 7. Cambiare il menu (titolare / responsabile)
-Dalla scheda **Menu** cambi tutto senza toccare il codice:
+Dalla scheda **Menu** cambi tutto senza toccare il codice. Le modifiche si salvano **su questo computer** appena premi **Salva**.
 
 - **Cambiare un prezzo**: clicca la voce → scrivi il nuovo prezzo → **Salva**.
 - **Aggiungere un prodotto**: **+ Nuova voce** → nome, prezzo, categoria (e se vuoi un'icona e gli ingredienti) → **Salva**.
@@ -109,6 +99,11 @@ Dalla scheda **Menu** cambi tutto senza toccare il codice:
 - **Varianti**: le scelte che compaiono quando aggiungi la voce a un tavolo (gusti dello spritz, birra piccola/media,
   panino/piadina/focaccia…), ognuna con il suo prezzo.
 - **Categorie**: rinominarle, riordinarle, aggiungerne di nuove.
+- **Scarica copia**: salva un file con tutto il menu (backup).
+- **Carica copia**: rimette un menu salvato con *Scarica copia*.
+- **Ripristina originale**: torna al menu di partenza.
+
+I **tavoli già aperti** mantengono i prezzi con cui sono stati segnati; i nuovi ordini usano il menu nuovo.
 
 <p align="center">
   <img src="docs/screenshots/pc-menu.jpg" width="720" alt="Sezione Menu">
@@ -116,31 +111,6 @@ Dalla scheda **Menu** cambi tutto senza toccare il codice:
 <p align="center">
   <img src="docs/screenshots/pc-modifica-voce.jpg" width="720" alt="Modifica di una voce">
 </p>
-
-#### 🔄 Le modifiche arrivano a tutti
-Quando premi **Salva**, il nuovo menu viene pubblicato online. Gli altri dispositivi con l'app, entro un paio di minuti
-(o appena riaprono l'app), mostrano in alto **«Il menu è stato aggiornato · Aggiorna»**: basta cliccare **Aggiorna**.
-
-- I **tavoli già aperti** mantengono i prezzi con cui sono stati segnati; i nuovi ordini usano il menu nuovo.
-- Per salvare serve **internet**.
-- **Scarica copia** salva un file con tutto il menu (utile come backup).
-
-#### 🔑 La chiave di pubblicazione (una volta sola, solo sul computer di chi cambia il menu)
-Per poter **salvare** le modifiche, il computer deve avere la *chiave di pubblicazione*.
-Senza chiave l'app si usa normalmente, ma il menu non si può cambiare (così nessuno lo modifica per sbaglio).
-
-**Crea la chiave** (con l'account GitHub **4Kumiho**):
-1. Apri questo link (molti campi sono già compilati): **[👉 Crea la chiave su GitHub](https://github.com/settings/personal-access-tokens/new?name=Reef%20menu&description=Chiave%20per%20modificare%20il%20menu%20dall%27app%20staff&target_name=4Kumiho&expires_in=366&contents=write)**
-2. **Token name**: `Reef menu`.
-3. **Expiration**: la durata più lunga disponibile (quando scade, basta crearne una nuova).
-4. **Repository access**: **Only select repositories** → **4Kumiho/Reef**.
-5. **Permissions** → **Repository permissions** → **Contents**: **Read and write**.
-6. In fondo **Generate token**, poi **copia** la chiave (inizia con `github_pat_…`). ⚠️ GitHub la mostra una volta sola.
-
-**Inseriscila nell'app**: scheda **Menu** → **Inserisci chiave** (o **Impostazioni**) → incolla → **Verifica e salva**.
-Se è tutto giusto compare *«Chiave salvata»* e il pulsante diventa **Impostazioni ✓**.
-
-> 🔒 Se il computer con la chiave viene perso o cambiato: su GitHub **Settings → Developer settings → Personal access tokens → Fine-grained tokens** ed elimina la chiave.
 
 ### ⌨️ Tasti utili
 | Tasto | Cosa fa |
@@ -156,20 +126,16 @@ Se è tutto giusto compare *«Chiave salvata»* e il pulsante diventa **Impostaz
 ## ❓ Domande frequenti
 
 **Serve internet?**
-Solo la prima volta e per ricevere gli aggiornamenti del menu. Poi funziona anche offline.
+No, mai.
 
 **Se chiudo l'app o spengo il computer perdo i tavoli?**
-No, restano salvati sul computer.
+No, ogni modifica viene salvata subito nella cartella `dati`.
 
-**I tavoli si vedono su più computer?**
-No: ogni computer ha i suoi tavoli. Usate un solo computer per segnare i tavoli (il menu invece è uguale per tutti).
+**Compare «Reef Staff è già aperto».**
+L'app si può aprire una volta sola (due finestre si sovrascriverebbero i tavoli): cercala sulla barra delle applicazioni.
 
-**Ho cambiato il menu ma un altro dispositivo non lo vede.**
-Deve essere collegato a internet: aprendo l'app compare **«Il menu è stato aggiornato · Aggiorna»**.
-Se hai appena salvato, aspetta un paio di minuti: la pubblicazione online richiede 1–2 minuti.
-
-**Esce «È disponibile una nuova versione dell'app».**
-Clicca **Aggiorna** e si ricarica con le novità. Puoi anche controllare tu con **↻ Aggiorna** in alto a destra.
+**Come aggiorno l'app a una versione nuova?**
+Scarica di nuovo lo ZIP e sostituisci solo il file `Reef Staff.exe`. La cartella `dati` resta com'è.
 
 **I prezzi delle bevande sono giusti?**
 I prezzi della **cucina**, della **stuzzicheria** e della **paninoteca** vengono dal menu cartaceo del locale.
@@ -179,20 +145,24 @@ Quelli delle **bevande** sono indicativi (il listino non è pubblicato online): 
 
 ## 🛠️ Per chi gestisce il progetto
 
-| Cartella | Cosa contiene |
-|---|---|
-| `staff/` | L'app (pagina unica), service worker per l'offline, manifest e icone per l'installazione |
-| `shared/menu.json` | **Il menu**: gruppi, categorie, voci, prezzi e varianti. Si modifica dall'app (sezione Menu) |
-| `shared/config.js` | Nome del locale, logo, foto della pagina iniziale, repository dove pubblicare il menu |
-| `shared/` | Logo, colori (`brand.css`), carattere, foto della pagina iniziale (`img/`) |
-| `Foto/` | Logo originale, foto del menu cartaceo e del locale |
-| `docs/screenshots/` | Le immagini di questo README |
+L'app è scritta in **Python + Qt** (PySide6, interfaccia in QML) ed è impacchettata in un unico `Reef Staff.exe` con PyInstaller.
 
-- Il menu ufficiale è `shared/menu.json`. L'app lo modifica tramite l'API di GitHub (commit su `main`) con la chiave salvata sul
-  computer; GitHub Pages lo rimette online in 1–2 minuti. Ogni dispositivo ne tiene una copia per l'offline e controlla ogni 2 minuti
-  se il campo `versione` è più recente.
+| Cartella / file | Cosa contiene |
+|---|---|
+| `Reef Staff.exe` | L'app pronta da usare (va ricreata dopo ogni modifica al codice) |
+| `desktop/main.py` | Avvio della finestra, lettura e scrittura dei file in `dati/` |
+| `desktop/qml/Main.qml` | Finestra principale: pagine, finestre di dialogo, avvisi, tasti |
+| `desktop/qml/Reef/` | Interfaccia: `Store.qml` (dati e logica), `Theme.qml` (colori), una vista per pagina, i componenti |
+| `desktop/assets/menu.json` | **Il menu di partenza** (gruppi, categorie, voci, prezzi, varianti) |
+| `desktop/assets/img/` | Le foto del locale che scorrono nella pagina iniziale (l'elenco è in `Store.qml`, `bar.foto`) |
+| `desktop/assets/` | Logo, icona, carattere Montserrat |
+| `desktop/reef.spec`, `desktop/build.ps1` | Come si crea l'eseguibile |
+| `docs/` | Le immagini di questo README |
+
+- **Provarla dal codice**: `python desktop\main.py` (serve `pip install -r desktop\requirements.txt`).
+  I dati finiscono in `dati/` nella radice della repo, che è esclusa da git.
+- **Ricreare l'eseguibile**: da PowerShell, nella radice della repo, `.\desktop\build.ps1`.
+  La prima volta crea l'ambiente Python in `..\.venv`. Poi fai il commit del nuovo `Reef Staff.exe`.
 - Una categoria con `"scelta": true` (es. *Panini Rock*) mostra un bottone per voce che apre la scelta delle varianti;
   con `"tendina": true` ogni voce si apre a fisarmonica. I `gruppi` decidono l'ordine del menu a tendina dentro un tavolo.
-- Le modifiche al codice arrivano ai dispositivi quando cambia `CACHE` in `staff/sw.js`.
-- Provarla in locale: `python -m http.server 8000` nella cartella del progetto e apri http://localhost:8000/staff/
-- Pubblicazione: **GitHub Pages** (Settings → Pages → Branch `main`, cartella `/ (root)`).
+- Se l'app dà problemi su un computer, guarda `dati/errori.log`.
