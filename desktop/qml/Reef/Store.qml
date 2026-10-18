@@ -301,10 +301,19 @@ QtObject {
             }
         }, function (v) { aggiungiRiga(t, null, v.nome.trim(), Math.round(numero(v.prezzo) * 100)) });
     }
-    function inc(t, r) { r.qty++; salva() }
+    // le righe arrivano dall'elenco dell'ordine come copie: si cerca quella vera nel tavolo tramite l'id
+    function rigaVera(t, r) { return t && r ? t.righe.find(function (x) { return x.id === r.id }) : null }
+    function inc(t, r) {
+        const x = rigaVera(t, r);
+        if (!x) return;
+        x.qty++;
+        salva();
+    }
     function dec(t, r) {
-        r.qty--;
-        if (r.qty <= 0) t.righe = t.righe.filter(function (x) { return x !== r });
+        const x = rigaVera(t, r);
+        if (!x) return;
+        x.qty--;
+        if (x.qty <= 0) t.righe = t.righe.filter(function (y) { return y !== x });
         salva();
     }
     function rinomina(t) {

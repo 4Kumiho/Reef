@@ -12,28 +12,30 @@ Item {
 
     property real altezza: 0
     property bool inAttesa: false
-    property var collegati: []
 
-    function richiedi() {
-        // può arrivare da un figlio mentre la griglia viene distrutta (cambio pagina)
-        if (!g || typeof g.disponi !== "function" || g.inAttesa) return;
-        g.inAttesa = true;
-        Qt.callLater(g.disponi);
-    }
-    function disponi() {
-        if (!g || typeof g.richiedi !== "function") return;
-        inAttesa = false;
-        const figli = [];
-        collegati = collegati.filter(function (c) { return Array.prototype.indexOf.call(children, c) >= 0 });
+    // Cambia quando un figlio cambia altezza o visibilità: è un binding, quindi Qt lo scollega da solo
+    // quando i figli vengono distrutti (cambio pagina).
+    readonly property var firma: {
+        const a = [];
         for (let k = 0; k < children.length; k++) {
             const c = children[k];
             if (typeof c.itemAt === "function") continue; // il Repeater stesso
-            if (collegati.indexOf(c) < 0) {
-                collegati.push(c);
-                c.implicitHeightChanged.connect(g.richiedi);
-                c.visibleChanged.connect(g.richiedi);
-            }
-            if (c.visible) figli.push(c);
+            a.push(c.visible ? c.implicitHeight : -1);
+        }
+        return a.join(",");
+    }
+
+    function richiedi() {
+        if (inAttesa) return;
+        inAttesa = true;
+        Qt.callLater(disponi);
+    }
+    function disponi() {
+        inAttesa = false;
+        const figli = [];
+        for (let k = 0; k < children.length; k++) {
+            const c = children[k];
+            if (typeof c.itemAt !== "function" && c.visible) figli.push(c);
         }
         let y = 0;
         for (let i = 0; i < figli.length; i += columns) {
@@ -50,8 +52,8 @@ Item {
         }
         altezza = figli.length ? y - spazio : 0;
     }
+    onFirmaChanged: richiedi()
     onWidthChanged: richiedi()
     onColumnsChanged: richiedi()
-    onChildrenChanged: richiedi()
     Component.onCompleted: richiedi()
 }

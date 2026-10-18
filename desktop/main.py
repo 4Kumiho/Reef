@@ -194,6 +194,8 @@ def main() -> int:
         avviso(NOME_APP, "Impossibile avviare l'interfaccia.")
         return 1
     codice = app.exec()
+    # prima si chiude l'interfaccia, poi il backend che usa (altrimenti QML lo trova già distrutto)
+    del engine
     blocco.unlock()
     return codice
 
