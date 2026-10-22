@@ -29,12 +29,12 @@ Rectangle {
         anchors { right: parent.right; rightMargin: 24; verticalCenter: parent.verticalCenter }
         spacing: 4
         Repeater {
-            model: [{ t: "Tavoli", v: "tavoli" }, { t: "Modifica menu", v: "menu" }, { t: "Visualizza menu", v: "pdf" }]
+            model: [{ t: "Tavoli", v: "tavoli" }, { t: "Modifica menu", v: "menu" }, { t: "Visualizza menu", v: "pdf" }, { t: "Cronologia", v: "cronologia" }]
             Rectangle {
                 id: tab
                 readonly property bool on: modelData.v === "menu" ? Store.view === "menu"
                                          : modelData.v === "tavoli" ? (Store.view === "tavoli" || Store.view === "tavolo")
-                                         : Store.view === "pdf"
+                                         : Store.view === modelData.v
                 width: lbl.implicitWidth + 36; height: 42
                 radius: 8
                 color: ma.containsMouse ? Qt.rgba(1, 1, 1, 0.04) : "transparent"

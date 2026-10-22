@@ -26,7 +26,7 @@ QtObject {
     property double ora: Date.now() // aggiornato ogni 30 secondi (tempi «aperto da…»)
 
     /* ---------- Navigazione ---------- */
-    property string view: "home"   // home | tavoli | tavolo | menu | pdf
+    property string view: "home"   // home | tavoli | tavolo | menu | pdf | cronologia
     property string tavoloId: ""
     signal navigato()
 
@@ -248,7 +248,29 @@ QtObject {
         else t.righe.push({ id: uid(), drinkId: drinkId, nome: nome, prezzoCent: prezzoCent, qty: 1 });
         salva();
     }
+    /* ---------- Incassi e cronologia ----------
+       Ogni incasso (Paga separato → Incassa, oppure Chiudi tavolo = pagato tutto) resta nel tavolo
+       in t.incassi; quando il tavolo si chiude passa nella cronologia (dati/cronologia/). */
+    function registraIncasso(t, righe) {
+        const pagate = righe.filter(function (r) { return r.qty > 0 }).map(function (r) {
+            const d = r.drinkId ? drinkById(r.drinkId) : null;
+            return { drinkId: r.drinkId || null, nome: r.nome, categoria: d ? d.categoria : "", prezzoCent: r.prezzoCent, qty: r.qty };
+        });
+        if (!pagate.length) return;
+        if (!t.incassi) t.incassi = [];
+        t.incassi.push({
+            ts: Date.now(),
+            cent: pagate.reduce(function (n, r) { return n + r.qty * r.prezzoCent }, 0),
+            righe: pagate
+        });
+    }
     function eliminaTavolo(t) {
+        // nella cronologia finiscono i tavoli che hanno pagato qualcosa
+        if (t.incassi && t.incassi.length) {
+            const voce = { id: t.id, nome: t.nome, aperto: t.creato, chiuso: Date.now(), incassi: t.incassi };
+            if (backend.archivia(JSON.stringify(voce))) Cronologia.aggiungi(voce);
+            else Ui.messaggio("Attenzione", "Il tavolo è chiuso, ma non sono riuscito a salvarlo nella cronologia.");
+        }
         tavoli = tavoli.filter(function (x) { return x.id !== t.id });
         salva();
         Ui.toast("Tavolo «" + t.nome + "» chiuso");
@@ -339,7 +361,10 @@ QtObject {
                        : "Il tavolo verrà eliminato.",
             ok: tot ? "Pagato " + euro(tot) + " · Chiudi" : "Chiudi tavolo",
             pericolo: true
-        }, function () { eliminaTavolo(t) });
+        }, function () {
+            registraIncasso(t, t.righe);
+            eliminaTavolo(t);
+        });
     }
 
     /* Paga separato */
@@ -356,6 +381,9 @@ QtObject {
         const sel = paySel(t);
         if (!sel) return;
         const incassato = payTotale(t);
+        registraIncasso(t, t.righe.map(function (x) {
+            return { drinkId: x.drinkId, nome: x.nome, prezzoCent: x.prezzoCent, qty: sel[x.id] || 0 };
+        }));
         t.righe.forEach(function (x) { x.qty -= sel[x.id] || 0 });
         t.righe = t.righe.filter(function (x) { return x.qty > 0 });
         pagamento = null;

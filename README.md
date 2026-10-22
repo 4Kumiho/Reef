@@ -44,10 +44,11 @@ Tutto viene salvato **subito** in una cartella **`dati`**, accanto a `Reef Staff
 |---|---|
 | `dati/tavoli.json` | I tavoli aperti con i loro ordini |
 | `dati/menu.json` | Il menu con le modifiche fatte dall'app (compare dopo la prima modifica) |
+| `dati/cronologia/` | La **cronologia**: i tavoli chiusi con i loro pagamenti, un file per mese (es. `2026-10.json`) |
 | `dati/*.bak` | La copia precedente di ogni file, nel caso qualcosa vada storto |
 
 - Se chiudi l'app o spegni il computer **non perdi niente**.
-- **Non cancellare la cartella `dati`**. Per spostare l'app su un altro computer, copia **tutta** la cartella (exe + `dati`).
+- **Non cancellare la cartella `dati`**: dentro c'è anche tutta la cronologia degli incassi. Per spostare l'app su un altro computer, copia **tutta** la cartella (exe + `dati`).
 - Se la cartella non si può scrivere (per esempio dentro *Programmi*), i dati vanno in `%LOCALAPPDATA%\Reef Staff\dati`.
 
 ---
@@ -58,9 +59,10 @@ Tutto viene salvato **subito** in una cartella **`dati`**, accanto a `Reef Staff
 Le foto del locale scorrono dietro il logo. Sotto ci sono tre riquadri:
 - **Tavoli**: quanti sono aperti e quanto c'è da incassare;
 - **Modifica menu**: prezzi, prodotti nuovi, prodotti tolti;
-- **Visualizza menu**: il menu del locale (il cartaceo in PDF) da sfogliare dentro l'app.
+- **Visualizza menu**: il menu del locale (il cartaceo in PDF) da sfogliare dentro l'app;
+- **Cronologia**: tavoli chiusi, incassi per serata, prodotti più e meno venduti.
 
-Le stesse tre voci sono anche in alto a destra in ogni pagina.
+Le stesse quattro voci sono anche in alto a destra in ogni pagina.
 
 ### 2. Arriva un tavolo → **+ Nuovo tavolo** (oppure il tasto **N**)
 L'app propone già il primo nome libero (*Tavolo 1*, *Tavolo 2*…): premi **Invio** oppure scrivi il nome che vuoi (*Bancone*, *Esterno 2*…).
@@ -101,7 +103,33 @@ Con **−** e **+** in alto a destra (o i tasti **−** e **+**) cambi lo zoom; 
 
 <p align="center"><img src="docs/screenshots/pc-visualizza-menu.jpg" width="720" alt="Visualizza menu"></p>
 
-### 8. Cambiare il menu (titolare / responsabile)
+### 8. Cronologia (titolare)
+Tutto quello che viene incassato resta salvato: ogni **Incassa** di *Paga separato* e ogni **Chiudi tavolo**
+(che vuol dire «pagato tutto»), con data, ora e prodotti. I prodotti tolti con **−** prima del pagamento non contano.
+
+Una **serata** va dalle **8:00 alle 7:59 del giorno dopo**: un tavolo pagato all'1:30 di notte conta nella serata
+del giorno prima, come al bar si ragiona davvero.
+
+In alto scegli il **periodo**: *Serata*, *Settimana*, *Mese*, *Anno* o *Tutto*; con **‹ ›** (o le frecce ← → della tastiera)
+vai al periodo prima o dopo, con **Oggi** torni a quello attuale. Il periodo vale per tutte e tre le pagine:
+
+- **Serate**: incasso del periodo, media per tavolo e per serata, serata migliore, e il grafico dell'incasso
+  (per ora dentro una serata, per serata in una settimana o un mese, per mese in un anno). Passa col mouse su una colonna
+  per vedere l'importo, clicca per aprire quella serata. Sotto, la classifica delle serate migliori.
+- **Prodotti più venduti**: la classifica per pezzi o per incasso, filtrabile per gruppo del menu (Cocktail, Birre…),
+  i **meno venduti** e le voci del menu **mai vendute** nel periodo.
+- **Tavoli chiusi**: tutti i tavoli divisi per serata, con orari, durata e totale; si cerca per nome del tavolo
+  o per prodotto. Cliccando un tavolo vedi cosa ha preso e quando ha pagato; da lì lo puoi anche **eliminare dalla cronologia**
+  (per esempio un tavolo segnato per sbaglio).
+
+Gli incassi dei tavoli ancora aperti contano già nelle serate e nei prodotti; nei *Tavoli chiusi* compaiono quando li chiudi.
+
+<p align="center"><img src="docs/screenshots/pc-cronologia-serate.jpg" width="720" alt="Cronologia: serate"></p>
+<p align="center"><img src="docs/screenshots/pc-cronologia-prodotti.jpg" width="720" alt="Cronologia: prodotti più venduti"></p>
+<p align="center"><img src="docs/screenshots/pc-cronologia-tavoli.jpg" width="720" alt="Cronologia: tavoli chiusi"></p>
+<p align="center"><img src="docs/screenshots/pc-cronologia-dettaglio.jpg" width="720" alt="Dettaglio di un tavolo chiuso"></p>
+
+### 9. Cambiare il menu (titolare / responsabile)
 Da **Modifica menu** cambi tutto senza toccare il codice. Le modifiche si salvano **su questo computer** appena premi **Salva**.
 
 - **Cambiare un prezzo**: clicca la voce → scrivi il nuovo prezzo → **Salva**.
@@ -131,6 +159,7 @@ I **tavoli già aperti** mantengono i prezzi con cui sono stati segnati; i nuovi
 | **/** | Torna alla ricerca (in un tavolo o nel Menu) |
 | **1** … **9** | Scegli la variante (formato del panino, gusto dello spritz…) |
 | **+** / **−** | Zoom in *Visualizza menu* |
+| **←** / **→** | Periodo precedente / successivo in *Cronologia* |
 | **Esc** | Chiude la finestra / svuota la ricerca |
 
 ---
@@ -166,7 +195,7 @@ L'app è scritta in **Python + Qt** (PySide6, interfaccia in QML) ed è impacche
 | `Reef Staff.exe` | L'app pronta da usare (va ricreata dopo ogni modifica al codice) |
 | `desktop/main.py` | Avvio della finestra, lettura e scrittura dei file in `dati/` |
 | `desktop/qml/Main.qml` | Finestra principale: pagine, finestre di dialogo, avvisi, tasti |
-| `desktop/qml/Reef/` | Interfaccia: `Store.qml` (dati e logica), `Theme.qml` (colori), una vista per pagina, i componenti |
+| `desktop/qml/Reef/` | Interfaccia: `Store.qml` (dati e logica), `Cronologia.qml` (serate e statistiche), `Theme.qml` (colori), una vista per pagina, i componenti |
 | `desktop/assets/menu.json` | **Il menu di partenza** (gruppi, categorie, voci, prezzi, varianti) |
 | `desktop/menu-cartaceo.pdf` | Il menu cartaceo in PDF (versione compressa) |
 | `desktop/assets/menu-cartaceo/` | Le pagine del PDF come immagini, mostrate da *Visualizza menu* |

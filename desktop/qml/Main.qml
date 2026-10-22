@@ -16,6 +16,7 @@ Window {
     Component.onCompleted: {
         Ui.host = win;
         Store.avvia();
+        Cronologia.carica();
     }
 
     // Aggiorna i tempi "aperto da…" ogni 30 secondi
@@ -81,7 +82,8 @@ Window {
                 sourceComponent: Store.view === "tavoli" ? cTavoli
                                : Store.view === "tavolo" ? cTavolo
                                : Store.view === "menu" ? cMenu
-                               : Store.view === "pdf" ? cPdf : null
+                               : Store.view === "pdf" ? cPdf
+                               : Store.view === "cronologia" ? cCrono : null
             }
         }
     }
@@ -89,6 +91,7 @@ Window {
     Component { id: cTavolo; TavoloView { scrollY: pagina.contentY; viewTop: contenuto.y; altezzaFinestra: win.height } }
     Component { id: cMenu; MenuView {} }
     Component { id: cPdf; PdfView {} }
+    Component { id: cCrono; CronologiaView {} }
 
     Connections {
         target: Store
@@ -138,6 +141,17 @@ Window {
         enabled: !overlay.aperta && (Store.view === "tavoli" || Store.view === "home")
         onActivated: Store.nuovoTavolo()
     }
+    // Cronologia: frecce ← → per il periodo precedente / successivo
+    Shortcut {
+        sequence: "Left"
+        enabled: !overlay.aperta && Store.view === "cronologia" && Cronologia.puoIndietro()
+        onActivated: Cronologia.sposta(-1)
+    }
+    Shortcut {
+        sequence: "Right"
+        enabled: !overlay.aperta && Store.view === "cronologia" && Cronologia.puoAvanti()
+        onActivated: Cronologia.sposta(1)
+    }
     // zoom di «Visualizza menu» con + e −
     Shortcut {
         sequences: ["+", "=", "Ctrl++"]
@@ -151,7 +165,7 @@ Window {
     }
     Shortcut {
         sequence: "/"
-        enabled: !overlay.aperta && (Store.view === "tavolo" || Store.view === "menu") && !!pageLoader.item
+        enabled: !overlay.aperta && (Store.view === "tavolo" || Store.view === "menu" || Store.view === "cronologia") && !!pageLoader.item
         onActivated: pageLoader.item.focusRicerca()
     }
 

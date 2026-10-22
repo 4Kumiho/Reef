@@ -139,17 +139,18 @@ Item {
     Row {
         id: schede
         anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom; bottomMargin: 48 }
-        readonly property real larghezza: Math.min(1180, home.width) - 40
+        readonly property real larghezza: Math.min(1320, home.width) - 40
         spacing: 16
         Repeater {
             model: [
                 { k: "Sala", h: "Tavoli", vai: "tavoli" },
                 { k: "Gestione", h: "Modifica menu", vai: "menu" },
-                { k: "Menu cartaceo", h: "Visualizza menu", vai: "pdf" }
+                { k: "Menu cartaceo", h: "Visualizza menu", vai: "pdf" },
+                { k: "Titolare", h: "Cronologia", vai: "cronologia" }
             ]
             Rectangle {
                 id: card
-                width: (schede.larghezza - 32) / 3
+                width: (schede.larghezza - 48) / 4
                 height: 200 // uguale per tutti: i titoli su due righe hanno spazio sopra il testo in basso
                 radius: 14
                 color: Qt.rgba(34 / 255, 33 / 255, 52 / 255, 0.82)
@@ -170,7 +171,7 @@ Item {
                         text: modelData.h
                         wrapMode: Text.WordWrap
                         lineHeight: 0.95
-                        font.pixelSize: 34; font.weight: Font.ExtraBold
+                        font.pixelSize: 28; font.weight: Font.ExtraBold
                         font.capitalization: Font.AllUppercase
                         font.letterSpacing: -0.38
                         topPadding: 2
@@ -190,7 +191,12 @@ Item {
                             return n ? b(n) + " " + Store.plurale(n, "aperto", "aperti") + " · " + b(Store.euro(Store.totaleAperti())) + " da incassare"
                                      : "Nessun tavolo aperto";
                         }
-                        if (modelData.vai === "pdf") return "Il menu del locale in PDF · " + b("14") + " pagine";
+                        if (modelData.vai === "pdf") return "Il menu del locale · " + b("14") + " pagine";
+                        if (modelData.vai === "cronologia") {
+                            Cronologia.rev;
+                            const s = Cronologia.stasera();
+                            return s.cent ? "Stasera " + b(Store.euro(s.cent)) + " incassati" : "Serate, incassi, prodotti più venduti";
+                        }
                         const agg = Store.dataMenu();
                         return b(Store.menu.drinks.length) + " voci · prezzi e prodotti" + (agg ? " · aggiornato il " + Store.esc(agg) : "");
                     }

@@ -88,6 +88,22 @@ def registro_errori(dati: Path) -> None:
     qInstallMessageHandler(scrivi)
 
 
+def salva_sicuro(p: Path, testo: str) -> bool:
+    """Salva in modo sicuro: prima un file temporaneo, poi lo scambio (tiene anche una copia .bak)."""
+    tmp = p.with_suffix(".json.tmp")
+    try:
+        with open(tmp, "w", encoding="utf-8", newline="\n") as f:
+            f.write(testo)
+            f.flush()
+            os.fsync(f.fileno())
+        if p.exists():
+            os.replace(p, p.with_suffix(".json.bak"))
+        os.replace(tmp, p)
+        return True
+    except OSError:
+        return False
+
+
 class Backend(QObject):
     """Lettura e scrittura dei file, chiamate dall'interfaccia QML."""
 
@@ -115,20 +131,57 @@ class Backend(QObject):
 
     @Slot(str, str, result=bool)
     def scrivi(self, nome: str, testo: str) -> bool:
-        """Salva in modo sicuro: prima un file temporaneo, poi lo scambio (tiene anche una copia .bak)."""
-        p = self._file(nome)
-        tmp = p.with_suffix(".json.tmp")
+        return salva_sicuro(self._file(nome), testo)
+
+    # ---------- Cronologia: i tavoli chiusi, un file per mese (dati/cronologia/AAAA-MM.json) ----------
+    def _cartella_cronologia(self) -> Path:
+        p = self.dati / "cronologia"
+        p.mkdir(exist_ok=True)
+        return p
+
+    def _mesi(self) -> list:
+        return sorted(self._cartella_cronologia().glob("[0-9][0-9][0-9][0-9]-[0-9][0-9].json"))
+
+    @staticmethod
+    def _leggi_lista(p: Path) -> list:
+        for f in (p, p.with_suffix(".json.bak")):
+            try:
+                lista = json.loads(f.read_text(encoding="utf-8"))
+                if isinstance(lista, list):
+                    return lista
+            except (OSError, ValueError):
+                continue
+        return []
+
+    @Slot(str, result=bool)
+    def archivia(self, testo: str) -> bool:
+        """Aggiunge un tavolo chiuso alla cronologia del mese in cui è stato chiuso."""
         try:
-            with open(tmp, "w", encoding="utf-8", newline="\n") as f:
-                f.write(testo)
-                f.flush()
-                os.fsync(f.fileno())
-            if p.exists():
-                os.replace(p, p.with_suffix(".json.bak"))
-            os.replace(tmp, p)
-            return True
-        except OSError:
+            voce = json.loads(testo)
+            mese = datetime.fromtimestamp(voce["chiuso"] / 1000).strftime("%Y-%m")
+        except (ValueError, KeyError, TypeError, OSError):
             return False
+        p = self._cartella_cronologia() / f"{mese}.json"
+        lista = self._leggi_lista(p)
+        lista.append(voce)
+        return salva_sicuro(p, json.dumps(lista, ensure_ascii=False, separators=(",", ":")))
+
+    @Slot(result=str)
+    def leggiCronologia(self) -> str:
+        """Tutti i tavoli chiusi, dal mese più vecchio al più recente."""
+        tutti = []
+        for p in self._mesi():
+            tutti.extend(self._leggi_lista(p))
+        return json.dumps(tutti, ensure_ascii=False)
+
+    @Slot(str, result=bool)
+    def eliminaDaCronologia(self, id_tavolo: str) -> bool:
+        for p in self._mesi():
+            lista = self._leggi_lista(p)
+            nuova = [v for v in lista if v.get("id") != id_tavolo]
+            if len(nuova) != len(lista):
+                return salva_sicuro(p, json.dumps(nuova, ensure_ascii=False, separators=(",", ":")))
+        return False
 
     @Slot(result=str)
     def menuPredefinito(self) -> str:

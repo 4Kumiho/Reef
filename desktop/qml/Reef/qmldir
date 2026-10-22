@@ -2,6 +2,7 @@ module Reef
 singleton Theme 1.0 Theme.qml
 singleton Store 1.0 Store.qml
 singleton Ui 1.0 Ui.qml
+singleton Cronologia 1.0 Cronologia.qml
 Acc 1.0 Acc.qml
 AutoGrid 1.0 AutoGrid.qml
 Btn 1.0 Btn.qml
@@ -28,3 +29,10 @@ TitoloPagina 1.0 TitoloPagina.qml
 TopBar 1.0 TopBar.qml
 Tratteggio 1.0 Tratteggio.qml
 Vuoto 1.0 Vuoto.qml
+CronologiaView 1.0 CronologiaView.qml
+CronoSerate 1.0 CronoSerate.qml
+CronoProdotti 1.0 CronoProdotti.qml
+CronoTavoli 1.0 CronoTavoli.qml
+GraficoBarre 1.0 GraficoBarre.qml
+Riquadro 1.0 Riquadro.qml
+RigaProdotto 1.0 RigaProdotto.qml
