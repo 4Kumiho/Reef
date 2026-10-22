@@ -124,6 +124,13 @@ vai al periodo prima o dopo, con **Oggi** torni a quello attuale. Il periodo val
 
 Gli incassi dei tavoli ancora aperti contano già nelle serate e nei prodotti; nei *Tavoli chiusi* compaiono quando li chiudi.
 
+**Pagamenti separati ed errori**
+- Se un tavolo paga separato, ogni **Incassa** è un pagamento a sé: nel dettaglio del tavolo li trovi tutti, con ora e prodotti.
+- Nella cronologia finisce solo quello che viene **incassato**. Un prodotto segnato per sbaglio e tolto con **−** prima di pagare
+  non conta da nessuna parte, anche a metà dei pagamenti separati.
+- Durante *Paga separato* i tasti **−** e **+** scelgono cosa paga quella persona: per correggere l'ordine premi prima **Annulla**.
+- Un prodotto già incassato non si può togliere da solo: si può solo eliminare l'intero tavolo dalla cronologia.
+
 <p align="center"><img src="docs/screenshots/pc-cronologia-serate.jpg" width="720" alt="Cronologia: serate"></p>
 <p align="center"><img src="docs/screenshots/pc-cronologia-prodotti.jpg" width="720" alt="Cronologia: prodotti più venduti"></p>
 <p align="center"><img src="docs/screenshots/pc-cronologia-tavoli.jpg" width="720" alt="Cronologia: tavoli chiusi"></p>
